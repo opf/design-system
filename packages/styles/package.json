@@ -1,0 +1,11 @@
+{
+  "name": "@openproject/styles",
+  "version": "0.0.1",
+  "description": "OpenProject Design System Styles",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL-2.0-only"
+}
