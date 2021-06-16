@@ -5,6 +5,8 @@
     "paths": {
       "@openproject/angular": [
         "dist/openproject/angular/openproject-angular",
+        "dist/openproject/angular",
+        "dist/openproject/angular/openproject-angular",
         "dist/openproject/angular"
       ]
     },
