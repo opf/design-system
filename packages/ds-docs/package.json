@@ -1,0 +1,16 @@
+{
+  "name": "@openproject/ds-docs",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "dev": "npm start",
+    "build": "ng build @openproject/ds-docs",
+    "watch": "ng build @openproject/ds-docs --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@openproject/styles": "0.0.1"
+  }
+}

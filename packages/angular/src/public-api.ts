@@ -3,5 +3,5 @@
  */
 
 export * from './lib/angular.service';
-export * from './lib/angular.component';
-export * from './lib/angular.module';
+export * from './lib/option-list.component';
+export * from './lib/option-list.module';

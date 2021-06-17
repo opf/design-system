@@ -4,10 +4,7 @@
   "compilerOptions": {
     "paths": {
       "@openproject/angular": [
-        "dist/openproject/angular/openproject-angular",
-        "dist/openproject/angular",
-        "dist/openproject/angular/openproject-angular",
-        "dist/openproject/angular"
+        "packages/angular/dist"
       ]
     },
     "baseUrl": "./",
@@ -33,6 +30,8 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
+    "preserveSymLinks": true,
+    "useIvyCompiler": true,
     "strictTemplates": true
   }
 }

@@ -1,6 +1,14 @@
 {
   "name": "@openproject/angular",
   "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "dev": "npm run watch",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
   "peerDependencies": {
     "@angular/common": "^12.0.4",
     "@angular/core": "^12.0.4"
