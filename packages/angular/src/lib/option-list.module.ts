@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { OpOptionListComponent } from './option-list.component';
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { OpOptionListComponent } from './option-list.component';
   ],
   imports: [
     FormsModule,
+    CommonModule,
   ],
   exports: [
     OpOptionListComponent,

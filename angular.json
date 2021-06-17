@@ -51,6 +51,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "packages/ds-docs/dist",
             "index": "packages/ds-docs/src/index.html",
             "main": "packages/ds-docs/src/main.ts",
