@@ -5,9 +5,6 @@
     "paths": {
       "@openproject/angular": [
         "packages/angular/dist"
-      ],
-      "@angular/*": [
-        "./node_modules/@angular/*"
       ]
     },
     "baseUrl": "./",

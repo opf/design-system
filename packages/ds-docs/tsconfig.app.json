@@ -2,6 +2,14 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "paths": [
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      "@angular-devkit/*": [
+        "./node_modules/@angular-devkit/*"
+      ]
+    ],
     "outDir": "../../out-tsc/app",
     "types": []
   },
