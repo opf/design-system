@@ -9,6 +9,7 @@
     [value]="option.value"
     [(ngModel)]="selected"
     [disabled]="option.disabled || false"
+    ngDefaultControl
   />
   <div>
     <p class="op-option-list--item-title">{{ option.title }}</p>

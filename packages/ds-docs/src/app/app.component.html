@@ -1,4 +1,7 @@
 <h1>Design System Documentation</h1>
 <router-outlet></router-outlet>
-<div></div>
-<op-option-list></op-option-list>
+<op-option-list
+  [options]="options"
+  [(ngModel)]="selectedOption"
+></op-option-list>
+<p>{{ selectedOption }}</p>
