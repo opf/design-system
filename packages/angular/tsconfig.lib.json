@@ -14,7 +14,8 @@
     ]
   },
   "angularCompilerOptions": {
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "compilationMode": "partial"
   },
   "exclude": [
     "src/test.ts",

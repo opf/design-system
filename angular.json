@@ -103,10 +103,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ds-docs:build:production"
+              "browserTarget": "@openproject/ds-docs:build:production"
             },
             "development": {
-              "browserTarget": "ds-docs:build:development"
+              "browserTarget": "@openproject/ds-docs:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +114,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ds-docs:build"
+            "browserTarget": "@openproject/ds-docs:build"
           }
         },
         "test": {
@@ -138,5 +138,5 @@
       }
     }
   },
-  "defaultProject": "@openproject/angular"
+  "defaultProject": "@openproject/ds-docs"
 }

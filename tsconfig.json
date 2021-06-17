@@ -31,7 +31,7 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "preserveSymLinks": true,
-    "useIvyCompiler": true,
+    "enableIvy": true,
     "strictTemplates": true
   }
 }
