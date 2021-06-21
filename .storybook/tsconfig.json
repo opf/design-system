@@ -1,18 +1,16 @@
 {
-  "extends": "../packages/ds-docs/tsconfig.app.json",
+  "extends": "../packages/angular/tsconfig.lib.json",
   "compilerOptions": {
-    "types": [
-      "node"
-    ]
+    "types": [ "node" ]
   },
   "exclude": [
     "../src/test.ts",
     "../src/**/*.spec.ts",
-    "../projects/**/*.spec.ts"
+    "../packages/**/*.spec.ts"
   ],
   "include": [
     "../src/**/*",
-    "../projects/**/*"
+    "../packages/**/*"
   ],
   "files": [
     "./typings.d.ts"
