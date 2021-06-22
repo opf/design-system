@@ -15,6 +15,7 @@
   },
   "angularCompilerOptions": {
     "preserveSymlinks": true,
+    "skipMetadataEmit": false,
     "compilationMode": "partial"
   },
   "exclude": [

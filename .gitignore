@@ -1,4 +1,7 @@
 tags
+tags.lock
+tags.temp
+out-tsc
 node_modules
 dist
 lerna-debug.log

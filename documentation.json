@@ -1,0 +1,759 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "IOpOptionListOption",
+            "id": "interface-IOpOptionListOption-89eb820ea3ad6370396a712b038431ef",
+            "file": "packages/angular/src/lib/option-list.component.ts",
+            "type": "interface",
+            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  @Input() options:IOpOptionListOption<T>[] = [];\n  @Input() name = `op-option-list-${+(new Date())}`;\n  @Output() selectedChange = new EventEmitter<T>();\n\n  private _selected:IOpOptionListValue<T> = null;\n  get selected() {\n    return this._selected;\n  }\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  onChange = (_:IOpOptionListValue<T>) => {};\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "description",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "value",
+                    "type": "T",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "AngularService",
+            "id": "injectable-AngularService-07766c804317784f6e72bbda6608a42e",
+            "file": "packages/angular/src/lib/angular.service.ts",
+            "properties": [],
+            "methods": [],
+            "description": "",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AngularService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 6
+            },
+            "type": "injectable"
+        }
+    ],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-05fb0dd9d31ba0c232c7a69751828453",
+            "file": "packages/ds-docs/src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.sass"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "options",
+                    "defaultValue": "[\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ]",
+                    "type": "IOpOptionListOption<string>[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "selectedOption",
+                    "defaultValue": "'No option selected'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'ds-docs'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { IOpOptionListOption } from '@openproject/angular';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.sass']\n})\nexport class AppComponent {\n  title = 'ds-docs';\n\n  selectedOption = 'No option selected';\n\n  options: IOpOptionListOption<string>[] = [\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.sass"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<h1>Design System Documentation</h1>\n<router-outlet></router-outlet>\n<op-option-list\n  [options]=\"options\"\n  [(ngModel)]=\"selectedOption\"\n></op-option-list>\n<p>{{ selectedOption }}</p>\n"
+        },
+        {
+            "name": "OpOptionListComponent",
+            "id": "component-OpOptionListComponent-89eb820ea3ad6370396a712b038431ef",
+            "file": "packages/angular/src/lib/option-list.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => OpOptionListComponent), multi: true,\n}",
+                    "type": "component"
+                }
+            ],
+            "selector": "op-option-list",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./option-list.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "name",
+                    "defaultValue": "`op-option-list-${+(new Date())}`",
+                    "line": 37
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "[]",
+                    "line": 36,
+                    "type": "IOpOptionListOption<T>[]"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "selectedChange",
+                    "defaultValue": "new EventEmitter<T>()",
+                    "line": 38,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "_selected",
+                    "defaultValue": "null",
+                    "type": "IOpOptionListValue<T>",
+                    "optional": false,
+                    "description": "",
+                    "line": 40,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 57
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 58
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "getClassListForItem",
+                    "args": [
+                        {
+                            "name": "option",
+                            "type": "IOpOptionListOption<T>"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "{ 'op-option-list--item': boolean; 'op-option-list--item_selected': boolean; 'op-option-list--ite...",
+                    "typeParameters": [],
+                    "line": 49,
+                    "jsdoctags": [
+                        {
+                            "name": "option",
+                            "type": "IOpOptionListOption<T>",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 64,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 68,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "IOpOptionListValue<T>"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 60,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "IOpOptionListValue<T>",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [
+                {
+                    "name": "class.op-option-list",
+                    "defaultValue": "true",
+                    "line": 34
+                }
+            ],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  @Input() options:IOpOptionListOption<T>[] = [];\n  @Input() name = `op-option-list-${+(new Date())}`;\n  @Output() selectedChange = new EventEmitter<T>();\n\n  private _selected:IOpOptionListValue<T> = null;\n  get selected() {\n    return this._selected;\n  }\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  onChange = (_:IOpOptionListValue<T>) => {};\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "accessors": {
+                "selected": {
+                    "name": "selected",
+                    "setSignature": {
+                        "name": "selected",
+                        "type": "void",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 44,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "selected",
+                        "type": "",
+                        "returnType": "",
+                        "line": 41
+                    }
+                }
+            },
+            "templateData": "<label\n  *ngFor=\"let option of options\"\n  [ngClass]=\"getClassListForItem(option)\"\n>\n  <input\n    class=\"op-option-list--input\"\n    type=\"radio\"\n    [attr.name]=\"name\"\n    [value]=\"option.value\"\n    [(ngModel)]=\"selected\"\n    [disabled]=\"option.disabled || false\"\n    ngDefaultControl\n  />\n  <div>\n    <p class=\"op-option-list--item-title\">{{ option.title }}</p>\n    <p\n      *ngIf=\"option.description\"\n      class=\"op-option-list--item-description\"\n      [innerHTML]=\"option.description\"\n    ></p>\n  </div>\n</label>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "OpOptionListModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "OpOptionListModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "OpOptionListComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "OpOptionListComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/option-list.stories.ts",
+                "type": "",
+                "defaultValue": "() => {\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Basic',\n    template: template.default,\n    props: {\n      options,\n    },\n  };\n}"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "packages/angular/src/test.ts",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "packages/ds-docs/src/test.ts",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "packages/ds-docs/src/environments/environment.prod.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "packages/ds-docs/src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "packages/angular/src/test.ts",
+                "type": "literal type"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "packages/ds-docs/src/test.ts",
+                "type": "literal type"
+            },
+            {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/option-list.stories.ts",
+                "type": "",
+                "defaultValue": "require('!!raw-loader!./option-list.stories.html')"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "IOpOptionListValue",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "T | null",
+                "file": "packages/angular/src/lib/option-list.component.ts",
+                "description": "",
+                "kind": 168
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "stories/option-list.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/option-list.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => {\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Basic',\n    template: template.default,\n    props: {\n      options,\n    },\n  };\n}"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/option-list.stories.ts",
+                    "type": "",
+                    "defaultValue": "require('!!raw-loader!./option-list.stories.html')"
+                }
+            ],
+            "packages/angular/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "packages/angular/src/test.ts",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "packages/angular/src/test.ts",
+                    "type": "literal type"
+                }
+            ],
+            "packages/ds-docs/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "packages/ds-docs/src/test.ts",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "packages/ds-docs/src/test.ts",
+                    "type": "literal type"
+                }
+            ],
+            "packages/ds-docs/src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "packages/ds-docs/src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "packages/ds-docs/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "packages/ds-docs/src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "packages/angular/src/lib/option-list.component.ts": [
+                {
+                    "name": "IOpOptionListValue",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "T | null",
+                    "file": "packages/angular/src/lib/option-list.component.ts",
+                    "description": "",
+                    "kind": 168
+                }
+            ]
+        }
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "packages/ds-docs/src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "packages/angular/src/lib/angular.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AngularService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/angular/src/lib/option-list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "OpOptionListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/angular/src/lib/option-list.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IOpOptionListOption",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/angular/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/angular/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/ds-docs/src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/ds-docs/src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/ds-docs/src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/ds-docs/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "packages/ds-docs/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/option-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/option-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
