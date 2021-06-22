@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "contributors": [
-    "Benjamin Bädorf <b.baedorf@openproject.com>"
+    "Benjamin Bädorf <b.baedorf@openproject.com>",
+    "Oliver Günther <o.guenther@openproject.com>"
   ],
   "gitHead": "37947b20f0303ca99326875e82901d13f0990f90"
 }

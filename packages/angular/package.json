@@ -4,7 +4,8 @@
   "description": "OpenProject design system Angular blocks",
   "license": "GPL-3.0",
   "contributors": [
-    "Benjamin Bädorf <b.baedorf@openproject.com>"
+    "Benjamin Bädorf <b.baedorf@openproject.com>",
+    "Oliver Günther <o.guenther@openproject.com>"
   ],
   "scripts": {
     "ng": "ng",
