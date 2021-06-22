@@ -22,6 +22,7 @@
     "@angular/core": "^12.0.4"
   },
   "dependencies": {
+    "@openproject/styles": "0.0.1-alpha.7",
     "tslib": "^2.1.0"
   },
   "devDependencies": {
