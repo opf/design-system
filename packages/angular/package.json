@@ -18,11 +18,11 @@
     "test": "ng test"
   },
   "peerDependencies": {
+    "@openproject/styles": "^0.0.1-alpha.8",
     "@angular/common": "^12.0.4",
     "@angular/core": "^12.0.4"
   },
   "dependencies": {
-    "@openproject/styles": "^0.0.1-alpha.8",
     "tslib": "^2.1.0"
   },
   "devDependencies": {
