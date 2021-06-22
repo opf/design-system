@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "storybook": "npm run docs:json && start-storybook -c ./.storybook -p 6006",
+    "build-storybook": "npm run docs:json && build-storybook -c ./.storybook"
   },
   "dependencies": {
     "@angular/animations": "~12.0.4",

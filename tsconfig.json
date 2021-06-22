@@ -5,9 +5,7 @@
     "paths": {
       "@openproject/angular": [ "packages/angular/dist" ],
       "@openproject/angular/*": [ "packages/angular/dist/*" ],
-      "@angular/*": [
-        "./node_modules/@angular/*"
-      ]
+      "@angular/*": [ "./node_modules/@angular/*" ]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

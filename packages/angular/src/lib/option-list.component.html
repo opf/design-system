@@ -1,6 +1,6 @@
 <label
   *ngFor="let option of options"
-  [class]="getClassListForItem(option)"
+  [ngClass]="getClassListForItem(option)"
 >
   <input
     class="op-option-list--input"

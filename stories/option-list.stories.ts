@@ -1,9 +1,10 @@
 import { moduleMetadata } from '@storybook/angular';
 import { withKnobs, object } from '@storybook/addon-knobs';
 import { FormsModule } from '@angular/forms';
+
 import { OpOptionListModule, IOpOptionListOption } from '../packages/angular/src/public-api';
 
-// const basicTemplate = require('!!raw-loader!./basic.html'); // eslint-disable-line
+const template = require('!!raw-loader!./option-list.stories.html'); // eslint-disable-line
 
 export default {
   title: 'TS/OptionList',
@@ -51,12 +52,7 @@ export const Basic = () => {
 
   return {
     title: 'Basic',
-    template: `
-<op-option-list
-  [options]="options"
-  [(ngModel)]="selected"
-></op-option-list>
-    `,
+    template: template.default,
     props: {
       options,
     },
