@@ -37,6 +37,5 @@
     "lerna": "^4.0.0",
     "ng-packagr": "^12.0.0",
     "typescript": "~4.2.3"
-  },
-  "gitHead": "a5273a164ca038718eb57390f4ffa707dce884f5"
+  }
 }
