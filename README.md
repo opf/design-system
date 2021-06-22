@@ -26,7 +26,7 @@ You can import either all styles or just specific ones into your sass builds:
 @import '@openproject/styles/src/option-list.sass`
 ```
 
-# Using the angular code
+## Using the angular code
 
 Though all components are exported directly, usually you want to import their module, since they might have internal dependencies:
 
