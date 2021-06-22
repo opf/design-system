@@ -1,27 +1,80 @@
-# Angular
+# OpenProject design system
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+This is a basic monorepo scaffolding for all OpenProject design system development. It is not used in production yet. It includes the following parts;
 
-## Development server
+1. A package featuring reusable angular components, directives and services in `packages/angular`,
+2. A package featuring scss styles and BEM components in `packages/styles`,
+3. An example angular application in `packages/example-angular`,
+4. Design system documentation via storybook, in `stories`,
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Installation
 
-## Code scaffolding
+To start using this is your projects, install one of the following packages:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* `@openproject/angular`
+* `@openproject/styles`
 
-## Build
+## Using the styles
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can import either all styles or just specific ones into your sass builds:
 
-## Running unit tests
+```
+// All styles
+@import '@openproject/styles/src/index.sass`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+// or for one specific block
+@import '@openproject/styles/src/option-list.sass`
+```
 
-## Running end-to-end tests
+# Using the angular code
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Though all components are exported directly, usually you want to import their module, since they might have internal dependencies:
 
-## Further help
+```
+import { NgModule } from '@angular/core';
+import { OpOptionListModule } from '@openproject/angular';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  imports: [
+    OpOptionListModule,
+  ],
+})
+export class ExampleModule { }
+
+// <op-option-list /> will now be available in your module
+
+```
+
+# Developing the design system
+
+First, clone this repository.
+
+## Installing dependencies
+
+To start developing, clone this repository, and run the following commands:
+
+```
+npm ci
+npx lerna bootstrap
+```
+
+This will install all needed dependencies.
+
+## Developing
+
+Usually, you'll want to develop components in either the angular example app or storybook stories directly. The easiest way is to start the storybook development server:
+
+```
+npm run storybook:build
+```
+
+## Publishing
+
+To publish, run
+
+```
+npm run lerna:publish <version>
+```
+
+where `version` is the semver option of lerna publish. See [their documentation](https://github.com/lerna/lerna/tree/main/commands/version#positionals) on how to do it.
+
