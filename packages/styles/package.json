@@ -1,11 +1,13 @@
 {
   "name": "@openproject/styles",
   "version": "0.0.1",
-  "description": "OpenProject Design System Styles",
+  "description": "OpenProject design system Styles",
+  "license": "GPL-3.0",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "GPL-2.0-only"
+  "contributors": [
+    "Benjamin Bädorf <b.baedorf@openproject.com>"
+  ]
 }

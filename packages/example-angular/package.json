@@ -1,15 +1,15 @@
 {
-  "name": "@openproject/ds-docs",
+  "name": "@openproject/example-angular",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "dev": "npm start",
-    "build": "ng build @openproject/ds-docs",
-    "watch": "ng build @openproject/ds-docs --watch --configuration development",
+    "build": "ng build @openproject/example-angular",
+    "watch": "ng build @openproject/example-angular --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@openproject/styles": "0.0.1",
     "@angular/animations": "~12.0.4",

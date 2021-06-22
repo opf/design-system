@@ -65,8 +65,8 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-05fb0dd9d31ba0c232c7a69751828453",
-            "file": "packages/ds-docs/src/app/app.component.ts",
+            "id": "component-AppComponent-675b5df577979b2aaa72bd053d93dbe3",
+            "file": "packages/example-angular/src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -102,7 +102,7 @@
                 },
                 {
                     "name": "title",
-                    "defaultValue": "'ds-docs'",
+                    "defaultValue": "'example-angular'",
                     "type": "string",
                     "optional": false,
                     "description": "",
@@ -115,7 +115,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { IOpOptionListOption } from '@openproject/angular';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.sass']\n})\nexport class AppComponent {\n  title = 'ds-docs';\n\n  selectedOption = 'No option selected';\n\n  options: IOpOptionListOption<string>[] = [\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ];\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { IOpOptionListOption } from '@openproject/angular';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.sass']\n})\nexport class AppComponent {\n  title = 'example-angular';\n\n  selectedOption = 'No option selected';\n\n  options: IOpOptionListOption<string>[] = [\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ];\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -474,7 +474,7 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "packages/ds-docs/src/test.ts",
+                "file": "packages/example-angular/src/test.ts",
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
@@ -482,7 +482,7 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "packages/ds-docs/src/environments/environment.prod.ts",
+                "file": "packages/example-angular/src/environments/environment.prod.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
             },
@@ -490,7 +490,7 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "packages/ds-docs/src/environments/environment.ts",
+                "file": "packages/example-angular/src/environments/environment.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
             },
@@ -505,7 +505,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "packages/ds-docs/src/test.ts",
+                "file": "packages/example-angular/src/test.ts",
                 "type": "literal type"
             },
             {
@@ -566,12 +566,12 @@
                     "type": "literal type"
                 }
             ],
-            "packages/ds-docs/src/test.ts": [
+            "packages/example-angular/src/test.ts": [
                 {
                     "name": "context",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "packages/ds-docs/src/test.ts",
+                    "file": "packages/example-angular/src/test.ts",
                     "type": "",
                     "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
                 },
@@ -579,26 +579,26 @@
                     "name": "require",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "packages/ds-docs/src/test.ts",
+                    "file": "packages/example-angular/src/test.ts",
                     "type": "literal type"
                 }
             ],
-            "packages/ds-docs/src/environments/environment.prod.ts": [
+            "packages/example-angular/src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "packages/ds-docs/src/environments/environment.prod.ts",
+                    "file": "packages/example-angular/src/environments/environment.prod.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
                 }
             ],
-            "packages/ds-docs/src/environments/environment.ts": [
+            "packages/example-angular/src/environments/environment.ts": [
                 {
                     "name": "environment",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "packages/ds-docs/src/environments/environment.ts",
+                    "file": "packages/example-angular/src/environments/environment.ts",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
                 }
@@ -627,7 +627,7 @@
         "children": [
             {
                 "name": "routes",
-                "filename": "packages/ds-docs/src/app/app-routing.module.ts",
+                "filename": "packages/example-angular/src/app/app-routing.module.ts",
                 "module": "AppRoutingModule",
                 "children": [],
                 "kind": "module"
@@ -686,7 +686,7 @@
                 "status": "low"
             },
             {
-                "filePath": "packages/ds-docs/src/app/app.component.ts",
+                "filePath": "packages/example-angular/src/app/app.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "AppComponent",
@@ -695,7 +695,7 @@
                 "status": "low"
             },
             {
-                "filePath": "packages/ds-docs/src/environments/environment.prod.ts",
+                "filePath": "packages/example-angular/src/environments/environment.prod.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -705,7 +705,7 @@
                 "status": "low"
             },
             {
-                "filePath": "packages/ds-docs/src/environments/environment.ts",
+                "filePath": "packages/example-angular/src/environments/environment.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -715,7 +715,7 @@
                 "status": "low"
             },
             {
-                "filePath": "packages/ds-docs/src/test.ts",
+                "filePath": "packages/example-angular/src/test.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -725,7 +725,7 @@
                 "status": "low"
             },
             {
-                "filePath": "packages/ds-docs/src/test.ts",
+                "filePath": "packages/example-angular/src/test.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

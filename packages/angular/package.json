@@ -1,6 +1,11 @@
 {
   "name": "@openproject/angular",
   "version": "0.0.1",
+  "description": "OpenProject design system Angular blocks",
+  "license": "GPL-3.0",
+  "contributors": [
+    "Benjamin Bädorf <b.baedorf@openproject.com>"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve @openproject/angular",

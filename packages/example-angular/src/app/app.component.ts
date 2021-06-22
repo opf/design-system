@@ -7,7 +7,7 @@ import { IOpOptionListOption } from '@openproject/angular';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'ds-docs';
+  title = 'example-angular';
 
   selectedOption = 'No option selected';
 
