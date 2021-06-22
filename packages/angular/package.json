@@ -1,6 +1,6 @@
 {
   "name": "@openproject/angular",
-  "version": "0.0.1-alpha.7",
+  "version": "0.0.1-alpha.8",
   "description": "OpenProject design system Angular blocks",
   "license": "GPL-3.0",
   "contributors": [
@@ -22,7 +22,7 @@
     "@angular/core": "^12.0.4"
   },
   "dependencies": {
-    "@openproject/styles": "0.0.1-alpha.7",
+    "@openproject/styles": "^0.0.1-alpha.8",
     "tslib": "^2.1.0"
   },
   "devDependencies": {
