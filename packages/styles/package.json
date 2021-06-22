@@ -5,7 +5,7 @@
   "license": "GPL-3.0",
   "main": "src/index.js",
   "scripts": {
-    "publish:custom": "ng-packagr -p ng-package.json && npm publish dist",
+    "publish:custom": "npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "contributors": [
