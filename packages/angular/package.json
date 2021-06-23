@@ -11,7 +11,7 @@
     "ng": "ng",
     "start": "ng serve @openproject/angular",
     "dev": "npm run watch",
-    "build": "ng build @openproject/angular --no-aot",
+    "build": "ng build @openproject/angular",
     "watch": "ng build @openproject/angular --watch --configuration development",
     "ngcc.dist": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points -t ./dist",
     "publish:custom": "ng-packagr -p ng-package.json && npm publish dist",

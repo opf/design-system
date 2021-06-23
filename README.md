@@ -65,7 +65,7 @@ This will install all needed dependencies.
 Usually, you'll want to develop components in either the angular example app or storybook stories directly. The easiest way is to start the storybook development server:
 
 ```
-npm run storybook:build
+npm run storybook:serve
 ```
 
 ## Publishing

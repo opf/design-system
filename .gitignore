@@ -3,5 +3,6 @@ tags.lock
 tags.temp
 out-tsc
 node_modules
+storybook-static
 dist
 lerna-debug.log
