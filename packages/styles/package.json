@@ -5,6 +5,9 @@
   "license": "GPL-3.0",
   "main": "src/index.js",
   "scripts": {
+    "dev": "npm run tokens:generate",
+    "build": "npm run tokens:generate",
+    "tokens:generate": "theo tokens/tokens.yml --transform web --format sass,json --dest tokens/dist",
     "publish:custom": "npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +15,9 @@
     "Benjamin Bädorf <b.baedorf@openproject.com>",
     "Oliver Günther <o.guenther@openproject.com>"
   ],
-  "gitHead": "37947b20f0303ca99326875e82901d13f0990f90"
+  "gitHead": "37947b20f0303ca99326875e82901d13f0990f90",
+  "devDependencies": {
+    "optimist": "^0.6.1",
+    "theo": "^8.1.5"
+  }
 }

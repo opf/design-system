@@ -1,0 +1,21 @@
+props:
+  c-foreground:
+    value: "#000000"
+  c-foreground-disabled:
+    value: "#959595"
+
+  c-background:
+    value: "#ffffff"
+
+  c-box-border:
+    value: "#cbd5e0"
+  c-box-background:
+    value: "#f7fafc"
+  c-box-selected-border:
+    value: "#90cdf4"
+  c-box-selected-background:
+    value: "#ebf8ff"
+
+global:
+  type: color
+  category: colors
