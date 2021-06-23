@@ -3,7 +3,7 @@
 This is a basic monorepo scaffolding for all OpenProject design system development. It is not used in production yet. It includes the following parts;
 
 1. A package featuring reusable angular components, directives and services in `packages/angular`,
-2. A package featuring scss styles and BEM components in `packages/styles`,
+2. A package featuring sass styles and BEM components in `packages/styles`,
 3. An example angular application in `packages/example-angular`,
 4. Design system documentation via storybook, in `stories`,
 
