@@ -8,8 +8,9 @@ module.exports = {
 
   addons: [
     '@storybook/addon-links',
-    // '@storybook/addon-knobs',
+    '@storybook/addon-knobs',
     '@storybook/addon-essentials',
+    '@whitespace/storybook-addon-html',
   ],
 
   core: {

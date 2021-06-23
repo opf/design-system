@@ -1,13 +1,12 @@
 import { moduleMetadata } from '@storybook/angular';
-import { withKnobs, object } from '@storybook/addon-knobs';
+import { withKnobs, object, text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import { FormsModule } from '@angular/forms';
 
 import { OpOptionListModule, IOpOptionListOption } from '../packages/angular/src/public-api';
 
-const template = require('!!raw-loader!./option-list.stories.html'); // eslint-disable-line
-
 export default {
-  title: 'TS/OptionList',
+  title: 'Usage/OptionList',
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -19,7 +18,10 @@ export default {
   ],
 };
 
-export const Basic = () => {
+const angularTemplate = require('!!raw-loader!./option-list-angular.stories.html'); // eslint-disable-line
+
+export const Angular = () => {
+  const name = text('name', '');
   const options: IOpOptionListOption<string>[] = object(
     'options',
     [
@@ -51,10 +53,21 @@ export const Basic = () => {
   );
 
   return {
-    title: 'Basic',
-    template: template.default,
+    title: 'Angular',
+    template: angularTemplate.default,
     props: {
+      name,
       options,
+      selectedChange: action('selectedChange'),
     },
+  };
+};
+
+const htmlTemplate = require('!!raw-loader!./option-list-html.stories.html'); // eslint-disable-line
+
+export const HTML = () => {
+  return {
+    title: 'HTML',
+    template: htmlTemplate.default,
   };
 };

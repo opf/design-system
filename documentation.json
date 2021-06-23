@@ -455,12 +455,20 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "Basic",
+                "name": "Angular",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/option-list.stories.ts",
                 "type": "",
-                "defaultValue": "() => {\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Basic',\n    template: template.default,\n    props: {\n      options,\n    },\n  };\n}"
+                "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
+            },
+            {
+                "name": "angularTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/option-list.stories.ts",
+                "type": "",
+                "defaultValue": "require('!!raw-loader!./option-list-angular.stories.html')"
             },
             {
                 "name": "context",
@@ -495,6 +503,22 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
+                "name": "HTML",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/option-list.stories.ts",
+                "type": "",
+                "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
+            },
+            {
+                "name": "htmlTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/option-list.stories.ts",
+                "type": "",
+                "defaultValue": "require('!!raw-loader!./option-list-html.stories.html')"
+            },
+            {
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -507,14 +531,6 @@
                 "subtype": "variable",
                 "file": "packages/example-angular/src/test.ts",
                 "type": "literal type"
-            },
-            {
-                "name": "template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/option-list.stories.ts",
-                "type": "",
-                "defaultValue": "require('!!raw-loader!./option-list.stories.html')"
             }
         ],
         "functions": [],
@@ -533,20 +549,36 @@
         "groupedVariables": {
             "stories/option-list.stories.ts": [
                 {
-                    "name": "Basic",
+                    "name": "Angular",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/option-list.stories.ts",
                     "type": "",
-                    "defaultValue": "() => {\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Basic',\n    template: template.default,\n    props: {\n      options,\n    },\n  };\n}"
+                    "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
                 },
                 {
-                    "name": "template",
+                    "name": "angularTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/option-list.stories.ts",
                     "type": "",
-                    "defaultValue": "require('!!raw-loader!./option-list.stories.html')"
+                    "defaultValue": "require('!!raw-loader!./option-list-angular.stories.html')"
+                },
+                {
+                    "name": "HTML",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/option-list.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
+                },
+                {
+                    "name": "htmlTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/option-list.stories.ts",
+                    "type": "",
+                    "defaultValue": "require('!!raw-loader!./option-list-html.stories.html')"
                 }
             ],
             "packages/angular/src/test.ts": [
@@ -739,7 +771,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Basic",
+                "name": "Angular",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -749,7 +781,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "template",
+                "name": "angularTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/option-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HTML",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/option-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "htmlTemplate",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
