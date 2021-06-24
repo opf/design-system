@@ -3,10 +3,10 @@
     "interfaces": [
         {
             "name": "IOpOptionListOption",
-            "id": "interface-IOpOptionListOption-89eb820ea3ad6370396a712b038431ef",
+            "id": "interface-IOpOptionListOption-dfd310dd4a8cd8ffa81ec281ee19f81d",
             "file": "packages/angular/src/lib/option-list.component.ts",
             "type": "interface",
-            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  @Input() options:IOpOptionListOption<T>[] = [];\n  @Input() name = `op-option-list-${+(new Date())}`;\n  @Output() selectedChange = new EventEmitter<T>();\n\n  private _selected:IOpOptionListValue<T> = null;\n  get selected() {\n    return this._selected;\n  }\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  onChange = (_:IOpOptionListValue<T>) => {};\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item. \n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n  \n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n  \n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
             "properties": [
                 {
                     "name": "description",
@@ -128,7 +128,7 @@
         },
         {
             "name": "OpOptionListComponent",
-            "id": "component-OpOptionListComponent-89eb820ea3ad6370396a712b038431ef",
+            "id": "component-OpOptionListComponent-dfd310dd4a8cd8ffa81ec281ee19f81d",
             "file": "packages/angular/src/lib/option-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -151,12 +151,14 @@
                 {
                     "name": "name",
                     "defaultValue": "`op-option-list-${+(new Date())}`",
-                    "line": 37
+                    "description": "<p>This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly</p>\n",
+                    "line": 49
                 },
                 {
                     "name": "options",
                     "defaultValue": "[]",
-                    "line": 36,
+                    "description": "<p>This is an array of available options, each one of them will be rendered as a radio button item. \nIt is a list of options, of which each has the following fields:</p>\n",
+                    "line": 44,
                     "type": "IOpOptionListOption<T>[]"
                 }
             ],
@@ -164,179 +166,31 @@
                 {
                     "name": "selectedChange",
                     "defaultValue": "new EventEmitter<T>()",
-                    "line": 38,
+                    "description": "<p>Emits when the selected value has changed</p>\n",
+                    "line": 54,
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [
-                {
-                    "name": "_selected",
-                    "defaultValue": "null",
-                    "type": "IOpOptionListValue<T>",
-                    "optional": false,
-                    "description": "",
-                    "line": 40,
-                    "modifierKind": [
-                        112
-                    ]
-                },
-                {
-                    "name": "onChange",
-                    "defaultValue": "() => {...}",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 57
-                },
-                {
-                    "name": "onTouched",
-                    "defaultValue": "() => {...}",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 58
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "getClassListForItem",
-                    "args": [
-                        {
-                            "name": "option",
-                            "type": "IOpOptionListOption<T>"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "{ 'op-option-list--item': boolean; 'op-option-list--item_selected': boolean; 'op-option-list--ite...",
-                    "typeParameters": [],
-                    "line": 49,
-                    "jsdoctags": [
-                        {
-                            "name": "option",
-                            "type": "IOpOptionListOption<T>",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "registerOnChange",
-                    "args": [
-                        {
-                            "name": "fn",
-                            "type": "any"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 64,
-                    "jsdoctags": [
-                        {
-                            "name": "fn",
-                            "type": "any",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "registerOnTouched",
-                    "args": [
-                        {
-                            "name": "fn",
-                            "type": "any"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 68,
-                    "jsdoctags": [
-                        {
-                            "name": "fn",
-                            "type": "any",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "writeValue",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "IOpOptionListValue<T>"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 60,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "IOpOptionListValue<T>",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
+            "propertiesClass": [],
+            "methodsClass": [],
             "hostBindings": [
                 {
                     "name": "class.op-option-list",
                     "defaultValue": "true",
-                    "line": 34
+                    "line": 38
                 }
             ],
             "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
+            "description": "<p>OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\nfor type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.</p>\n",
+            "rawdescription": "OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\nfor type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  @Input() options:IOpOptionListOption<T>[] = [];\n  @Input() name = `op-option-list-${+(new Date())}`;\n  @Output() selectedChange = new EventEmitter<T>();\n\n  private _selected:IOpOptionListValue<T> = null;\n  get selected() {\n    return this._selected;\n  }\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  onChange = (_:IOpOptionListValue<T>) => {};\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item. \n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n  \n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n  \n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "implements": [
                 "ControlValueAccessor"
             ],
-            "accessors": {
-                "selected": {
-                    "name": "selected",
-                    "setSignature": {
-                        "name": "selected",
-                        "type": "void",
-                        "args": [
-                            {
-                                "name": "value",
-                                "type": ""
-                            }
-                        ],
-                        "returnType": "void",
-                        "line": 44,
-                        "jsdoctags": [
-                            {
-                                "name": "value",
-                                "type": "",
-                                "tagName": {
-                                    "text": "param"
-                                }
-                            }
-                        ]
-                    },
-                    "getSignature": {
-                        "name": "selected",
-                        "type": "",
-                        "returnType": "",
-                        "line": 41
-                    }
-                }
-            },
             "templateData": "<label\n  *ngFor=\"let option of options\"\n  [ngClass]=\"getClassListForItem(option)\"\n>\n  <input\n    class=\"op-option-list--input\"\n    type=\"radio\"\n    [attr.name]=\"name\"\n    [value]=\"option.value\"\n    [(ngModel)]=\"selected\"\n    [disabled]=\"option.disabled || false\"\n    ngDefaultControl\n  />\n  <div>\n    <p class=\"op-option-list--item-title\">{{ option.title }}</p>\n    <p\n      *ngIf=\"option.description\"\n      class=\"op-option-list--item-description\"\n      [innerHTML]=\"option.description\"\n    ></p>\n  </div>\n</label>\n"
         }
     ],
@@ -667,7 +521,7 @@
         ]
     },
     "coverage": {
-        "count": 0,
+        "count": 5,
         "status": "low",
         "files": [
             {
@@ -684,9 +538,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "OpOptionListComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/12",
-                "status": "low"
+                "coveragePercent": 80,
+                "coverageCount": "4/5",
+                "status": "very-good"
             },
             {
                 "filePath": "packages/angular/src/lib/option-list.component.ts",

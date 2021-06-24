@@ -3,10 +3,15 @@ import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { FormsModule } from '@angular/forms';
 
-import { OpOptionListModule, IOpOptionListOption } from '../packages/angular/src/public-api';
+import {
+  OpOptionListModule,
+  OpOptionListComponent,
+  IOpOptionListOption,
+} from '../packages/angular/src/public-api';
 
 export default {
   title: 'Usage/OptionList',
+  component: OpOptionListComponent,
   decorators: [
     withKnobs,
     moduleMetadata({
