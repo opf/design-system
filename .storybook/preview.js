@@ -15,4 +15,17 @@ export const parameters = {
     },
   },
   docs: { inlineStories: true },
+  options: {
+    storySort: {
+      order: [
+        'Introduction',
+        'Design Principles',
+        'Patterns',
+        'Tokens',
+        [ 'Colors' ],
+        'Components',
+        [ 'OptionList' ],
+      ],
+    },
+  },
 };

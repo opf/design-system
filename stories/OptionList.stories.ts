@@ -10,7 +10,7 @@ import {
 } from '../packages/angular/src/public-api';
 
 export default {
-  title: 'Usage/OptionList',
+  title: 'Components/OptionList',
   component: OpOptionListComponent,
   decorators: [
     withKnobs,
