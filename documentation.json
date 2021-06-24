@@ -312,7 +312,7 @@
                 "name": "Angular",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/option-list.stories.ts",
+                "file": "stories/OptionList.stories.ts",
                 "type": "",
                 "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
             },
@@ -320,9 +320,9 @@
                 "name": "angularTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/option-list.stories.ts",
+                "file": "stories/OptionList.stories.ts",
                 "type": "",
-                "defaultValue": "require('!!raw-loader!./option-list-angular.stories.html')"
+                "defaultValue": "require('!!raw-loader!./OptionListAngular.stories.html')"
             },
             {
                 "name": "context",
@@ -360,7 +360,7 @@
                 "name": "HTML",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/option-list.stories.ts",
+                "file": "stories/OptionList.stories.ts",
                 "type": "",
                 "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
             },
@@ -368,9 +368,9 @@
                 "name": "htmlTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/option-list.stories.ts",
+                "file": "stories/OptionList.stories.ts",
                 "type": "",
-                "defaultValue": "require('!!raw-loader!./option-list-html.stories.html')"
+                "defaultValue": "require('!!raw-loader!./OptionListHTML.stories.html')"
             },
             {
                 "name": "require",
@@ -401,12 +401,12 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "stories/option-list.stories.ts": [
+            "stories/OptionList.stories.ts": [
                 {
                     "name": "Angular",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/option-list.stories.ts",
+                    "file": "stories/OptionList.stories.ts",
                     "type": "",
                     "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
                 },
@@ -414,15 +414,15 @@
                     "name": "angularTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/option-list.stories.ts",
+                    "file": "stories/OptionList.stories.ts",
                     "type": "",
-                    "defaultValue": "require('!!raw-loader!./option-list-angular.stories.html')"
+                    "defaultValue": "require('!!raw-loader!./OptionListAngular.stories.html')"
                 },
                 {
                     "name": "HTML",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/option-list.stories.ts",
+                    "file": "stories/OptionList.stories.ts",
                     "type": "",
                     "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
                 },
@@ -430,9 +430,9 @@
                     "name": "htmlTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/option-list.stories.ts",
+                    "file": "stories/OptionList.stories.ts",
                     "type": "",
-                    "defaultValue": "require('!!raw-loader!./option-list-html.stories.html')"
+                    "defaultValue": "require('!!raw-loader!./OptionListHTML.stories.html')"
                 }
             ],
             "packages/angular/src/test.ts": [
@@ -621,7 +621,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/option-list.stories.ts",
+                "filePath": "stories/OptionList.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -631,7 +631,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/option-list.stories.ts",
+                "filePath": "stories/OptionList.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -641,7 +641,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/option-list.stories.ts",
+                "filePath": "stories/OptionList.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -651,7 +651,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/option-list.stories.ts",
+                "filePath": "stories/OptionList.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
