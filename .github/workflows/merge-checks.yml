@@ -22,10 +22,7 @@ jobs:
           npm ci
           npx lerna bootstrap
 
-      - name: Build packages
-        run: npm run packages:build
-
-      - name: Build storybook
+      - name: Build
         run: npm run storybook:build
 
       - name: Check git
