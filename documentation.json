@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "IOpOptionListOption",
-            "id": "interface-IOpOptionListOption-dfd310dd4a8cd8ffa81ec281ee19f81d",
+            "id": "interface-IOpOptionListOption-0b911b6281d1d50045f7872eccb690f3",
             "file": "packages/angular/src/lib/option-list.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item. \n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n  \n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n  \n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from '@angular/core';\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from '@angular/forms';\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item.\n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n\n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n\n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
             "properties": [
                 {
                     "name": "description",
@@ -17,7 +17,7 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 18
+                    "line": 19
                 },
                 {
                     "name": "disabled",
@@ -26,7 +26,7 @@
                     "type": "boolean",
                     "optional": true,
                     "description": "",
-                    "line": 17
+                    "line": 18
                 },
                 {
                     "name": "title",
@@ -35,7 +35,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 17
                 },
                 {
                     "name": "value",
@@ -44,7 +44,7 @@
                     "type": "T",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 16
                 }
             ],
             "indexSignatures": [],
@@ -55,7 +55,7 @@
     "injectables": [
         {
             "name": "AngularService",
-            "id": "injectable-AngularService-07766c804317784f6e72bbda6608a42e",
+            "id": "injectable-AngularService-41c3a0634755bc597ff160445b70b26e",
             "file": "packages/angular/src/lib/angular.service.ts",
             "properties": [],
             "methods": [],
@@ -63,7 +63,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AngularService {\n\n  constructor() { }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class AngularService {\n  constructor() { }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -82,8 +82,9 @@
     "components": [
         {
             "name": "OpOptionListComponent",
-            "id": "component-OpOptionListComponent-dfd310dd4a8cd8ffa81ec281ee19f81d",
+            "id": "component-OpOptionListComponent-0b911b6281d1d50045f7872eccb690f3",
             "file": "packages/angular/src/lib/option-list.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -109,7 +110,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly",
                     "description": "<p>This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly</p>\n",
-                    "line": 49,
+                    "line": 51,
                     "type": "string"
                 },
                 {
@@ -117,9 +118,9 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "This is an array of available options, each one of them will be rendered as a radio button item. \nIt is a list of options, of which each has the following fields:",
-                    "description": "<p>This is an array of available options, each one of them will be rendered as a radio button item. \nIt is a list of options, of which each has the following fields:</p>\n",
-                    "line": 44,
+                    "rawdescription": "This is an array of available options, each one of them will be rendered as a radio button item.\nIt is a list of options, of which each has the following fields:",
+                    "description": "<p>This is an array of available options, each one of them will be rendered as a radio button item.\nIt is a list of options, of which each has the following fields:</p>\n",
+                    "line": 46,
                     "type": "IOpOptionListOption<T>[]"
                 }
             ],
@@ -131,7 +132,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nEmits when the selected value has changed\n",
                     "description": "<p>Emits when the selected value has changed</p>\n",
-                    "line": 54,
+                    "line": 56,
                     "type": "EventEmitter"
                 }
             ],
@@ -144,7 +145,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 38,
+                    "line": 40,
                     "decorators": [
                         {
                             "name": "HostBinding",
@@ -162,7 +163,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 38,
+                    "line": 40,
                     "type": "boolean"
                 }
             ],
@@ -170,7 +171,7 @@
             "description": "<p>OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\nfor type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.</p>\n",
             "rawdescription": "\n\nOptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\nfor type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item. \n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n  \n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n  \n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from '@angular/core';\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from '@angular/forms';\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item.\n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n\n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n\n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -183,13 +184,13 @@
     "modules": [
         {
             "name": "OpOptionListModule",
-            "id": "module-OpOptionListModule-83a05dd70b3d8870754116edbbd7fd50",
+            "id": "module-OpOptionListModule-ac8c1805975e6d00f8c3e86cb1469b91",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "packages/angular/src/lib/option-list.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { FormsModule } from '@angular/forms';\nimport { OpOptionListComponent } from './option-list.component';\nimport { CommonModule } from \"@angular/common\";\n\n@NgModule({\n  declarations: [\n    OpOptionListComponent,\n  ],\n  imports: [\n    FormsModule,\n    CommonModule,\n  ],\n  exports: [\n    OpOptionListComponent,\n  ],\n})\nexport class OpOptionListModule { }\n\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { FormsModule } from '@angular/forms';\nimport { OpOptionListComponent } from './option-list.component';\nimport { CommonModule } from '@angular/common';\n\n@NgModule({\n  declarations: [\n    OpOptionListComponent,\n  ],\n  imports: [\n    FormsModule,\n    CommonModule,\n  ],\n  exports: [\n    OpOptionListComponent,\n  ],\n})\nexport class OpOptionListModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -236,7 +237,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
+                "defaultValue": "() => {\n  const name = text('name', '');\n  const options:IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
             },
             {
                 "name": "angularTemplate",
@@ -266,7 +267,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
+                "defaultValue": "() => ({\n  title: 'HTML',\n  template: htmlTemplate.default,\n})"
             },
             {
                 "name": "htmlTemplate",
@@ -313,7 +314,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
+                    "defaultValue": "() => {\n  const name = text('name', '');\n  const options:IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
                 },
                 {
                     "name": "angularTemplate",
@@ -333,7 +334,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
+                    "defaultValue": "() => ({\n  title: 'HTML',\n  template: htmlTemplate.default,\n})"
                 },
                 {
                     "name": "htmlTemplate",
