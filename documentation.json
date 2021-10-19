@@ -81,77 +81,6 @@
     "directives": [],
     "components": [
         {
-            "name": "AppComponent",
-            "id": "component-AppComponent-675b5df577979b2aaa72bd053d93dbe3",
-            "file": "packages/example-angular/src/app/app.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-root",
-            "styleUrls": [
-                "./app.component.sass"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./app.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "options",
-                    "defaultValue": "[\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ]",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "IOpOptionListOption<string>[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 14
-                },
-                {
-                    "name": "selectedOption",
-                    "defaultValue": "'No option selected'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 12
-                },
-                {
-                    "name": "title",
-                    "defaultValue": "'example-angular'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 10
-                }
-            ],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { IOpOptionListOption } from '@openproject/angular';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.sass']\n})\nexport class AppComponent {\n  title = 'example-angular';\n\n  selectedOption = 'No option selected';\n\n  options: IOpOptionListOption<string>[] = [\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ];\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./app.component.sass"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<h1>Design System Documentation</h1>\n<router-outlet></router-outlet>\n<op-option-list\n  [options]=\"options\"\n  [(ngModel)]=\"selectedOption\"\n></op-option-list>\n<p>{{ selectedOption }}</p>\n"
-        },
-        {
             "name": "OpOptionListComponent",
             "id": "component-OpOptionListComponent-dfd310dd4a8cd8ffa81ec281ee19f81d",
             "file": "packages/angular/src/lib/option-list.component.ts",
@@ -253,93 +182,6 @@
     ],
     "modules": [
         {
-            "name": "AppModule",
-            "id": "module-AppModule-5173f2c703b6960b1420ef95403f5ab4",
-            "description": "",
-            "deprecationMessage": "",
-            "deprecated": false,
-            "file": "packages/example-angular/src/app/app.module.ts",
-            "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { FormsModule } from '@angular/forms';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\n\nimport { OpOptionListModule } from '@openproject/angular';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n  ],\n  imports: [\n    BrowserModule,\n    FormsModule,\n\n    AppRoutingModule,\n\n    OpOptionListModule,\n  ],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule { }\n",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": [
-                        {
-                            "name": "AppComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "imports",
-                    "elements": [
-                        {
-                            "name": "AppRoutingModule"
-                        },
-                        {
-                            "name": "OpOptionListModule"
-                        }
-                    ]
-                },
-                {
-                    "type": "exports",
-                    "elements": []
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": [
-                        {
-                            "name": "AppComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        },
-        {
-            "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-3c1d721cfd0753406a1cfde101c59380",
-            "description": "",
-            "deprecationMessage": "",
-            "deprecated": false,
-            "file": "packages/example-angular/src/app/app-routing.module.ts",
-            "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule { }\n",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": []
-                },
-                {
-                    "type": "imports",
-                    "elements": []
-                },
-                {
-                    "type": "exports",
-                    "elements": []
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": []
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        },
-        {
             "name": "OpOptionListModule",
             "id": "module-OpOptionListModule-83a05dd70b3d8870754116edbbd7fd50",
             "description": "",
@@ -417,36 +259,6 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
-                "name": "context",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/test.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
                 "name": "HTML",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -471,15 +283,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "packages/angular/src/test.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "literal type"
-            },
-            {
-                "name": "require",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
@@ -563,51 +366,6 @@
                     "deprecationMessage": "",
                     "type": "literal type"
                 }
-            ],
-            "packages/example-angular/src/test.ts": [
-                {
-                    "name": "context",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "literal type"
-                }
-            ],
-            "packages/example-angular/src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
-            "packages/example-angular/src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -628,22 +386,9 @@
             ]
         }
     },
-    "routes": {
-        "name": "<root>",
-        "kind": "module",
-        "className": "AppModule",
-        "children": [
-            {
-                "name": "routes",
-                "filename": "packages/example-angular/src/app/app-routing.module.ts",
-                "module": "AppRoutingModule",
-                "children": [],
-                "kind": "module"
-            }
-        ]
-    },
+    "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 7,
         "status": "low",
         "files": [
             {
@@ -685,55 +430,6 @@
             },
             {
                 "filePath": "packages/angular/src/test.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "require",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/app/app.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "AppComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/environments/environment.prod.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "environment",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/environments/environment.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "environment",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/test.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "context",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/test.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

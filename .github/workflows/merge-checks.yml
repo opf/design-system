@@ -23,7 +23,7 @@ jobs:
           npx lerna bootstrap
 
       - name: Build packages
-        run: npx lerna run --stream --parallel build
+        run: npm run packages:build
 
       - name: Build storybook
         run: npm run storybook:build
