@@ -5,11 +5,15 @@
             "name": "IOpOptionListOption",
             "id": "interface-IOpOptionListOption-dfd310dd4a8cd8ffa81ec281ee19f81d",
             "file": "packages/angular/src/lib/option-list.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
             "type": "interface",
             "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item. \n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n  \n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n  \n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
             "properties": [
                 {
                     "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "string",
                     "optional": true,
                     "description": "",
@@ -17,6 +21,8 @@
                 },
                 {
                     "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "boolean",
                     "optional": true,
                     "description": "",
@@ -24,6 +30,8 @@
                 },
                 {
                     "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "string",
                     "optional": false,
                     "description": "",
@@ -31,6 +39,8 @@
                 },
                 {
                     "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "T",
                     "optional": false,
                     "description": "",
@@ -38,7 +48,7 @@
                 }
             ],
             "indexSignatures": [],
-            "kind": 150,
+            "kind": 164,
             "methods": []
         }
     ],
@@ -49,83 +59,27 @@
             "file": "packages/angular/src/lib/angular.service.ts",
             "properties": [],
             "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
             "description": "",
+            "rawdescription": "\n",
             "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AngularService {\n\n  constructor() { }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "args": [],
                 "line": 6
             },
             "type": "injectable"
         }
     ],
+    "guards": [],
+    "interceptors": [],
     "classes": [],
     "directives": [],
     "components": [
-        {
-            "name": "AppComponent",
-            "id": "component-AppComponent-675b5df577979b2aaa72bd053d93dbe3",
-            "file": "packages/example-angular/src/app/app.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-root",
-            "styleUrls": [
-                "./app.component.sass"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./app.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "options",
-                    "defaultValue": "[\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ]",
-                    "type": "IOpOptionListOption<string>[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 14
-                },
-                {
-                    "name": "selectedOption",
-                    "defaultValue": "'No option selected'",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 12
-                },
-                {
-                    "name": "title",
-                    "defaultValue": "'example-angular'",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 10
-                }
-            ],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { IOpOptionListOption } from '@openproject/angular';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.sass']\n})\nexport class AppComponent {\n  title = 'example-angular';\n\n  selectedOption = 'No option selected';\n\n  options: IOpOptionListOption<string>[] = [\n    {\n      value: 'With description',\n      title: 'With description',\n      disabled: false,\n      description: 'This option has a description',\n    },\n    {\n      value: 'Without description',\n      title: 'Without description',\n      disabled: false,\n      description: '',\n    },\n    {\n      value: 'Disabled with description',\n      title: 'Disabled with description',\n      disabled: true,\n      description: 'This is disabled and has a description',\n    },\n    {\n      value: 'Almost useless',\n      title: 'Almost useless',\n      disabled: true,\n      description: '',\n    },\n  ];\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./app.component.sass"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<h1>Design System Documentation</h1>\n<router-outlet></router-outlet>\n<op-option-list\n  [options]=\"options\"\n  [(ngModel)]=\"selectedOption\"\n></op-option-list>\n<p>{{ selectedOption }}</p>\n"
-        },
         {
             "name": "OpOptionListComponent",
             "id": "component-OpOptionListComponent-dfd310dd4a8cd8ffa81ec281ee19f81d",
@@ -151,12 +105,19 @@
                 {
                     "name": "name",
                     "defaultValue": "`op-option-list-${+(new Date())}`",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly",
                     "description": "<p>This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly</p>\n",
-                    "line": 49
+                    "line": 49,
+                    "type": "string"
                 },
                 {
                     "name": "options",
                     "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "This is an array of available options, each one of them will be rendered as a radio button item. \nIt is a list of options, of which each has the following fields:",
                     "description": "<p>This is an array of available options, each one of them will be rendered as a radio button item. \nIt is a list of options, of which each has the following fields:</p>\n",
                     "line": 44,
                     "type": "IOpOptionListOption<T>[]"
@@ -166,23 +127,48 @@
                 {
                     "name": "selectedChange",
                     "defaultValue": "new EventEmitter<T>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nEmits when the selected value has changed\n",
                     "description": "<p>Emits when the selected value has changed</p>\n",
                     "line": 54,
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "className",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 38,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class.op-option-list'"
+                        }
+                    ]
+                }
+            ],
             "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
             "hostBindings": [
                 {
                     "name": "class.op-option-list",
                     "defaultValue": "true",
-                    "line": 38
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "boolean"
                 }
             ],
             "hostListeners": [],
             "description": "<p>OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\nfor type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.</p>\n",
-            "rawdescription": "OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\nfor type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.",
+            "rawdescription": "\n\nOptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\nfor type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n",
             "type": "component",
             "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  HostBinding,\n  forwardRef,\n} from \"@angular/core\";\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n} from \"@angular/forms\";\n\nexport interface IOpOptionListOption<T> {\n  value:T;\n  title:string;\n  disabled?:boolean;\n  description?:string;\n}\n\nexport type IOpOptionListValue<T> = T|null;\n\n/**\n * OptionList is a form field that offers multiple exclusive options. The component is rather large and mostly used\n * for type selection in multi step wizards, though it can also be used in a larger form as an alternative to plain radio buttons.\n */\n@Component({\n  selector: 'op-option-list',\n  // Style is imported globally\n  templateUrl: './option-list.component.html',\n  providers: [{\n    provide: NG_VALUE_ACCESSOR,\n    useExisting: forwardRef(() => OpOptionListComponent),\n    multi: true,\n  }],\n})\nexport class OpOptionListComponent<T> implements ControlValueAccessor {\n  @HostBinding('class.op-option-list') className = true;\n\n  /**\n   * This is an array of available options, each one of them will be rendered as a radio button item. \n   * It is a list of options, of which each has the following fields:\n   */\n  @Input() options:IOpOptionListOption<T>[] = [];\n  \n  /**\n   * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly\n   */\n  @Input() name = `op-option-list-${+(new Date())}`;\n  \n  /**\n   * Emits when the selected value has changed\n   */\n  @Output() selectedChange = new EventEmitter<T>();\n\n  /**\n   * @ignore\n   */\n  private _selected:IOpOptionListValue<T> = null;\n\n  /**\n   * @ignore\n   */\n  get selected() {\n    return this._selected;\n  }\n\n  /**\n   * @ignore\n   */\n  set selected(value:IOpOptionListValue<T>) {\n    this._selected = value;\n    this.onChange(value);\n  }\n\n  /**\n   * @ignore\n   */\n  getClassListForItem(option:IOpOptionListOption<T>) {\n    return {\n      'op-option-list--item': true,\n      'op-option-list--item_selected': this.selected === option.value,\n      'op-option-list--item_disabled': !!option.disabled,\n    };\n  }\n\n  /**\n   * @ignore\n   */\n  onChange = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  onTouched = (_:IOpOptionListValue<T>) => {};\n\n  /**\n   * @ignore\n   */\n  writeValue(value:IOpOptionListValue<T>) {\n    this._selected = value;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnChange(fn:any) {\n    this.onChange = fn;\n  }\n\n  /**\n   * @ignore\n   */\n  registerOnTouched(fn:any) {\n    this.onTouched = fn;\n  }\n}\n",
             "assetsDirs": [],
@@ -196,80 +182,14 @@
     ],
     "modules": [
         {
-            "name": "AppModule",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": [
-                        {
-                            "name": "AppComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "imports",
-                    "elements": [
-                        {
-                            "name": "AppRoutingModule"
-                        },
-                        {
-                            "name": "OpOptionListModule"
-                        }
-                    ]
-                },
-                {
-                    "type": "exports",
-                    "elements": []
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": [
-                        {
-                            "name": "AppComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        },
-        {
-            "name": "AppRoutingModule",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": []
-                },
-                {
-                    "type": "imports",
-                    "elements": []
-                },
-                {
-                    "type": "exports",
-                    "elements": []
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": []
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        },
-        {
             "name": "OpOptionListModule",
+            "id": "module-OpOptionListModule-83a05dd70b3d8870754116edbbd7fd50",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "packages/angular/src/lib/option-list.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { FormsModule } from '@angular/forms';\nimport { OpOptionListComponent } from './option-list.component';\nimport { CommonModule } from \"@angular/common\";\n\n@NgModule({\n  declarations: [\n    OpOptionListComponent,\n  ],\n  imports: [\n    FormsModule,\n    CommonModule,\n  ],\n  exports: [\n    OpOptionListComponent,\n  ],\n})\nexport class OpOptionListModule { }\n\n",
             "children": [
                 {
                     "type": "providers",
@@ -313,6 +233,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/OptionList.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
             },
@@ -321,6 +243,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/OptionList.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "require('!!raw-loader!./OptionListAngular.stories.html')"
             },
@@ -329,38 +253,18 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "packages/angular/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-            },
-            {
-                "name": "context",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/test.ts",
-                "type": "",
-                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/environments/environment.prod.ts",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/environments/environment.ts",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "HTML",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/OptionList.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
             },
@@ -369,6 +273,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/OptionList.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "require('!!raw-loader!./OptionListHTML.stories.html')"
             },
@@ -377,13 +283,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "packages/angular/src/test.ts",
-                "type": "literal type"
-            },
-            {
-                "name": "require",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "packages/example-angular/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "type": "literal type"
             }
         ],
@@ -395,8 +296,10 @@
                 "subtype": "typealias",
                 "rawtype": "T | null",
                 "file": "packages/angular/src/lib/option-list.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
                 "description": "",
-                "kind": 168
+                "kind": 185
             }
         ],
         "enumerations": [],
@@ -407,6 +310,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/OptionList.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => {\n  const name = text('name', '');\n  const options: IOpOptionListOption<string>[] = object(\n    'options',\n    [\n      {\n        value: 'With description',\n        title: 'With description',\n        disabled: false,\n        description: 'This option has a description',\n      },\n      {\n        value: 'Without description',\n        title: 'Without description',\n        disabled: false,\n        description: '',\n      },\n      {\n        value: 'Disabled with description',\n        title: 'Disabled with description',\n        disabled: true,\n        description: 'This is disabled and has a description',\n      },\n      {\n        value: 'Almost useless',\n        title: 'Almost useless',\n        disabled: true,\n        description: '',\n      },\n    ],\n  );\n\n  return {\n    title: 'Angular',\n    template: angularTemplate.default,\n    props: {\n      name,\n      options,\n      selectedChange: action('selectedChange'),\n    },\n  };\n}"
                 },
@@ -415,6 +320,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/OptionList.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "require('!!raw-loader!./OptionListAngular.stories.html')"
                 },
@@ -423,6 +330,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/OptionList.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => {\n  return {\n    title: 'HTML',\n    template: htmlTemplate.default,\n  };\n}"
                 },
@@ -431,6 +340,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/OptionList.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "require('!!raw-loader!./OptionListHTML.stories.html')"
                 }
@@ -441,6 +352,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "packages/angular/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
                 },
@@ -449,44 +362,9 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "packages/angular/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "type": "literal type"
-                }
-            ],
-            "packages/example-angular/src/test.ts": [
-                {
-                    "name": "context",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/test.ts",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/test.ts",
-                    "type": "literal type"
-                }
-            ],
-            "packages/example-angular/src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
-            "packages/example-angular/src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "packages/example-angular/src/environments/environment.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
                 }
             ]
         },
@@ -500,28 +378,17 @@
                     "subtype": "typealias",
                     "rawtype": "T | null",
                     "file": "packages/angular/src/lib/option-list.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
                     "description": "",
-                    "kind": 168
+                    "kind": 185
                 }
             ]
         }
     },
-    "routes": {
-        "name": "<root>",
-        "kind": "module",
-        "className": "AppModule",
-        "children": [
-            {
-                "name": "routes",
-                "filename": "packages/example-angular/src/app/app-routing.module.ts",
-                "module": "AppRoutingModule",
-                "children": [],
-                "kind": "module"
-            }
-        ]
-    },
+    "routes": [],
     "coverage": {
-        "count": 5,
+        "count": 7,
         "status": "low",
         "files": [
             {
@@ -538,9 +405,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "OpOptionListComponent",
-                "coveragePercent": 80,
-                "coverageCount": "4/5",
-                "status": "very-good"
+                "coveragePercent": 66,
+                "coverageCount": "4/6",
+                "status": "good"
             },
             {
                 "filePath": "packages/angular/src/lib/option-list.component.ts",
@@ -563,55 +430,6 @@
             },
             {
                 "filePath": "packages/angular/src/test.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "require",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/app/app.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "AppComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/environments/environment.prod.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "environment",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/environments/environment.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "environment",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/test.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "context",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "packages/example-angular/src/test.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
