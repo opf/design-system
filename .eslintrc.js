@@ -133,6 +133,8 @@ module.exports = {
         //////////////////////////////////////////////////////////////////////
 
         "import/no-extraneous-dependencies": "warn",
+        "no-unused-vars": ["error", { "argsIgnorePattern": "_" } ],
+        "@typescript-eslint/no-unused-vars": ["off"],
 
         //////////////////////////////////////////////////////////////////////
         // Anything below this line should be turned on again at some point //

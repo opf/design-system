@@ -23,7 +23,7 @@ export default {
   ],
 };
 
-const angularTemplate = require('!!raw-loader!./OptionListAngular.stories.html'); // eslint-disable-line
+const angularTemplate = require('!!raw-loader!./OptionListAngular.stories.html').default as string; // eslint-disable-line
 
 export const Angular = () => {
   const name = text('name', '');
@@ -59,7 +59,7 @@ export const Angular = () => {
 
   return {
     title: 'Angular',
-    template: angularTemplate.default,
+    template: angularTemplate,
     props: {
       name,
       options,
@@ -68,9 +68,9 @@ export const Angular = () => {
   };
 };
 
-const htmlTemplate = require('!!raw-loader!./OptionListHTML.stories.html'); // eslint-disable-line
+const htmlTemplate = require('!!raw-loader!./OptionListHTML.stories.html').default as string; // eslint-disable-line
 
 export const HTML = () => ({
   title: 'HTML',
-  template: htmlTemplate.default,
+  template: htmlTemplate,
 });
