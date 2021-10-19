@@ -27,7 +27,7 @@ const angularTemplate = require('!!raw-loader!./OptionListAngular.stories.html')
 
 export const Angular = () => {
   const name = text('name', '');
-  const options: IOpOptionListOption<string>[] = object(
+  const options:IOpOptionListOption<string>[] = object(
     'options',
     [
       {
@@ -70,9 +70,7 @@ export const Angular = () => {
 
 const htmlTemplate = require('!!raw-loader!./OptionListHTML.stories.html'); // eslint-disable-line
 
-export const HTML = () => {
-  return {
-    title: 'HTML',
-    template: htmlTemplate.default,
-  };
-};
+export const HTML = () => ({
+  title: 'HTML',
+  template: htmlTemplate.default,
+});
