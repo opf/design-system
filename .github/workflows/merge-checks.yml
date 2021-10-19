@@ -1,0 +1,41 @@
+name: merge-checks
+on:
+  pull_request:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npx lerna bootstrap
+
+      - name: Build packages
+        run: npx lerna run --stream --parallel build
+
+      - name: Build storybook
+        run: npm run storybook:build
+
+      - name: Check git
+        run: |
+          if (( $(git ls-files --modified | wc -l) == 0 )); then
+            exit 0;
+          else
+            echo "There were uncommited changes after the build. Please make sure to include these automated changes in your commits"
+            git status
+            exit 1;
+          fi
+
+      
