@@ -9,7 +9,7 @@
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook:pre": "lerna run build --scope @openproject/angular --scope @openproject/styles && npm run docs:json",
     "storybook:serve": "npm run storybook:pre && start-storybook --no-manager-cache -c ./.storybook -p 6006",
-    "storybook:build": "npm run storybook:pre && build-storybook --no-manager-cache -c ./.storybook",
+    "storybook:build": "npm run storybook:pre && build-storybook -c ./.storybook",
     "lerna:publish": "lerna publish --conventional-commits --yes --skip-npm",
     "postlerna:publish": "lerna run publish:custom"
   },
