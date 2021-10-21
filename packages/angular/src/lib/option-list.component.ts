@@ -1,15 +1,16 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
   Output,
   EventEmitter,
   HostBinding,
   forwardRef,
-} from "@angular/core";
+} from '@angular/core';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
-} from "@angular/forms";
+} from '@angular/forms';
 
 export interface IOpOptionListOption<T> {
   value:T;
@@ -33,21 +34,22 @@ export type IOpOptionListValue<T> = T|null;
     useExisting: forwardRef(() => OpOptionListComponent),
     multi: true,
   }],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OpOptionListComponent<T> implements ControlValueAccessor {
   @HostBinding('class.op-option-list') className = true;
 
   /**
-   * This is an array of available options, each one of them will be rendered as a radio button item. 
+   * This is an array of available options, each one of them will be rendered as a radio button item.
    * It is a list of options, of which each has the following fields:
    */
   @Input() options:IOpOptionListOption<T>[] = [];
-  
+
   /**
    * This sets the input name. Usually you will not need this, but sometimes you might want to set the name explicitly
    */
   @Input() name = `op-option-list-${+(new Date())}`;
-  
+
   /**
    * Emits when the selected value has changed
    */
@@ -87,31 +89,31 @@ export class OpOptionListComponent<T> implements ControlValueAccessor {
   /**
    * @ignore
    */
-  onChange = (_:IOpOptionListValue<T>) => {};
+  onChange = (_:IOpOptionListValue<T>):void => {};
 
   /**
    * @ignore
    */
-  onTouched = (_:IOpOptionListValue<T>) => {};
+  onTouched = (_:IOpOptionListValue<T>):void => {};
 
   /**
    * @ignore
    */
-  writeValue(value:IOpOptionListValue<T>) {
+  writeValue(value:IOpOptionListValue<T>):void {
     this._selected = value;
   }
 
   /**
    * @ignore
    */
-  registerOnChange(fn:any) {
+  registerOnChange(fn:() => void):void {
     this.onChange = fn;
   }
 
   /**
    * @ignore
    */
-  registerOnTouched(fn:any) {
+  registerOnTouched(fn:() => void):void {
     this.onTouched = fn;
   }
 }
