@@ -1,39 +1,50 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import tokens from '../packages/styles/tokens/dist/tokens.json';
+import { rows, cols } from './shadows-data.jsx';
 
-const cols = ['Low', 'Mid', 'High'];
-const rows = ['Light', 'Dark'];
-
-export const ShadowsPreview = ({ tokens }) => <table className="shadows">
+export const ShadowsTable = ({ tokens }) => (<table className="shadows">
   <tr>
     <td></td>
-    {cols.map((col) => <td>{col}</td>}
+    {cols.map((col) => <td>{col}</td>)}
   </tr>
-
-  {rows.map((row) => {
-    const name = `sh-${row.toLowerCase()}-${col.toLowerCase()}`;
-    return <tr>
+  {rows
+    .map((row) => (<tr>
       <td>{row}</td>
-      {cols.map((col) => <td style={{ 'box-shadow': tokens[name] }}>
-        <div className="shadows--name">{name}</div>
-        <div className="shadows--value">{tokens[name]}</div>
-      </td>)}
-    </tr>;
-  })}
-</table>
+      {cols
+        .map((col) => `sh-${row.toLowerCase()}-${col.toLowerCase()}`)
+        .map((name) => (<td>
+          <div class="shadows--preview" style={{ 'box-shadow': tokens[name] }}>
+            <div className="shadows--name">{name}</div>
+            <div className="shadows--value">{tokens[name]}</div>
+          </div>
+        </td>))
+      }
+    </tr>))
+  }
+</table>);
+
 
 <Meta title="Tokens/Shadows" />
 
 # Shadows
 
-<ShadowsPreview tokens={tokens} />
+<ShadowsTable tokens={tokens} />
 
 <style>
 {`
 .shadows {
-  display: flex;
-  flex-wrap: wrap;
   margin-right: -1rem;
+}
+
+.shadows tr,
+.shadows td {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.shadows td {
+  padding: 2rem !important;
+  text-align: center;
 }
 
 .shadows--spacing {
@@ -49,9 +60,10 @@ export const ShadowsPreview = ({ tokens }) => <table className="shadows">
 }
 
 .shadows--preview {
-  background-color: #507193;
+  border-radius: 3px;
   flex-shrink: 1;
   flex-basis: 100%;
+  padding: 1rem;
 }
 
 .shadows--name {
@@ -59,8 +71,9 @@ export const ShadowsPreview = ({ tokens }) => <table className="shadows">
   padding: 0.3rem;
 }
 
-.colors--value {
+.shadows--value {
   padding: 0.3rem;
+  white-space: nowrap;
 }
 `}
 </style>

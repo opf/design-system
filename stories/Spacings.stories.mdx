@@ -1,7 +1,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import tokens from '../packages/styles/tokens/dist/tokens.json';
 
-export const SpacingPreview = ({ tokens }) => <div className="spacings">
+<Meta title="Tokens/Spacings" />
+
+# Spacings
+
+<div className="spacings">
   {Object.keys(tokens)
   .filter(key => key.startsWith('s-'))
   .map(key => ({
@@ -24,11 +28,6 @@ export const SpacingPreview = ({ tokens }) => <div className="spacings">
   ))}
 </div>
 
-<Meta title="Tokens/Spacings" />
-
-# Spacings
-
-<SpacingPreview tokens={tokens} />
 
 <style>
 {`
@@ -61,7 +60,7 @@ export const SpacingPreview = ({ tokens }) => <div className="spacings">
   padding: 0.3rem;
 }
 
-.colors--value {
+.spacings--value {
   padding: 0.3rem;
 }
 `}
