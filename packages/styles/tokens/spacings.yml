@@ -1,6 +1,46 @@
 props:
-  s-m:
+  s-1:
+    value: "0.25rem"
+  s-2:
+    value: "0.5rem"
+  s-3:
+    value: "0.75rem"
+  s-4:
     value: "1rem"
+  s-5:
+    value: "1.25rem"
+  s-6:
+    value: "1.5rem"
+  s-7:
+    value: "1.75rem"
+  s-8:
+    value: "2rem"
+  s-9:
+    value: "2.25rem"
+  s-10:
+    value: "2.5rem"
+  s-11:
+    value: "3rem"
+  s-13:
+    value: "3.5rem"
+  s-14:
+    value: "4rem"
+  s-15:
+    value: "4.5rem"
+  s-16:
+    value: "5rem"
+  s-17:
+    value: "5.5rem"
+  s-18:
+    value: "6rem"
+  s-19:
+    value: "7rem"
+  s-20:
+    value: "8rem"
+  s-21:
+    value: "9rem"
+  s-22:
+    value: "10rem"
 
 global:
   type: spacing
