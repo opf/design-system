@@ -1,0 +1,66 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import tokens from '../packages/styles/tokens/dist/tokens.json';
+
+const cols = ['Low', 'Mid', 'High'];
+const rows = ['Light', 'Dark'];
+
+export const ShadowsPreview = ({ tokens }) => <table className="shadows">
+  <tr>
+    <td></td>
+    {cols.map((col) => <td>{col}</td>}
+  </tr>
+
+  {rows.map((row) => {
+    const name = `sh-${row.toLowerCase()}-${col.toLowerCase()}`;
+    return <tr>
+      <td>{row}</td>
+      {cols.map((col) => <td style={{ 'box-shadow': tokens[name] }}>
+        <div className="shadows--name">{name}</div>
+        <div className="shadows--value">{tokens[name]}</div>
+      </td>)}
+    </tr>;
+  })}
+</table>
+
+<Meta title="Tokens/Shadows" />
+
+# Shadows
+
+<ShadowsPreview tokens={tokens} />
+
+<style>
+{`
+.shadows {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1rem;
+}
+
+.shadows--spacing {
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.shadows--spacing > * {
+  flex-basis: 30%;
+}
+
+.shadows--preview {
+  background-color: #507193;
+  flex-shrink: 1;
+  flex-basis: 100%;
+}
+
+.shadows--name {
+  font-weight: bold;
+  padding: 0.3rem;
+}
+
+.colors--value {
+  padding: 0.3rem;
+}
+`}
+</style>

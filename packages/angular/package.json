@@ -1,5 +1,5 @@
 {
-  "name": "@openproject/angular",
+  "name": "@openproject/spot-angular",
   "version": "0.0.1-alpha.10",
   "description": "OpenProject design system Angular blocks",
   "license": "GPL-3.0",
@@ -9,10 +9,10 @@
   ],
   "scripts": {
     "ng": "ng",
-    "start": "ng serve @openproject/angular",
+    "start": "ng serve @openproject/spot-angular",
     "dev": "npm run watch",
-    "build": "ng build @openproject/angular",
-    "watch": "ng build @openproject/angular --watch --configuration development",
+    "build": "ng build @openproject/spot-angular",
+    "watch": "ng build @openproject/spot-angular --watch --configuration development",
     "ngcc.dist": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points -t ./dist",
     "publish:custom": "ng-packagr -p ng-package.json && npm publish dist",
     "test": "ng test"
@@ -20,7 +20,7 @@
   "peerDependencies": {
     "@angular/common": "^12.0.4",
     "@angular/core": "^12.0.4",
-    "@openproject/styles": "^0.0.1-alpha.8"
+    "@openproject/spot-styles": "^0.0.1-alpha.8"
   },
   "dependencies": {
     "tslib": "^2.1.0"

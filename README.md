@@ -11,8 +11,8 @@ This is a basic monorepo scaffolding for all OpenProject design system developme
 
 To start using this is your projects, install one of the following packages:
 
-* `@openproject/angular`
-* `@openproject/styles`
+* `@openproject/spot-angular`
+* `@openproject/spot-styles`
 
 ## Using the styles
 
@@ -20,10 +20,10 @@ You can import either all styles or just specific ones into your sass builds:
 
 ```
 // All styles
-@import '@openproject/styles/src/index.sass`
+@import '@openproject/spot-styles/src/index.sass`
 
 // or for one specific block
-@import '@openproject/styles/src/option-list.sass`
+@import '@openproject/spot-styles/src/option-list.sass`
 ```
 
 ## Using the angular code
@@ -32,7 +32,7 @@ Though all components are exported directly, usually you want to import their mo
 
 ```
 import { NgModule } from '@angular/core';
-import { OpOptionListModule } from '@openproject/angular';
+import { OpOptionListModule } from '@openproject/spot-angular';
 
 @NgModule({
   imports: [

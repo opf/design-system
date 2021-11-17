@@ -3,8 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@openproject/angular": [ "packages/angular/dist" ],
-      "@openproject/angular/*": [ "packages/angular/dist/*" ],
+      "@openproject/spot-angular": [ "packages/angular/dist" ],
+      "@openproject/spot-angular/*": [ "packages/angular/dist/*" ],
       "@angular/*": [ "./node_modules/@angular/*" ]
     },
     "baseUrl": "./",

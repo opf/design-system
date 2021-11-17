@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "packages",
   "projects": {
-    "@openproject/angular": {
+    "@openproject/spot-angular": {
       "projectType": "library",
       "root": "packages/angular",
       "sourceRoot": "packages/angular/src",
@@ -36,5 +36,5 @@
       }
     },
   },
-  "defaultProject": "@openproject/angular"
+  "defaultProject": "@openproject/spot-angular"
 }
