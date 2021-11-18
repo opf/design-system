@@ -1,28 +1,45 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 
+
 <Meta title="Typography" />
 
 # Typography
 
-<Canvas>
+For now only basic typography styles are available. You can use them as mixins wherever they are needed.
 
-  <h1 class="spot-header-big">.spot-header-big</h1>
+The mixins all accept two arguments; `$font-weight` and `$font-style`. The weight defaults to bold for headers and normal for body and caption. The style is defaulted to normal for all. 
 
-  <h2 class="spot-header-small">.spot-header-small</h2>
+## Header big
+```
+@include spot-header-big($weight: bold, $style: normal)
+```
 
-  <h3 class="spot-subheader-big">.spot-subheader-big</h3>
+## Header small
+```
+@include spot-header-small($weight: bold, $style: normal)
+```
 
-  <h4 class="spot-subheader-small">.spot-subheader-small</h4>
+## Subheader big
+```
+@include spot-subheader-big($weight: bold, $style: normal)
+```
 
-  <p class="spot-body-big">.spot-body-big</p>
+## Subheader small
+```
+@include spot-subheader-small($weight: bold, $style: normal)
+```
 
-  <p class="spot-body-small">.spot-body-small</p>
+## Body big
+```
+@include spot-body-big($weight: normal, $style: normal)
+```
 
-  <p class="spot-caption">.spot-caption</p>
+## Body small
+```
+@include spot-body-small($weight: normal, $style: normal)
+```
 
-</Canvas>
-
-<style>
-{`
-`}
-</style>
+## Caption
+```
+@include spot-caption($weight: normal, $style: normal)
+```
