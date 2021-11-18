@@ -2,7 +2,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import tokens from '../packages/styles/tokens/dist/tokens.json';
 
 export const ColorsPreview = ({ tokens }) => <div className="colors">
-  {Object.keys(tokens).filter(key => key.startsWith('c-')).map(name => (
+  {Object.keys(tokens).filter(key => key.startsWith('spot-c-')).map(name => (
     <div
       className="colors--color"
       key={name}
@@ -11,7 +11,7 @@ export const ColorsPreview = ({ tokens }) => <div className="colors">
         className="colors--preview"
         style={{ 'backgroundColor': tokens[name] }}
       />
-      <div className="colors--name">{name}</div>
+      <div className="colors--name">${name}</div>
       <div className="colors--value">{tokens[name]}</div>
     </div>
   ))}

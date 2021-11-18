@@ -3,24 +3,29 @@ import tokens from '../packages/styles/tokens/dist/tokens.json';
 import { rows, cols } from './shadows-data.jsx';
 
 export const ShadowsTable = ({ tokens }) => (<table className="shadows">
-  <tr>
-    <td></td>
-    {cols.map((col) => <td>{col}</td>)}
-  </tr>
-  {rows
-    .map((row) => (<tr>
-      <td>{row}</td>
-      {cols
-        .map((col) => `sh-${row.toLowerCase()}-${col.toLowerCase()}`)
-        .map((name) => (<td>
-          <div class="shadows--preview" style={{ 'box-shadow': tokens[name] }}>
-            <div className="shadows--name">{name}</div>
-            <div className="shadows--value">{tokens[name]}</div>
-          </div>
-        </td>))
-      }
-    </tr>))
-  }
+  <tbody>
+    <tr>
+      <td></td>
+      {cols.map((col) => <td key={col}>{col}</td>)}
+    </tr>
+    {rows
+      .map((row) => (<tr key={row}>
+        <td>{row}</td>
+        {cols
+          .map((col) => `spot-sh-${row.toLowerCase()}-${col.toLowerCase()}`)
+          .map((name) => (<td key={name}>
+            <div
+              class="shadows--preview"
+              style={{ 'boxShadow': tokens[name] }}
+            >
+              <div className="shadows--name">${name}</div>
+              <div className="shadows--value">{tokens[name]}</div>
+            </div>
+          </td>))
+        }
+      </tr>))
+    }
+  </tbody>
 </table>);
 
 

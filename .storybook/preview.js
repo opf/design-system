@@ -22,7 +22,12 @@ export const parameters = {
         'Design Principles',
         'Patterns',
         'Tokens',
-        [ 'Colors' ],
+        'Typography',
+        [
+          'Colors',
+          'Spacings',
+          'Shadows',
+        ],
         'Components',
         [ 'OptionList' ],
       ],

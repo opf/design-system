@@ -7,7 +7,7 @@ import tokens from '../packages/styles/tokens/dist/tokens.json';
 
 <div className="spacings">
   {Object.keys(tokens)
-  .filter(key => key.startsWith('s-'))
+  .filter(key => key.startsWith('spot-s-'))
   .map(key => ({
     i: parseInt(key.split('-')[1], 10),
     name: key,
@@ -18,7 +18,7 @@ import tokens from '../packages/styles/tokens/dist/tokens.json';
       className="spacings--spacing"
       key={name}
     >
-      <div className="spacings--name">{name}</div>
+      <div className="spacings--name">${name}</div>
       <div className="spacings--value">{tokens[name]}</div>
       <div
         className="spacings--preview"
