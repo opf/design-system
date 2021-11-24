@@ -1,16 +1,16 @@
 props:
-  spot-sh-light-low:
+  spot-shadow-light-low:
     value: "2px 2px 5px rgba(0, 0, 0, 0.15)"
-  spot-sh-light-mid:
+  spot-shadow-light-mid:
     value: "4px 4px 10px rgba(0, 0, 0, 0.15)"
-  spot-sh-light-high:
+  spot-shadow-light-high:
     value: "6px 6px 20px rgba(0, 0, 0, 0.15)"
 
-  spot-sh-hard-low:
+  spot-shadow-hard-low:
     value: "2px 2px 5px rgba(0, 0, 0, 0.25)"
-  spot-sh-hard-mid:
+  spot-shadow-hard-mid:
     value: "4px 4px 10px rgba(0, 0, 0, 0.25)"
-  spot-sh-hard-high:
+  spot-shadow-hard-high:
     value: "6px 6px 20px rgba(0, 0, 0, 0.25)"
 
 global:

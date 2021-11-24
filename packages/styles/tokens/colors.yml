@@ -1,19 +1,19 @@
 props:
-  spot-c-foreground:
+  spot-color-foreground:
     value: "#000000"
-  spot-c-foreground-disabled:
+  spot-color-foreground-disabled:
     value: "#959595"
 
-  spot-c-background:
+  spot-color-background:
     value: "#ffffff"
 
-  spot-c-box-border:
+  spot-color-box-border:
     value: "#cbd5e0"
-  spot-c-box-background:
+  spot-color-box-background:
     value: "#f7fafc"
-  spot-c-box-selected-border:
+  spot-color-box-selected-border:
     value: "#90cdf4"
-  spot-c-box-selected-background:
+  spot-color-box-selected-background:
     value: "#ebf8ff"
 
 global:

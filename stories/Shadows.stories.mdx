@@ -12,7 +12,7 @@ export const ShadowsTable = ({ tokens }) => (<table className="shadows">
       .map((row) => (<tr key={row}>
         <td>{row}</td>
         {cols
-          .map((col) => `spot-sh-${row.toLowerCase()}-${col.toLowerCase()}`)
+          .map((col) => `spot-shadow-${row.toLowerCase()}-${col.toLowerCase()}`)
           .map((name) => (<td key={name}>
             <div
               class="shadows--preview"

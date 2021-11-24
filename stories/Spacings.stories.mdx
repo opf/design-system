@@ -7,7 +7,7 @@ import tokens from '../packages/styles/tokens/dist/tokens.json';
 
 <div className="spacings">
   {Object.keys(tokens)
-  .filter(key => key.startsWith('spot-s-'))
+  .filter(key => key.startsWith('spot-spacing-'))
   .map(key => ({
     i: parseInt(key.split('-')[1], 10),
     name: key,
