@@ -38,7 +38,7 @@ jobs:
 
           # Add CORE_VERSION file
           cd core
-          TZ=UTC git log "core/$REF" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
+          TZ=UTC git log "$REF" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
           cd ../
           git add ./config/CORE_VERSION
 
