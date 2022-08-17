@@ -22,7 +22,7 @@ jobs:
 
       - name: Clone core and build storybook
         env:
-          REF: ${{ inputs.sha }}
+          REF: ${{ inputs.ref }}
           SSH_KEY: ${{ secrets.OPENPROJECT_CI_SSH_KEY }}
         run: |
           # Setup git to be able to clone and merge
