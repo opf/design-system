@@ -32,23 +32,23 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
 
           # Clone the repository and checkout the right branch
+          echo "Checking out $REF from the github.com/opf/openproject repository"
           git clone --single-branch -b "$REF" https://github.com/opf/openproject core
+
+          # Add CORE_VERSION file
           cd core
-          git checkout "$REF"
+          TZ=UTC git log "core/$REF" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
+          git add config/CORE_VERSION
+          cd ../
 
           # Install dependencies and build storybook
-          cd frontend
+          cd core/frontend
           npm ci
           touch ./src/app/features/plugins/linked-plugins.styles.sass
           npm run storybook:build
-
-          # Add CORE_VERSION file
-          cd ../
-          TZ=UTC git log "core/$REF" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
-          git add config/CORE_VERSION
+          cd ../../
 
           # Copy the static files over and commit them
-          cd ../
           cp -r core/frontend/storybook-static ./docs
           git add ./docs
           DATE=$(date)
