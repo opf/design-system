@@ -31,10 +31,9 @@ jobs:
 
           # Clone the repository and checkout the right branch
           BRANCH="${REF/refs\/heads\//}"
-          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
           git clone --single-branch -b "$BRANCH" https://github.com/opf/openproject core
           cd core
-          git checkout "${{ env.BRANCH }}"
+          git checkout "$BRANCH"
 
           # Install dependencies and build storybook
           cd frontend
@@ -44,7 +43,7 @@ jobs:
 
           # Add CORE_VERSION file
           cd ../
-          TZ=UTC git log "core/${{ env.BRANCH }}" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
+          TZ=UTC git log "core/$BRANCH" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
           git add config/CORE_VERSION
 
           # Copy the static files over and commit them
@@ -52,5 +51,5 @@ jobs:
           cp -r core/frontend/storybook-static ./docs
           git add ./docs
           DATE=$(date)
-          git commit -m "[$DATE] Latest storybook from ${{ env.BRANCH }}"
+          git commit -m "[$DATE] Latest storybook from $BRANCH"
           git push
