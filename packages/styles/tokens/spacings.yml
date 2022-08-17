@@ -1,7 +1,0 @@
-props:
-  s-m:
-    value: "1rem"
-
-global:
-  type: spacing
-  category: spacings

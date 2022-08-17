@@ -6,3 +6,4 @@ node_modules
 storybook-static
 dist
 lerna-debug.log
+core
