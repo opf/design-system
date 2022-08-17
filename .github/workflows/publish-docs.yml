@@ -4,6 +4,11 @@ on:
     branches:
       - dev
       - release/*
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: "Upstream sha"
+        required: false
 
 jobs:
   merge:
