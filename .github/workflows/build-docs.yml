@@ -52,6 +52,8 @@ jobs:
           cd core
           git checkout "${{ env.BRANCH }}"
 
+          cp ./config/database.yml.example ./config/database.yml
+
           # Install dependencies and build storybook
           bundle install --path /tmp/bundle-cache
           bundle exec rake openproject:plugins:register_frontend
