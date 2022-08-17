@@ -62,7 +62,7 @@ jobs:
           # Copy the static files over and commit them
           cd ../
           cp -r core/frontend/storybook-static ./docs
-          git add .
+          git add ./docs
           DATE=$(date)
           git commit -m "[$DATE] Latest storybook from $BRANCH"
           git push
