@@ -22,7 +22,7 @@ jobs:
 
       - name: Clone core and build storybook
         env:
-          REF: ${{ inputs.ref }}
+          REMOTE_REF: ${{ inputs.ref }}
           SSH_KEY: ${{ secrets.OPENPROJECT_CI_SSH_KEY }}
         run: |
           # Setup git to be able to clone and merge
@@ -32,6 +32,7 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
 
           # Clone the repository and checkout the right branch
+          REF=${REMOTE_REF/refs\/heads\//}
           echo "Checking out $REF from the github.com/opf/openproject repository"
           git clone --single-branch -b "$REF" https://github.com/opf/openproject core
 
