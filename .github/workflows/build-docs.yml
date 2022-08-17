@@ -2,9 +2,11 @@ name: build-docs
 on:
   workflow_dispatch:
     inputs:
-      sha:
-        description: "Upstream sha"
+      ref:
+        description: "Upstream sha to build"
         required: false
+        default: "dev"
+        type: "string"
 
 jobs:
   build-docs:
@@ -20,7 +22,7 @@ jobs:
 
       - name: Clone core and build storybook
         env:
-          REF: ${{ github.ref }}
+          REF: ${{ inputs.sha }}
           SSH_KEY: ${{ secrets.OPENPROJECT_CI_SSH_KEY }}
         run: |
           # Setup git to be able to clone and merge
@@ -30,10 +32,9 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
 
           # Clone the repository and checkout the right branch
-          BRANCH="${REF/refs\/heads\//}"
-          git clone --single-branch -b "$BRANCH" https://github.com/opf/openproject core
+          git clone --single-branch -b "$REF" https://github.com/opf/openproject core
           cd core
-          git checkout "$BRANCH"
+          git checkout "$REF"
 
           # Install dependencies and build storybook
           cd frontend
@@ -43,7 +44,7 @@ jobs:
 
           # Add CORE_VERSION file
           cd ../
-          TZ=UTC git log "core/$BRANCH" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
+          TZ=UTC git log "core/$REF" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
           git add config/CORE_VERSION
 
           # Copy the static files over and commit them
@@ -51,5 +52,5 @@ jobs:
           cp -r core/frontend/storybook-static ./docs
           git add ./docs
           DATE=$(date)
-          git commit -m "[$DATE] Latest storybook from $BRANCH"
+          git commit -m "[$DATE] Latest storybook from $REF"
           git push
