@@ -18,13 +18,6 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.ref }}
 
-      - name: Restore caches
-        uses: actions/cache@v2
-        with:
-          path: |
-            /tmp/bundle-cache
-          key: ${{ runner.os }}-bundle-cache-${{ steps.rbenv.outputs.RUBY_VERSION }}
-
       - name: Clone core and build storybook
         env:
           REF: ${{ github.ref }}
@@ -40,24 +33,10 @@ jobs:
           BRANCH="${REF/refs\/heads\//}"
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
           git clone --single-branch -b "$BRANCH" https://github.com/opf/openproject core
-          cp core/.ruby-version .
-
-      # We split this up and only setup ruby afterwards in case .ruby-version changed during the merge.
-      # Otherwise `bundle install` might be running with an out-of-date Ruby version.
-      - name: Setup ruby
-        uses: ruby/setup-ruby@v1
-
-      - name: Clone core and build storybook
-        run: |
           cd core
           git checkout "${{ env.BRANCH }}"
 
-          cp ./config/database.yml.example ./config/database.yml
-
           # Install dependencies and build storybook
-          bundle install --path /tmp/bundle-cache
-          bundle exec rake openproject:plugins:register_frontend
-          bundle exec rake i18n:js:export
           cd frontend
           npm ci
           touch ./src/app/features/plugins/linked-plugins.styles.sass
