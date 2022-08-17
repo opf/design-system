@@ -1,0 +1,68 @@
+name: SPOT/Publish
+on:
+  push:
+    branches:
+      - dev
+      - release/*
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout design-system repository
+        uses: actions/checkout@v2
+        with:
+          # full history required
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+
+      - name: Restore caches
+        uses: actions/cache@v2
+        with:
+          path: |
+            /tmp/bundle-cache
+          key: ${{ runner.os }}-bundle-cache-${{ steps.rbenv.outputs.RUBY_VERSION }}
+
+      # We split this up and only setup ruby afterwards in case .ruby-version changed during the merge.
+      # Otherwise `bundle install` might be running with an out-of-date Ruby version.
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Clone core and build storybook
+        env:
+          REF: ${{ github.ref }}
+          SSH_KEY: ${{ secrets.OPENPROJECT_CI_SSH_KEY }}
+        run: |
+          # Setup git to be able to clone and merge
+          git config --global user.name "OpenProject CI"
+          git config --global user.email "operations+openprojectci@openproject.com"
+          mkdir -p ~/.ssh && chmod 0700 ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+
+          # Clone the repository and checkout the right branch
+          BRANCH="${REF/refs\/heads\//}"
+          git clone --single-branch -b "$BRANCH" https://github.com/opf/openproject core
+          cd core
+          git checkout "$BRANCH"
+
+          # Install dependencies and build storybook
+          bundle exec rake openproject:plugins:register_frontend
+          bundle exec rake i18n:js:export
+          cd frontend
+          npm ci
+          touch ./src/app/features/plugins/linked-plugins.styles.sass
+          npm run storybook:build
+
+          # Add CORE_VERSION file
+          cd ../
+          TZ=UTC git log core/$BRANCH --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
+          git add config/CORE_VERSION
+
+          # Copy the static files over and commit them
+          cd ../
+          cp -r core/frontend/storybook-static ./docs
+          git add .
+          DATE=$(date)
+          git commit -m "[$DATE] Latest storybook from $BRANCH"
+          git push
