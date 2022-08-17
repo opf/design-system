@@ -53,6 +53,7 @@ jobs:
           git checkout "${{ env.BRANCH }}"
 
           # Install dependencies and build storybook
+          bundle install --path /tmp/bundle-cache
           bundle exec rake openproject:plugins:register_frontend
           bundle exec rake i18n:js:export
           cd frontend
