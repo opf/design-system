@@ -25,11 +25,6 @@ jobs:
             /tmp/bundle-cache
           key: ${{ runner.os }}-bundle-cache-${{ steps.rbenv.outputs.RUBY_VERSION }}
 
-      # We split this up and only setup ruby afterwards in case .ruby-version changed during the merge.
-      # Otherwise `bundle install` might be running with an out-of-date Ruby version.
-      - name: Setup ruby
-        uses: ruby/setup-ruby@v1
-
       - name: Clone core and build storybook
         env:
           REF: ${{ github.ref }}
@@ -43,9 +38,19 @@ jobs:
 
           # Clone the repository and checkout the right branch
           BRANCH="${REF/refs\/heads\//}"
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
           git clone --single-branch -b "$BRANCH" https://github.com/opf/openproject core
+          cp core/.ruby-version .
+
+      # We split this up and only setup ruby afterwards in case .ruby-version changed during the merge.
+      # Otherwise `bundle install` might be running with an out-of-date Ruby version.
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Clone core and build storybook
+        run: |
           cd core
-          git checkout "$BRANCH"
+          git checkout "${{ env.BRANCH }}"
 
           # Install dependencies and build storybook
           bundle exec rake openproject:plugins:register_frontend
@@ -57,7 +62,7 @@ jobs:
 
           # Add CORE_VERSION file
           cd ../
-          TZ=UTC git log core/$BRANCH --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
+          TZ=UTC git log "core/${{ env.BRANCH }}" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
           git add config/CORE_VERSION
 
           # Copy the static files over and commit them
@@ -65,5 +70,5 @@ jobs:
           cp -r core/frontend/storybook-static ./docs
           git add ./docs
           DATE=$(date)
-          git commit -m "[$DATE] Latest storybook from $BRANCH"
+          git commit -m "[$DATE] Latest storybook from ${{ env.BRANCH }}"
           git push
