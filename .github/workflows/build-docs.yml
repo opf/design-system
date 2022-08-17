@@ -1,9 +1,5 @@
-name: SPOT/Publish
+name: build-docs
 on:
-  push:
-    branches:
-      - dev
-      - release/*
   workflow_dispatch:
     inputs:
       sha:
@@ -11,7 +7,7 @@ on:
         required: false
 
 jobs:
-  merge:
+  build-docs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
