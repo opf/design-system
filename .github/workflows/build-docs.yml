@@ -46,8 +46,8 @@ jobs:
           cd core/frontend
           npm ci
           touch ./src/app/features/plugins/linked-plugins.styles.sass
-          cp frontend/src/app/features/plugins/linked-plugins.module.ts.example \
-             frontend/src/app/features/plugins/linked-plugins.module.ts
+          cp ./src/app/features/plugins/linked-plugins.module.ts.example \
+             ./src/app/features/plugins/linked-plugins.module.ts
           npm run storybook:build
           cd ../../
 
