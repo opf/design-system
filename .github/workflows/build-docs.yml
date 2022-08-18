@@ -2,9 +2,11 @@ name: build-docs
 on:
   workflow_dispatch:
     inputs:
-      sha:
-        description: "Upstream sha"
+      ref:
+        description: "Upstream sha to build"
         required: false
+        default: "dev"
+        type: "string"
 
 jobs:
   build-docs:
@@ -20,7 +22,7 @@ jobs:
 
       - name: Clone core and build storybook
         env:
-          REF: ${{ github.ref }}
+          REMOTE_REF: ${{ inputs.ref }}
           SSH_KEY: ${{ secrets.OPENPROJECT_CI_SSH_KEY }}
         run: |
           # Setup git to be able to clone and merge
@@ -30,26 +32,28 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
 
           # Clone the repository and checkout the right branch
-          BRANCH="${REF/refs\/heads\//}"
-          git clone --single-branch -b "$BRANCH" https://github.com/opf/openproject core
-          cd core
-          git checkout "$BRANCH"
-
-          # Install dependencies and build storybook
-          cd frontend
-          npm ci
-          touch ./src/app/features/plugins/linked-plugins.styles.sass
-          npm run storybook:build
+          REF=${REMOTE_REF/refs\/heads\//}
+          echo "Checking out $REF from the github.com/opf/openproject repository"
+          git clone --single-branch -b "$REF" https://github.com/opf/openproject core
 
           # Add CORE_VERSION file
+          cd core
+          TZ=UTC git log "$REF" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
           cd ../
-          TZ=UTC git log "core/$BRANCH" --pretty=format:'%h (%cd)%n' --date=iso-local -n 1 > ../config/CORE_VERSION
-          git add config/CORE_VERSION
+          git add ./config/CORE_VERSION
+
+          # Install dependencies and build storybook
+          cd core/frontend
+          npm ci
+          touch ./src/app/features/plugins/linked-plugins.styles.sass
+          cp ./src/app/features/plugins/linked-plugins.module.ts.example \
+             ./src/app/features/plugins/linked-plugins.module.ts
+          npm run storybook:build
+          cd ../../
 
           # Copy the static files over and commit them
-          cd ../
           cp -r core/frontend/storybook-static ./docs
           git add ./docs
           DATE=$(date)
-          git commit -m "[$DATE] Latest storybook from $BRANCH"
+          git commit -m "[$DATE] Latest storybook from $REF"
           git push
