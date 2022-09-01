@@ -52,6 +52,7 @@ jobs:
           cd ../../
 
           # Copy the static files over and commit them
+          rm -rf ./docs
           cp -r core/frontend/storybook-static ./docs
           git add ./docs
           DATE=$(date)
