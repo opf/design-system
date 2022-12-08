@@ -11386,7 +11386,9 @@ form .form--select-container {
   }
   .-browser-safari select,
 .-browser-safari textarea,
-.-browser-safari input {
+.-browser-safari input, .-browser-chrome select,
+.-browser-chrome textarea,
+.-browser-chrome input {
     font-size: 16px !important;
   }
 }
@@ -20953,7 +20955,7 @@ div.flash.notice a.link_to_profile:hover {
   left: 1rem;
   right: 1rem;
   width: calc(100vw - (2 * 1rem));
-  max-height: calc(var(--app-height) - (3.5rem + 1rem));
+  height: calc(var(--app-height) - (3.5rem + 1rem));
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
   background: rgb(255, 255, 255);
   border-radius: 5px;
