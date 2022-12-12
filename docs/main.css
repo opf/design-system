@@ -14329,12 +14329,6 @@ ul.work-package-details-activities-messages li:last-child {
 .op-tab-content--tab-section .op-files-tab--storage-info-box:not(:last-child) {
   margin-bottom: 1rem;
 }
-.op-tab-content--tab-section .op-file-list--actions {
-  margin-top: 0.75rem;
-}
-.op-tab-content--tab-section .op-file-list--actions > .op-file-list--action-button:not(:first-child) {
-  margin-left: 1rem;
-}
 .op-tab-content--header {
   border-bottom: 1px solid #ddd;
   padding-bottom: 0.75rem;
@@ -14361,9 +14355,6 @@ ul.work-package-details-activities-messages li:last-child {
   line-height: 1rem;
   margin-left: 0.25rem;
 }
-.op-file-list {
-  margin-bottom: 0.75rem;
-}
 .op-file-list--item-action {
   text-decoration: none;
 }
@@ -14379,12 +14370,12 @@ ul.work-package-details-activities-messages li:last-child {
   font-weight: normal;
   font-style: normal;
   line-height: 1.25rem;
-  word-break: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
   white-space: nowrap;
+  word-break: normal;
   padding-right: 0.5rem;
 }
 .op-file-list--item-text {
@@ -14450,6 +14441,116 @@ ul.work-package-details-activities-messages li:last-child {
     height: 50vh;
     max-height: 32rem;
   }
+}
+/**
+ * * Ensure you're exposing only mixins and sass stuff here
+ * * as all CSS output will be duplicated in EVERY component
+ * * importing these helpers!
+ * */
+.cdk-drag-preview {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10000 !important;
+}
+.op-file-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.op-file-section--actions {
+  font-family: Lato, sans-serif;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.25rem;
+  margin-top: 0.75rem;
+}
+.op-file-section--actions > :not(:last-child) {
+  margin-right: 0.5rem;
+}
+.op-file-section--drop-box {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.75rem;
+  border: 2px dashed var(--light-gray);
+  border-radius: 2px;
+  padding: 20px;
+  cursor: pointer;
+  color: var(--light-gray);
+  background: rgba(255, 255, 255, 0.9);
+}
+.op-file-section--drop-box_float {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: transparent;
+  border: 0;
+}
+.op-file-section--drop-box_float::after, .op-file-section--drop-box_float::before {
+  display: block;
+  content: "";
+  position: absolute;
+}
+.op-file-section--drop-box_float::before {
+  top: -0.75rem;
+  height: calc(100% + 1.5rem);
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: -2;
+}
+.op-file-section--drop-box_float::after {
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  left: 0.75rem;
+  width: calc(100% - 1.5rem);
+  border: 2px dashed rgb(204, 204, 204);
+  border-radius: 2px;
+}
+.op-file-section--drop-box_dragging {
+  display: flex;
+}
+.op-file-section--drop-box_dragging-over::after {
+  background: rgb(243, 243, 243);
+}
+.op-file-section--drop-box_dragging-over:not(.op-file-section--drop-box_float) {
+  background: rgb(243, 243, 243);
+}
+.op-file-section--drop-box-text {
+  cursor: pointer;
+  color: rgb(135, 135, 135);
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0 0 0 0.75rem;
+  text-align: left;
+}
+.op-file-section--drop-box-icon {
+  font-size: 3rem;
+}
+.op-file-section--list_dragging {
+  min-height: 4rem;
+}
+.op-file-section--empty-list-hint {
+  font-family: Lato, sans-serif;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.25rem;
+  margin-top: 0.75rem;
+  color: rgb(135, 135, 135);
 }
 .wp-table--configuration-modal {
   min-height: 120px;
