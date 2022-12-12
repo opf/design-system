@@ -12899,6 +12899,7 @@ h5 {
   white-space: nowrap;
   flex: 0 1 auto;
   padding-right: 0.5rem;
+  width: 100%;
 }
 .attributes-key-value--value-container {
   display: flex;
