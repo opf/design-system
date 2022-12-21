@@ -19050,8 +19050,10 @@ div.flash.notice a.link_to_profile:hover {
   display: flex;
   flex-direction: column;
 }
-.op-menu--item-title {
+.op-menu--item {
   white-space: nowrap;
+}
+.op-menu--item-title {
   font-weight: 400;
   overflow: hidden;
   text-overflow: ellipsis;
