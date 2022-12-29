@@ -13931,6 +13931,18 @@ i.icon-right {
   flex: 1 0 55%;
   max-width: 55%;
 }
+@media screen and (min-width: 92rem), print {
+  .router--work-packages-full-view .attributes-group .wp-attribute-group--attribute_span-all .attributes-key-value--key,
+.router--work-packages-full-create .attributes-group .wp-attribute-group--attribute_span-all .attributes-key-value--key {
+    flex: 1 0 calc((100% - 3rem) * 0.225);
+    max-width: calc((100% - 3rem) * 0.225);
+  }
+  .router--work-packages-full-view .attributes-group .wp-attribute-group--attribute_span-all .attributes-key-value--value-container,
+.router--work-packages-full-create .attributes-group .wp-attribute-group--attribute_span-all .attributes-key-value--value-container {
+    flex: 1 0 calc((100% - 3rem) * 0.775);
+    max-width: calc((100% - 3rem) * 0.775);
+  }
+}
 .work-packages--info-row {
   font-size: 12px;
   padding-top: 1px;
