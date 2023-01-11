@@ -15469,16 +15469,25 @@ ul.work-package-details-activities-messages li:last-child {
   font: inherit;
   text-align: inherit;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 0.75rem;
-  border: 2px dashed var(--light-gray);
-  border-radius: 2px;
+  margin-top: 0.25rem;
   padding: 20px;
   cursor: pointer;
   color: var(--light-gray);
   background: rgba(255, 255, 255, 0.9);
+}
+.op-file-section--drop-box::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  border: 2px dashed rgb(204, 204, 204);
 }
 .op-file-section--drop-box_float {
   display: none;
@@ -15489,7 +15498,6 @@ ul.work-package-details-activities-messages li:last-child {
   width: 100%;
   z-index: 1;
   background: transparent;
-  border: 0;
 }
 .op-file-section--drop-box_float::after, .op-file-section--drop-box_float::before {
   display: block;
@@ -15497,8 +15505,8 @@ ul.work-package-details-activities-messages li:last-child {
   position: absolute;
 }
 .op-file-section--drop-box_float::before {
-  top: -0.75rem;
-  height: calc(100% + 1.5rem);
+  top: 0;
+  height: 100%;
   left: 0;
   width: 100%;
   background: rgba(255, 255, 255, 0.9);
@@ -15506,21 +15514,36 @@ ul.work-package-details-activities-messages li:last-child {
 }
 .op-file-section--drop-box_float::after {
   z-index: -1;
-  top: 0;
-  height: 100%;
-  left: 0.75rem;
-  width: calc(100% - 1.5rem);
+  top: 0.5rem;
+  height: calc(100% - 1rem);
+  left: 0.5rem;
+  width: calc(100% - 1rem);
   border: 2px dashed rgb(204, 204, 204);
-  border-radius: 2px;
 }
 .op-file-section--drop-box_dragging {
   display: flex;
 }
+.op-file-section--drop-box_dragging-over {
+  color: rgb(26, 103, 163);
+}
+.op-file-section--drop-box_dragging-over::before {
+  background: rgba(209, 229, 245, 0.9);
+}
 .op-file-section--drop-box_dragging-over::after {
-  background: rgb(243, 243, 243);
+  border: 2px dashed rgb(26, 103, 163);
 }
 .op-file-section--drop-box_dragging-over:not(.op-file-section--drop-box_float) {
-  background: rgb(243, 243, 243);
+  background: rgba(209, 229, 245, 0.9);
+}
+.op-file-section--drop-box_dragging-over:not(.op-file-section--drop-box_float)::after {
+  top: 0.5rem;
+  height: calc(100% - 1rem);
+  left: 0.5rem;
+  width: calc(100% - 1rem);
+  border: 2px dashed rgb(26, 103, 163);
+}
+.op-file-section--drop-box_dragging-over .op-file-section--drop-box-text {
+  color: rgb(26, 103, 163);
 }
 .op-file-section--drop-box-text {
   cursor: pointer;
