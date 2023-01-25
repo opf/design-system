@@ -15422,6 +15422,7 @@ ul.work-package-details-activities-messages li:last-child {
 
 .op-file-picker--scrollable-content {
   overflow-y: auto;
+  min-height: 5rem;
 }
 @media (max-width: 679px) {
   .op-file-picker.spot-modal {
