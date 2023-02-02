@@ -23236,14 +23236,18 @@ div.flash.notice a.link_to_profile:hover {
 .spot-tooltip--body {
   z-index: 501;
   pointer-events: none;
-  opacity: 0;
-  width: calc(100% - 2rem);
-  left: 1rem;
+  opacity: 0.001;
+  width: 80%;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s;
   position: absolute;
   height: auto;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
   background: rgb(51, 51, 51);
   color: rgb(255, 255, 255);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
@@ -23261,15 +23265,17 @@ div.flash.notice a.link_to_profile:hover {
 .spot-tooltip--body_bottom-left {
   top: 100%;
   left: 1rem;
+  transform: translateY(-10px);
 }
 .spot-tooltip--body_bottom-center {
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-10px);
 }
 .spot-tooltip--body_bottom-right {
   top: 100%;
   right: 1rem;
+  transform: translateY(-10px);
 }
 .spot-tooltip--body_right-top {
   left: 100%;
@@ -23285,15 +23291,17 @@ div.flash.notice a.link_to_profile:hover {
 .spot-tooltip--body_top-left {
   bottom: 100%;
   left: 1rem;
+  transform: translateY(10px);
 }
 .spot-tooltip--body_top-center {
   bottom: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(10px);
 }
 .spot-tooltip--body_top-right {
   bottom: 100%;
   right: 1rem;
+  transform: translateY(10px);
 }
 .spot-tooltip--body .spot-body-small:first-child {
   margin-top: 0.5rem;
@@ -23303,6 +23311,12 @@ div.flash.notice a.link_to_profile:hover {
 }
 .spot-tooltip:hover .spot-tooltip--body {
   opacity: 1;
+}
+.spot-tooltip:hover .spot-tooltip--body_top-left, .spot-tooltip:hover .spot-tooltip--body_top-right, .spot-tooltip:hover .spot-tooltip--body_bottom-left, .spot-tooltip:hover .spot-tooltip--body_bottom-right {
+  transform: translateY(0);
+}
+.spot-tooltip:hover .spot-tooltip--body_top-center, .spot-tooltip:hover .spot-tooltip--body_bottom-center {
+  transform: translateX(-50%) translateY(0);
 }
 .spot-tooltip_light .spot-tooltip--body {
   color: rgb(51, 51, 51);
