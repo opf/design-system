@@ -18777,6 +18777,75 @@ body.widget-grid-layout #content {
   margin-right: 0.5rem;
 }
 
+.op-project-activity-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.op-project-activity-list--item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+  color: rgb(51, 51, 51);
+}
+.op-project-activity-list--item-title {
+  font-family: Lato, sans-serif;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.25rem;
+}
+.op-project-activity-list--item-subtitle {
+  font-family: Lato, sans-serif;
+  font-size: 0.75rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1rem;
+  color: rgb(85, 85, 85);
+  margin-bottom: 0.5rem;
+}
+.op-project-activity-list--item-description {
+  font-family: Lato, sans-serif;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.25rem;
+  color: rgb(85, 85, 85);
+}
+.op-project-activity-list--item-details {
+  font-family: Lato, sans-serif;
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.25rem;
+  list-style-type: disc;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  margin: 0;
+}
+.op-project-activity-list--item-detail:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+.op-project-activity-days {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.op-project-activity-days--header {
+  font-family: Lato, sans-serif;
+  font-size: 0.875rem;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.25rem;
+  padding: 0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: rgb(51, 51, 51);
+}
+
 .menu-blocks--container {
   display: grid;
   grid-template: repeat(auto-fit, 200px)/repeat(auto-fit, 200px);
