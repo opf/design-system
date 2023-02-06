@@ -15451,6 +15451,24 @@ ul.work-package-details-activities-messages li:last-child {
     max-height: 32rem;
   }
 }
+.op-file-picker--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+.op-file-picker--empty-icon {
+  width: 9.5rem;
+  height: 9.5rem;
+  font-size: 5.5rem;
+  margin-bottom: 0.25rem;
+  color: rgb(204, 204, 204);
+}
+.op-file-picker--empty-sub-text {
+  color: rgb(135, 135, 135);
+}
 
 /**
  * * Ensure you're exposing only mixins and sass stuff here
