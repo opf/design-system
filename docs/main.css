@@ -1452,6 +1452,9 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+.grid-block_visible-overflow, .grid-block_visible-overflow .grid-content {
+  overflow: visible;
+}
 
 .grid-content {
   display: block;
@@ -13593,7 +13596,6 @@ h5 {
 .advanced-filters--container {
   padding: 1rem;
   max-height: 50vh;
-  overflow-y: auto;
   position: relative;
   margin: 0 0 10px 0;
 }
@@ -13801,6 +13803,9 @@ h5 {
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
+}
+.attributes-map--value_overflow {
+  overflow: visible;
 }
 
 .attributes-group {
@@ -14639,6 +14644,10 @@ html:not(.-browser-mobile) .wp-table-context-menu-icon:focus {
   display: none;
 }
 
+.wp-table--cell-container.duration, .wp-table--cell-container.startDate, .wp-table--cell-container.dueDate {
+  overflow: visible;
+}
+
 .wp-table--cell-container.startDate {
   padding-left: 24px;
 }
@@ -14705,7 +14714,7 @@ op-editable-attribute-field {
 .inline-edit--container form {
   width: 100%;
 }
-.inline-edit--container input:not([type=checkbox]) {
+.inline-edit--container input:not([type=checkbox]):not(.spot-text-field--input):not(.spot-input) {
   width: 100%;
   height: 24px;
   line-height: 24px;
@@ -14714,7 +14723,7 @@ op-editable-attribute-field {
   color: var(--body-font-color);
   border-radius: 2px;
 }
-.inline-edit--container.-tiny input:not([type=checkbox]) {
+.inline-edit--container.-tiny input:not([type=checkbox]):not(.spot-text-field--input):not(.spot-input) {
   max-width: 100px;
 }
 .inline-edit--container .inline-label .form-label,
@@ -16143,6 +16152,10 @@ wp-timeline-header {
 .generic-table--container.-with-footer {
   padding-bottom: var(--generic-table--footer-height);
 }
+.generic-table--container_visible-overflow,
+.generic-table--container_visible-overflow .generic-table--results-container {
+  overflow: visible;
+}
 
 .generic-table--results-container {
   height: 100%;
@@ -16623,6 +16636,9 @@ td.hours {
 }
 td.hours .hours-dec {
   font-size: 0.9em;
+}
+td .date .spot-drop-modal {
+  display: block;
 }
 
 th.hidden {
@@ -17629,7 +17645,7 @@ form.project-filters .advanced-filters--filter-value.days > .between-dates {
 }
 form.project-filters .advanced-filters--filter-value.between-dates input[type=text] {
   display: inline-block;
-  max-width: 10rem;
+  max-width: 6rem;
 }
 form.project-filters .advanced-filters--controls {
   margin-top: 1rem;
@@ -22053,6 +22069,17 @@ div.flash.notice a.link_to_profile:hover {
 .spot-container > .spot-text-field:last-child {
   margin-bottom: 1rem;
 }
+.spot-container > .spot-container {
+  margin: 0;
+  margin-top: 1rem;
+}
+.spot-container > .spot-container:first-child,
+.spot-container > .cdk-focus-trap-anchor:first-child + .spot-container {
+  margin-top: 0.5rem;
+}
+.spot-container > .spot-action-bar:not(:first-child) {
+  margin-top: 0.5rem;
+}
 .spot-container > .spot-list {
   margin: 1rem 0;
 }
@@ -22814,11 +22841,14 @@ div.flash.notice a.link_to_profile:hover {
 }
 
 .spot-drop-modal {
-  position: relative;
   display: inline-flex;
 }
-.spot-drop-modal--body {
+.spot-drop-modal--anchor {
+  position: absolute;
   z-index: 1001;
+  pointer-events: none;
+}
+.spot-drop-modal--body {
   pointer-events: all;
   opacity: 1;
   position: fixed;
@@ -23186,12 +23216,12 @@ div.flash.notice a.link_to_profile:hover {
   width: 40rem;
   max-width: calc(100vw - 2rem);
   max-height: calc(100vh - 2rem);
-  overflow-y: auto;
 }
 @media (max-width: 679px) {
   .spot-modal {
     width: calc(100vw - 2rem);
     max-height: calc(100vh - 5rem);
+    overflow-y: auto;
   }
 }
 @media (max-width: 679px) and (max-height: 480px) {
@@ -23263,6 +23293,9 @@ div.flash.notice a.link_to_profile:hover {
 }
 .spot-modal--body:hover::-webkit-scrollbar-thumb {
   visibility: visible;
+}
+.spot-modal--body_no-scroll {
+  overflow: visible;
 }
 .spot-modal--body:focus {
   outline-style: none;
