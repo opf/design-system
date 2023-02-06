@@ -15310,17 +15310,14 @@ ul.work-package-details-activities-messages li:last-child {
 .op-files-tab--icon_form {
   color: #87E2C1;
 }
-.op-files-tab--icon_dir {
-  color: #00BDF3;
+.op-files-tab--icon_primary {
+  color: var(--primary-color);
 }
 .op-files-tab--icon_default {
   color: #9A9A9A;
 }
 .op-files-tab--icon_clip {
   color: #333333;
-}
-.op-files-tab--icon_nextcloud {
-  color: #1A67A3;
 }
 
 .op-tab-content--tab-section {
@@ -22462,6 +22459,7 @@ div.flash.notice a.link_to_profile:hover {
 .spot-breadcrumbs--crumb > .spot-icon {
   width: 1.5rem;
   height: 1.5rem;
+  color: var(--primary-color);
 }
 .spot-breadcrumbs--crumb_collapsed:before {
   content: "...";
