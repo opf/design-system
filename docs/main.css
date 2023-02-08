@@ -16150,6 +16150,9 @@ wp-timeline-header {
     max-height: calc(100vh - var(--header-height) - 100px);
   }
 }
+.generic-table--flex-container .generic-table--results-container {
+  padding-bottom: 10rem;
+}
 .generic-table--flex-container .generic-table--container {
   display: contents;
 }
