@@ -23228,6 +23228,7 @@ div.flash.notice a.link_to_profile:hover {
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   align-items: stretch;
   background: white;
   pointer-events: all;
