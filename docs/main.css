@@ -7900,8 +7900,27 @@ div.flatpickr-innerContainer {
   overflow: auto;
 }
 
+.flatpickr-innerContainer .dayContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+}
+.flatpickr-innerContainer .flatpickr-day {
+  width: 40px;
+}
+
 .flatpickr-calendar.inline {
   top: unset !important;
+}
+
+.flatpickr-day.prevMonthDay {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.flatpickr-day.nextMonthDay {
+  display: none;
 }
 
 .admin--edit-section {
