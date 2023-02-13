@@ -14733,7 +14733,7 @@ op-editable-attribute-field {
 .inline-edit--container form {
   width: 100%;
 }
-.inline-edit--container input:not([type=checkbox]):not(.spot-text-field--input):not(.spot-input) {
+.inline-edit--container:not(.subject) input:not([type=checkbox]):not(.spot-text-field--input):not(.spot-input) {
   width: 100%;
   height: 24px;
   line-height: 24px;
