@@ -22908,21 +22908,12 @@ div.flash.notice a.link_to_profile:hover {
 .spot-drop-modal {
   display: inline-flex;
 }
-.spot-drop-modal--anchor {
+.spot-drop-modal--body {
   position: absolute;
   z-index: 1001;
   pointer-events: none;
-}
-.spot-drop-modal--body {
   pointer-events: all;
   opacity: 1;
-  position: fixed;
-  height: auto;
-  bottom: 3.5rem;
-  left: 1rem;
-  right: 1rem;
-  width: calc(100vw - (2 * 1rem));
-  height: calc(var(--app-height) - (3.5rem + 1rem));
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
   background: rgb(255, 255, 255);
   border-radius: 5px;
@@ -22937,6 +22928,18 @@ div.flash.notice a.link_to_profile:hover {
     width: calc(100vw - (3.5rem + 1rem));
   }
 }
+@media (max-width: 999px), (max-height: 499px) {
+  .spot-drop-modal--body {
+    position: fixed;
+    height: auto;
+    bottom: 3.5rem;
+    left: 1rem !important;
+    top: unset !important;
+    right: 1rem;
+    width: calc(100vw - (2 * 1rem));
+    height: calc(var(--app-height) - (3.5rem + 1rem));
+  }
+}
 @media (min-width: 1000px) and (min-height: 500px) {
   .spot-drop-modal--body {
     position: absolute;
@@ -22947,58 +22950,6 @@ div.flash.notice a.link_to_profile:hover {
     height: auto;
     max-width: calc(100vw - (2 * 1rem));
     max-height: calc(var(--app-height) - (2 * 1rem));
-  }
-  .spot-drop-modal--body_left-top {
-    right: 100%;
-    top: 0%;
-  }
-  .spot-drop-modal--body_left-center {
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .spot-drop-modal--body_left-bottom {
-    right: 100%;
-    bottom: 0%;
-  }
-  .spot-drop-modal--body_bottom-left {
-    top: 100%;
-    left: 0%;
-  }
-  .spot-drop-modal--body_bottom-center {
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .spot-drop-modal--body_bottom-right {
-    top: 100%;
-    right: 0%;
-  }
-  .spot-drop-modal--body_right-top {
-    left: 100%;
-    top: 0%;
-  }
-  .spot-drop-modal--body_right-center {
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .spot-drop-modal--body_right-bottom {
-    left: 100%;
-    bottom: 0%;
-  }
-  .spot-drop-modal--body_top-left {
-    bottom: 100%;
-    left: 0%;
-  }
-  .spot-drop-modal--body_top-center {
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .spot-drop-modal--body_top-right {
-    bottom: 100%;
-    right: 0%;
   }
 }
 .spot-drop-modal--body > .spot-action-bar,
