@@ -9860,6 +9860,11 @@ body.router--work-packages-partitioned-split-view-new .work-packages-partitioned
   grid-row-gap: 1rem;
   grid-column-gap: 1rem;
 }
+@media (max-width: 679px) {
+  .work-packages--storages {
+    grid-template-columns: 1fr;
+  }
+}
 .work-packages-partitioned-page--content-right .work-packages--storages {
   grid-template-columns: 1fr;
 }
