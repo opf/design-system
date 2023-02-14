@@ -11441,12 +11441,12 @@ fieldset > .form--toolbar {
   padding-left: 0px;
 }
 
-.form--file-container, .form--search-container, .form--range-field-container, .form--radio-button-container, .form--check-box-container, .form--select-container, .form--text-area-container, .form--text-field-container {
+.form--date-picker-container, .form--file-container, .form--search-container, .form--range-field-container, .form--radio-button-container, .form--check-box-container, .form--select-container, .form--text-area-container, .form--text-field-container {
   display: block;
   flex: 1 1;
   max-width: 100%;
 }
-.form--file-container:nth-last-of-type(n+2), .form--search-container:nth-last-of-type(n+2), .form--range-field-container:nth-last-of-type(n+2), .form--radio-button-container:nth-last-of-type(n+2), .form--check-box-container:nth-last-of-type(n+2), .form--select-container:nth-last-of-type(n+2), .form--text-area-container:nth-last-of-type(n+2), .form--text-field-container:nth-last-of-type(n+2) {
+.form--date-picker-container:nth-last-of-type(n+2), .form--file-container:nth-last-of-type(n+2), .form--search-container:nth-last-of-type(n+2), .form--range-field-container:nth-last-of-type(n+2), .form--radio-button-container:nth-last-of-type(n+2), .form--check-box-container:nth-last-of-type(n+2), .form--select-container:nth-last-of-type(n+2), .form--text-area-container:nth-last-of-type(n+2), .form--text-field-container:nth-last-of-type(n+2) {
   padding-right: 1rem;
 }
 
@@ -11623,6 +11623,28 @@ fieldset > .form--toolbar {
   max-width: 800px;
 }
 .form--file-container.-xxwide {
+  max-width: 1100px;
+}
+
+.form--date-picker-container.-tiny {
+  max-width: 50px;
+}
+.form--date-picker-container.-xslim {
+  max-width: 110px;
+}
+.form--date-picker-container.-slim {
+  max-width: 200px;
+}
+.form--date-picker-container.-middle {
+  max-width: 350px;
+}
+.form--date-picker-container.-wide {
+  max-width: 500px;
+}
+.form--date-picker-container.-xwide {
+  max-width: 800px;
+}
+.form--date-picker-container.-xxwide {
   max-width: 1100px;
 }
 
@@ -11999,7 +12021,7 @@ input[readonly].-clickable {
 .form--field-affix.icon:before, .icon.advanced-filters--affix:before, .icon.advanced-filters--tooltip-trigger[data-tooltip]:before, .form--field-affix.icon-context:before, .widget-box--arrow-links li.form--field-affix:before, .icon-context.advanced-filters--affix:before, .widget-box--arrow-links li.advanced-filters--affix:before, .icon-context.advanced-filters--tooltip-trigger[data-tooltip]:before, .widget-box--arrow-links li.advanced-filters--tooltip-trigger[data-tooltip]:before {
   padding: 0;
 }
-.form--text-field-container + .form--field-affix, .form--text-field-container + .advanced-filters--affix, .form--text-field-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--text-area-container + .form--field-affix, .form--text-area-container + .advanced-filters--affix, .form--text-area-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--select-container + .form--field-affix, .form--select-container + .advanced-filters--affix, .form--select-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--check-box-container + .form--field-affix, .form--check-box-container + .advanced-filters--affix, .form--check-box-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--radio-button-container + .form--field-affix, .form--radio-button-container + .advanced-filters--affix, .form--radio-button-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--range-field-container + .form--field-affix, .form--range-field-container + .advanced-filters--affix, .form--range-field-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--search-container + .form--field-affix, .form--search-container + .advanced-filters--affix, .form--search-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--file-container + .form--field-affix, .form--file-container + .advanced-filters--affix, .form--file-container + .advanced-filters--tooltip-trigger[data-tooltip] {
+.form--text-field-container + .form--field-affix, .form--text-field-container + .advanced-filters--affix, .form--text-field-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--text-area-container + .form--field-affix, .form--text-area-container + .advanced-filters--affix, .form--text-area-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--select-container + .form--field-affix, .form--select-container + .advanced-filters--affix, .form--select-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--check-box-container + .form--field-affix, .form--check-box-container + .advanced-filters--affix, .form--check-box-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--radio-button-container + .form--field-affix, .form--radio-button-container + .advanced-filters--affix, .form--radio-button-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--range-field-container + .form--field-affix, .form--range-field-container + .advanced-filters--affix, .form--range-field-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--search-container + .form--field-affix, .form--search-container + .advanced-filters--affix, .form--search-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--file-container + .form--field-affix, .form--file-container + .advanced-filters--affix, .form--file-container + .advanced-filters--tooltip-trigger[data-tooltip], .form--date-picker-container + .form--field-affix, .form--date-picker-container + .advanced-filters--affix, .form--date-picker-container + .advanced-filters--tooltip-trigger[data-tooltip] {
   margin-left: -1rem;
   border-left: 0;
 }
