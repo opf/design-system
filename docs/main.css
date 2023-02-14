@@ -13642,6 +13642,7 @@ h5 {
 .advanced-filters--container {
   padding: 1rem;
   max-height: 50vh;
+  overflow-y: auto;
   position: relative;
   margin: 0 0 10px 0;
 }
