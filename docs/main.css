@@ -14762,14 +14762,19 @@ op-editable-attribute-field {
 }
 .inline-edit--container:not(.subject) input:not([type=checkbox]):not(.spot-text-field--input):not(.spot-input) {
   width: 100%;
-  height: 24px;
   line-height: 24px;
-  padding: 2px;
   font-size: 14px;
-  color: var(--body-font-color);
   border-radius: 2px;
 }
-.inline-edit--container.-tiny input:not([type=checkbox]):not(.spot-text-field--input):not(.spot-input) {
+.inline-edit--container input:not([type=checkbox]) {
+  height: 24px;
+  padding: 2px;
+  color: var(--body-font-color);
+}
+.inline-edit--container input.spot-input {
+  min-height: 2rem;
+}
+.inline-edit--container.-tiny input:not([type=checkbox]):not(.spot-text-field--input) {
   max-width: 100px;
 }
 .inline-edit--container .inline-label .form-label,
