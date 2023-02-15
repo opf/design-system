@@ -16365,13 +16365,17 @@ table.generic-table tbody tr:not(.-no-highlighting) {
     white-space: nowrap;
   }
 }
+table.generic-table tbody .project td > span,
+table.generic-table tbody .project td > a {
+  position: relative;
+  top: 1px;
+}
 table.generic-table tbody td {
   max-width: 300px;
   text-align: left;
   line-height: 1.6;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  vertical-align: top;
 }
 table.generic-table tbody td.form--td {
   vertical-align: middle;
