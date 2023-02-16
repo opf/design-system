@@ -17999,12 +17999,6 @@ body.controller-projects.action-index #content .generic-table--container {
 .flatpickr-calendar.inline .flatpickr-days .dayContainer:only-of-type {
   padding: 0;
 }
-.flatpickr-calendar.inline .flatpickr-prev-month {
-  padding-left: 0;
-}
-.flatpickr-calendar.inline .flatpickr-next-month {
-  padding-right: 0;
-}
 .flatpickr-calendar.inline .flatpickr-days .dayContainer {
   box-shadow: none;
   min-width: 283px;
