@@ -12368,6 +12368,8 @@ img.custom-touch-icon-preview {
   border-radius: 3.125rem;
   width: 1rem;
   height: 1rem;
+  display: flex;
+  align-items: center;
   text-align: center;
   line-height: 1.25rem;
 }
