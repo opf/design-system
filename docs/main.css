@@ -14125,46 +14125,6 @@ h5 {
     padding-top: 0;
   }
 }
-.generic-list {
-  margin: 0;
-  padding: 0;
-}
-.generic-list li {
-  list-style: none;
-  margin-bottom: 24px;
-}
-.generic-list .title {
-  font-weight: bold;
-}
-.generic-list .title .icon-context:before, .generic-list .title .widget-box--arrow-links li:before, .widget-box--arrow-links .generic-list .title li:before {
-  vertical-align: -2px;
-}
-.generic-list .me .time {
-  border-bottom: 1px solid var(--gray-dark);
-}
-.generic-list .time,
-.generic-list .description {
-  color: var(--gray-dark);
-}
-.generic-list .time,
-.generic-list .description,
-.generic-list .author {
-  font-size: 0.9em;
-}
-.generic-list .description,
-.generic-list .author {
-  padding-left: 30px;
-}
-.generic-list .description {
-  font-style: italic;
-}
-.generic-list .author {
-  margin-bottom: 1em;
-}
-.generic-list .avatar-mini {
-  margin: 0 10px 0 0;
-}
-
 .wp--row {
   -webkit-user-select: none;
           user-select: none;
@@ -18863,27 +18823,27 @@ body.widget-grid-layout #content {
   margin-right: 0.5rem;
 }
 
-.op-project-activity-list {
+.op-activity-list {
   display: flex;
   flex-direction: column;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.op-project-activity-list--item {
+.op-activity-list--item {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.25rem;
   color: rgb(51, 51, 51);
 }
-.op-project-activity-list--item-title {
+.op-activity-list--item-title {
   font-family: Lato, sans-serif;
   font-size: 0.875rem;
   font-weight: bold;
   font-style: normal;
   line-height: 1.25rem;
 }
-.op-project-activity-list--item-subtitle {
+.op-activity-list--item-subtitle {
   font-family: Lato, sans-serif;
   font-size: 0.75rem;
   font-weight: normal;
@@ -18892,7 +18852,7 @@ body.widget-grid-layout #content {
   color: rgb(85, 85, 85);
   margin-bottom: 0.5rem;
 }
-.op-project-activity-list--item-description {
+.op-activity-list--item-description {
   font-family: Lato, sans-serif;
   font-size: 0.875rem;
   font-weight: normal;
@@ -18900,7 +18860,7 @@ body.widget-grid-layout #content {
   line-height: 1.25rem;
   color: rgb(85, 85, 85);
 }
-.op-project-activity-list--item-details {
+.op-activity-list--item-details {
   font-family: Lato, sans-serif;
   font-size: 0.875rem;
   font-weight: normal;
@@ -18911,16 +18871,16 @@ body.widget-grid-layout #content {
   padding-left: 2rem;
   margin: 0;
 }
-.op-project-activity-list--item-detail:not(:last-child) {
+.op-activity-list--item-detail:not(:last-child) {
   margin-bottom: 0.25rem;
 }
 
-.op-project-activity-days {
+.op-activity-days {
   display: flex;
   flex-direction: column;
   margin: 0;
 }
-.op-project-activity-days--header {
+.op-activity-days--header {
   font-family: Lato, sans-serif;
   font-size: 0.875rem;
   font-weight: bold;
