@@ -28,6 +28,11 @@
  */
 :root {
   --primary-color: #1A67A3;
+  --primary-color--lighten-10: #3481BD;
+  --primary-color--lighten-20: #4D9AD6;
+  --primary-color--lighten-40: #80CDFF;
+  --primary-color--lighten-60: #B3FFFF;
+  --primary-color--lighten-80: #E6FFFF;
   --primary-color-dark: #175A8E;
   --alternative-color: #35C53F;
   /**
@@ -17894,9 +17899,17 @@ body.controller-projects.action-index #content .generic-table--container {
   left: 65%;
 }
 
+.flatpickr-prev-month svg:hover, .flatpickr-next-month svg:hover {
+  fill: var(--primary-color) !important;
+}
+
+.flatpickr-prev-month svg, .flatpickr-next-month svg {
+  fill: rgb(51, 51, 51) !important;
+}
+
 .flatpickr-day.flatpickr-disabled {
   background: rgb(255, 255, 255);
-  color: rgb(204, 204, 204);
+  color: rgb(135, 135, 135);
   pointer-events: none;
   cursor: not-allowed;
 }
@@ -17908,6 +17921,12 @@ body.controller-projects.action-index #content .generic-table--container {
   color: rgb(135, 135, 135);
   border-radius: 0;
   pointer-events: none;
+}
+.flatpickr-day.flatpickr-non-working-day_enabled {
+  background: rgb(243, 243, 243);
+  color: rgb(51, 51, 51);
+  border-radius: 0;
+  pointer-events: auto;
 }
 
 .flatpickr-calendar.inline {
@@ -17964,7 +17983,8 @@ body.controller-projects.action-index #content .generic-table--container {
   }
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day {
-  color: rgb(0, 0, 0);
+  color: rgb(51, 51, 51);
+  background: rgb(255, 255, 255);
   height: 30px;
   line-height: 28px;
   margin: 0;
@@ -17980,8 +18000,11 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 0;
   pointer-events: none;
 }
-.flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day.inRange {
-  color: rgb(143, 192, 219);
+.flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day_enabled {
+  background: rgb(243, 243, 243);
+  color: rgb(51, 51, 51);
+  border-radius: 0;
+  pointer-events: auto;
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.today {
   background: rgb(255, 255, 225);
@@ -17989,8 +18012,8 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 5px;
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.selected, .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.startRange, .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.endRange {
-  background: rgb(26, 103, 163);
-  border-color: rgb(26, 103, 163);
+  background: var(--primary-color);
+  border-color: var(--primary-color);
   color: rgb(255, 255, 255);
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.startRange {
@@ -18003,14 +18026,18 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 5px;
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.inRange {
-  background: rgb(227, 245, 255);
-  color: rgb(0, 0, 0);
-  border-color: rgb(227, 245, 255);
+  background: var(--primary-color--lighten-80);
+  color: var(--primary-color);
+  border-color: var(--primary-color--lighten-80);
   border-radius: 0;
+}
+.flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.inRange.flatpickr-non-working-day {
+  background: rgb(243, 243, 243);
+  border-color: rgb(243, 243, 243);
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-disabled {
   background: rgb(255, 255, 255);
-  color: rgb(204, 204, 204);
+  color: rgb(135, 135, 135);
   pointer-events: none;
   cursor: not-allowed;
 }
@@ -18019,10 +18046,14 @@ body.controller-projects.action-index #content .generic-table--container {
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-disabled.flatpickr-non-working-day {
   background: rgb(243, 243, 243);
-  color: rgb(204, 204, 204);
+  color: rgb(135, 135, 135);
 }
-.flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-disabled.flatpickr-non-working-day.inRange {
-  color: rgb(224, 224, 224);
+.flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-disabled.flatpickr-non-working-day_enabled {
+  background: rgb(243, 243, 243);
+  color: rgb(135, 135, 135);
+}
+.flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-disabled.flatpickr-non-working-day_enabled.inRange {
+  color: rgb(135, 135, 135);
   background: rgb(243, 243, 243);
   border-color: rgb(243, 243, 243);
 }
@@ -18037,13 +18068,15 @@ body.controller-projects.action-index #content .generic-table--container {
   color: rgb(135, 135, 135);
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-disabled.today {
-  color: rgb(204, 204, 204);
+  color: rgb(135, 135, 135);
+  background: rgb(255, 255, 225);
+  border-color: rgb(255, 255, 225);
 }
 
 .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.inRange, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.startRange:not(.selected), .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.endRange:not(.selected) {
   background: transparent !important;
   border-color: transparent !important;
-  color: black !important;
+  color: rgb(51, 51, 51) !important;
 }
 
 .op-focus-within:hover .op-focus-within--depending, .op-focus-within:focus .op-focus-within--depending, .op-focus-within.-focus .op-focus-within--depending {
@@ -22750,12 +22783,12 @@ div.flash.notice a.link_to_profile:hover {
   transition-timing-function: ease;
 }
 .spot-switch--input:checked + .spot-switch--fake {
-  border-color: rgb(26, 103, 163);
-  background-color: rgb(209, 229, 245);
+  border-color: var(--primary-color);
+  background-color: var(--primary-color--lighten-60);
 }
 .spot-switch--input:checked + .spot-switch--fake::before {
   left: calc(100% - 1rem - 1px);
-  background-color: rgb(26, 103, 163);
+  background-color: var(--primary-color);
 }
 .spot-switch--input:disabled + .spot-switch--fake, .spot-switch--input:disabled + .spot-switch--fake::before {
   opacity: 0.5;
