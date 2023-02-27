@@ -28,11 +28,12 @@
  */
 :root {
   --primary-color: #1A67A3;
-  --primary-color--lighten-10: #3481BD;
-  --primary-color--lighten-20: #4D9AD6;
-  --primary-color--lighten-40: #80CDFF;
-  --primary-color--lighten-60: #B3FFFF;
-  --primary-color--lighten-80: #E6FFFF;
+  --primary-color--minor1: #5f95bf;
+  --primary-color--minor2: #a3c2da;
+  --primary-color--minor3: #d1e1ed;
+  --primary-color--major1: #155282;
+  --primary-color--major2: #103e62;
+  --primary-color--major3: #0a2941;
   --primary-color-dark: #175A8E;
   --alternative-color: #35C53F;
   /**
@@ -18026,9 +18027,9 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 5px;
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.inRange {
-  background: var(--primary-color--lighten-80);
+  background: var(--primary-color--minor3);
   color: var(--primary-color);
-  border-color: var(--primary-color--lighten-80);
+  border-color: var(--primary-color--minor3);
   border-radius: 0;
 }
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.inRange.flatpickr-non-working-day {
@@ -22784,7 +22785,7 @@ div.flash.notice a.link_to_profile:hover {
 }
 .spot-switch--input:checked + .spot-switch--fake {
   border-color: var(--primary-color);
-  background-color: var(--primary-color--lighten-60);
+  background-color: var(--primary-color--minor3);
 }
 .spot-switch--input:checked + .spot-switch--fake::before {
   left: calc(100% - 1rem - 1px);
