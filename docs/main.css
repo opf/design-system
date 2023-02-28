@@ -18079,6 +18079,32 @@ body.controller-projects.action-index #content .generic-table--container {
   border-color: transparent !important;
   color: rgb(51, 51, 51) !important;
 }
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day {
+  background: rgb(243, 243, 243) !important;
+  color: rgb(135, 135, 135) !important;
+}
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled {
+  background: rgb(243, 243, 243) !important;
+  color: rgb(51, 51, 51) !important;
+}
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.today {
+  color: rgb(51, 51, 51) !important;
+}
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.inRange, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.startRange:not(.selected), .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.endRange:not(.selected) {
+  color: rgb(51, 51, 51) !important;
+  background: rgb(243, 243, 243) !important;
+  border-color: rgb(243, 243, 243) !important;
+}
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.inRange.today, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.startRange:not(.selected).today, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.endRange:not(.selected).today {
+  color: rgb(51, 51, 51) !important;
+  background: rgb(255, 255, 225) !important;
+  border-color: rgb(255, 255, 225) !important;
+}
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.today {
+  color: rgb(135, 135, 135) !important;
+  background: rgb(255, 255, 225) !important;
+  border-color: rgb(255, 255, 225) !important;
+}
 
 .op-focus-within:hover .op-focus-within--depending, .op-focus-within:focus .op-focus-within--depending, .op-focus-within.-focus .op-focus-within--depending {
   visibility: visible;
