@@ -17992,9 +17992,6 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 5px;
   box-shadow: none !important;
 }
-.flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day:hover {
-  border-radius: 0;
-}
 .flatpickr-calendar.inline .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day {
   background: rgb(243, 243, 243);
   color: rgb(135, 135, 135);
