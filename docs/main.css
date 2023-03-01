@@ -23579,6 +23579,7 @@ div.flash.notice a.link_to_profile:hover {
   display: flex;
 }
 .spot-selector-field--input_reversed {
+  margin-left: auto;
   padding-left: 0.5rem;
   padding-right: 0;
 }
