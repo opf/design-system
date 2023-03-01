@@ -22999,7 +22999,6 @@ div.flash.notice a.link_to_profile:hover {
   top: auto;
   height: auto;
   bottom: 0.75rem;
-  width: calc(100% - 2rem);
   left: 50%;
   transform: translateX(-50%);
   background-color: rgb(255, 255, 255);
@@ -23337,7 +23336,7 @@ div.flash.notice a.link_to_profile:hover {
 .spot-modal--body:focus {
   outline-style: none;
 }
-@media (max-width: 679px) {
+@media (max-width: 999px), (max-height: 499px) {
   .spot-modal--cancel-button {
     display: none;
   }
@@ -23583,7 +23582,7 @@ div.flash.notice a.link_to_profile:hover {
   padding-left: 0.5rem;
   padding-right: 0;
 }
-@media (max-width: 679px) {
+@media (max-width: 999px), (max-height: 499px) {
   .spot-selector-field--input_reversed {
     justify-self: end;
   }
