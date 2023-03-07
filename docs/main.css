@@ -14654,6 +14654,7 @@ html:not(.-browser-mobile) .wp-table-context-menu-icon:focus {
   border-radius: 2px;
   border-width: 1px;
   line-height: normal;
+  word-break: break-all;
 }
 .inline-edit--display-field.-editable:hover, .inline-edit--display-field.-editable:focus {
   border-color: var(--inplace-edit--border-color);
