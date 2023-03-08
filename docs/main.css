@@ -17947,11 +17947,11 @@ body.controller-projects.action-index #content .generic-table--container {
 }
 .flatpickr-calendar .flatpickr-weekdaycontainer:first-of-type,
 .flatpickr-calendar .flatpickr-days .dayContainer:first-of-type {
-  padding: 0 1rem 0 0;
+  padding: 0 1rem 0 0.5rem;
 }
 .flatpickr-calendar .flatpickr-weekdaycontainer:last-of-type,
 .flatpickr-calendar .flatpickr-days .dayContainer:last-of-type {
-  padding: 0 0 0 1rem;
+  padding: 0 0.5rem 0 1rem;
 }
 .flatpickr-calendar .flatpickr-weekdaycontainer:only-of-type,
 .flatpickr-calendar .flatpickr-days .dayContainer:only-of-type {
