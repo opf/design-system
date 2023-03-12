@@ -13768,8 +13768,12 @@ h5 {
   -o-text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
   white-space: nowrap;
-  flex: 0 1 auto;
   padding-right: 0.5rem;
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+.attributes-key-value--key > attribute-help-text {
+  flex: 100 0 auto;
 }
 
 .attributes-key-value--value-container {
