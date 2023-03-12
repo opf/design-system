@@ -3836,7 +3836,7 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
   background: #fff;
   flex: 0 0 auto;
   width: 100%;
-  height: 100vh;
+  height: var(--app-height);
   max-height: 100%;
   overflow: hidden;
   padding: 1rem;
@@ -15429,12 +15429,12 @@ ul.work-package-details-activities-messages li:last-child {
 }
 @media (max-width: 679px) {
   .op-file-picker.spot-modal {
-    min-height: calc(100vh - 5rem);
+    min-height: calc(var(--app-height) - 5rem);
   }
 }
 @media (min-width: 680px) {
   .op-file-picker--modal-body {
-    height: 50vh;
+    height: calc(var(--app-height) / 2);
     max-height: 32rem;
   }
 }
@@ -23238,7 +23238,7 @@ div.flash.notice a.link_to_profile:hover {
 .spot-modal > .form:only-child {
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: var(--app-height);
 }
 
 .modal-delivery-element {
@@ -23256,18 +23256,18 @@ div.flash.notice a.link_to_profile:hover {
   border-radius: 0.25rem;
   width: 40rem;
   max-width: calc(100vw - 2rem);
-  max-height: calc(100vh - 2rem);
+  max-height: calc(var(--app-height) - 2rem);
 }
 @media (max-width: 679px) {
   .spot-modal {
     width: calc(100vw - 2rem);
-    max-height: calc(100vh - 5rem);
+    max-height: calc(var(--app-height) - 5rem);
     overflow-y: auto;
   }
 }
 @media (max-width: 679px) and (max-height: 480px) {
   .spot-modal {
-    max-height: calc(100vh - 2rem);
+    max-height: calc(var(--app-height) - 2rem);
     max-width: calc(100vw - 6rem);
   }
 }
