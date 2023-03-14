@@ -10018,9 +10018,8 @@ body.router--work-packages-partitioned-split-view-new .work-packages-partitioned
 }
 .work-packages-full-view--split-right li .message {
   white-space: normal;
-  overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-          hyphens: auto;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 .work-packages-full-view--split-right .activity-comment {
   margin-top: 15px;
@@ -14658,7 +14657,8 @@ html:not(.-browser-mobile) .wp-table-context-menu-icon:focus {
   border-radius: 2px;
   border-width: 1px;
   line-height: normal;
-  word-break: break-all;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 .inline-edit--display-field.-editable:hover, .inline-edit--display-field.-editable:focus {
   border-color: var(--inplace-edit--border-color);
@@ -14790,9 +14790,8 @@ op-editable-attribute-field {
 }
 .wp-show--header-container .subject-header .inline-edit--display-field {
   white-space: normal;
-  overflow-wrap: break-word;
-  -webkit-hyphens: auto;
-          hyphens: auto;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .wp-new--subject-wrapper .inline-edit--active-field.subject .inline-edit--field {
@@ -19978,6 +19977,8 @@ div.flash.notice a.link_to_profile:hover {
   break-before: auto;
   break-after: avoid;
   break-inside: avoid;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 .op-uc-h1:hover .op-uc-link_permalink,
 .op-uc-h2:hover .op-uc-link_permalink,
@@ -20022,7 +20023,8 @@ div.flash.notice a.link_to_profile:hover {
   margin: 0;
   line-height: 1.6em;
   color: inherit;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .op-uc-blockquote {
@@ -20032,6 +20034,8 @@ div.flash.notice a.link_to_profile:hover {
   padding: 0.8rem 1.2rem 0 1.2rem;
   overflow: hidden;
   color: #6f6f6f;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 .op-uc-blockquote > * + * {
   margin-top: 0.8rem;
