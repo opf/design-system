@@ -17997,7 +17997,7 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 0;
   pointer-events: auto;
 }
-.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day_enabled.selected {
+.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day_enabled.selected:not(.startRange, .endRange) {
   border-radius: 5px;
 }
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.today {
