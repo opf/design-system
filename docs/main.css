@@ -22967,7 +22967,7 @@ div.flash.notice a.link_to_profile:hover {
     top: unset !important;
     right: 1rem;
     width: calc(100vw - (2 * 1rem));
-    height: calc(var(--app-height) - (3.5rem + 1rem));
+    max-height: calc(var(--app-height) - (3.5rem + 1rem));
   }
 }
 @media (min-width: 1000px) and (min-height: 500px) {
