@@ -17982,7 +17982,7 @@ body.controller-projects.action-index #content .generic-table--container {
   height: 30px;
   line-height: 28px;
   margin: 0;
-  border-radius: 5px;
+  border-radius: 0;
   box-shadow: none !important;
 }
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day {
@@ -17997,12 +17997,16 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 0;
   pointer-events: auto;
 }
-.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day_enabled.selected:not(.startRange, .endRange) {
-  border-radius: 5px;
-}
-.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.today {
+.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.today:not(.selected, .inRange, .startRange, .endRange) {
   background: rgb(255, 255, 225);
   border-color: rgb(255, 255, 225);
+  border-radius: 0;
+}
+.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.today:not(.selected, .inRange, .startRange, .endRange):hover {
+  color: rgb(51, 51, 51) !important;
+  border-color: #e6e6e6 !important;
+}
+.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.selected:not(.startRange, .endRange) {
   border-radius: 5px;
 }
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.selected, .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.startRange, .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.endRange {
