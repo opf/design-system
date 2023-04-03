@@ -22555,6 +22555,8 @@ div.flash.notice a.link_to_profile:hover {
 .spot-breadcrumbs--crumb > .spot-icon {
   width: 1.5rem;
   height: 1.5rem;
+}
+.spot-breadcrumbs--crumb > .spot-icon:not(.spot-breadcrumbs--crumb-divider) {
   color: var(--primary-color);
 }
 .spot-breadcrumbs--crumb_collapsed:before {
