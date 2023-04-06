@@ -15179,10 +15179,6 @@ ul.work-package-details-activities-messages li:last-child {
   margin-left: 2px;
 }
 
-.wp-relations--subject-field {
-  word-break: break-all;
-}
-
 .wp-relation--description-read-value {
   padding: 0;
   margin: 0;
