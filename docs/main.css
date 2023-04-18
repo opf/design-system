@@ -8491,6 +8491,7 @@ a.main-menu--parent-node:hover, a.main-menu--parent-node:focus, a.main-menu--par
   color: rgb(239, 158, 86);
   font-size: 1rem;
   margin-right: 1px;
+  margin-left: 0.25rem;
 }
 
 .hidden-navigation .main-menu {
@@ -20612,13 +20613,6 @@ div.flash.notice a.link_to_profile:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.op-menu--item-title > .spot-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-left: 0.25rem;
-  margin-right: 0;
-  color: var(--primary-color--minor1);
-}
 .op-menu--item-action {
   display: block;
   height: 32px;
@@ -20631,6 +20625,9 @@ div.flash.notice a.link_to_profile:hover {
 .op-menu--item-action .spot-icon {
   width: 1.25rem;
   height: 1.25rem;
+}
+.op-menu--item-action .spot-icon.icon-after {
+  margin-left: auto;
 }
 .op-menu--item-action .spot-icon:first-child {
   margin-right: 0.75rem;
