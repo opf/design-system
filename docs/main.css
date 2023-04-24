@@ -15110,17 +15110,12 @@ ul.work-package-details-activities-messages li:last-child {
   margin-bottom: 2px;
 }
 
+.relation-container {
+  margin-bottom: 1rem;
+}
+
 .relation-row {
   line-height: 2em;
-}
-.relation-row .attribute-header {
-  font-size: 0.8em;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.relation-row .description-section {
-  border: 1px dotted lightblue;
-  padding: 4px;
 }
 .relation-row .inline-edit--container {
   overflow: hidden;
@@ -15133,21 +15128,43 @@ ul.work-package-details-activities-messages li:last-child {
 .relation-row .inline-edit--container .inline-edit--display-field {
   vertical-align: middle;
 }
-.relation-row .controls-container {
-  text-align: right;
+.relation-row--grid {
+  display: grid;
+  align-items: center;
+  grid-template: "id info subject status actions"/10% 12.5% 45% 22.5% 10%;
+  margin-bottom: 0.5rem;
 }
-
-.wp-relations-hierarchy-section {
-  margin-top: 35px;
+@media (max-width: 679px) {
+  .relation-row--grid {
+    grid-template: "id info status actions" "subject subject subject subject"/25% 30% 30% 15%;
+  }
 }
-
-.wp-relations-hierarchy-subject {
+.relation-row--grid-actions {
+  grid-area: actions;
+  display: flex;
+  justify-content: end;
+}
+.relation-row--grid-id {
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
   white-space: nowrap;
-  display: block;
+  grid-area: id;
+  font-size: 0.875rem;
+}
+.relation-row--grid-subject {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  white-space: nowrap;
+  grid-area: subject;
+  font-size: 0.875rem;
+}
+
+.wp-relations-hierarchy-section {
+  margin-top: 35px;
 }
 
 .wp-relations-controls-section {
@@ -17981,6 +17998,9 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 0;
   box-shadow: none !important;
 }
+.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day:hover {
+  border-color: rgb(135, 135, 135);
+}
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.flatpickr-non-working-day {
   background: rgb(243, 243, 243);
   color: rgb(135, 135, 135);
@@ -17999,8 +18019,8 @@ body.controller-projects.action-index #content .generic-table--container {
   border-radius: 0;
 }
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.today:not(.selected, .inRange, .startRange, .endRange):hover {
-  color: rgb(51, 51, 51) !important;
-  border-color: #e6e6e6 !important;
+  color: rgb(51, 51, 51);
+  border-color: rgb(135, 135, 135);
 }
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.selected:not(.startRange, .endRange) {
   border-radius: 5px;
@@ -18009,6 +18029,10 @@ body.controller-projects.action-index #content .generic-table--container {
   background: var(--primary-color);
   border-color: var(--primary-color);
   color: rgb(255, 255, 255);
+}
+.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.selected:hover, .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.startRange:hover, .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.endRange:hover {
+  background: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
 }
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.startRange {
   border-radius: 5px 0 0 5px;
@@ -18024,6 +18048,10 @@ body.controller-projects.action-index #content .generic-table--container {
   color: var(--primary-color);
   border-color: var(--primary-color--minor3);
   border-radius: 0;
+}
+.flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.inRange:hover {
+  color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
 }
 .flatpickr-calendar .flatpickr-days .dayContainer .flatpickr-day.inRange.flatpickr-non-working-day {
   background: rgb(243, 243, 243);
