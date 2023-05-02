@@ -20042,6 +20042,9 @@ div.flash.notice a.link_to_profile:hover {
 .op-uc-blockquote > * + * {
   margin-top: 0.8rem;
 }
+.op-uc-blockquote > br {
+  margin-top: 0;
+}
 .op-uc-blockquote > .op-uc-h1 + *,
 .op-uc-blockquote > .op-uc-h2 + *,
 .op-uc-blockquote > .op-uc-h3 + *,
@@ -20212,6 +20215,9 @@ div.flash.notice a.link_to_profile:hover {
 .op-uc-table--cell > * + * {
   margin-top: 0.8rem;
 }
+.op-uc-table--cell > br {
+  margin-top: 0;
+}
 .op-uc-table--cell > .op-uc-h1 + *,
 .op-uc-table--cell > .op-uc-h2 + *,
 .op-uc-table--cell > .op-uc-h3 + *,
@@ -20333,6 +20339,9 @@ div.flash.notice a.link_to_profile:hover {
 }
 .op-uc-container > * + * {
   margin-top: 0.8rem;
+}
+.op-uc-container > br {
+  margin-top: 0;
 }
 .op-uc-container > .op-uc-h1 + *,
 .op-uc-container > .op-uc-h2 + *,
