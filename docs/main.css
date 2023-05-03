@@ -23062,7 +23062,6 @@ div.flash.notice a.link_to_profile:hover {
   padding: 0;
   display: flex;
   align-items: center;
-  font-size: 0.75rem;
   color: rgb(135, 135, 135);
 }
 .spot-text-field--clear-button:focus {
@@ -23071,6 +23070,9 @@ div.flash.notice a.link_to_profile:hover {
 }
 .spot-text-field--clear-button:not(:last-child) {
   margin-right: 0.5rem;
+}
+.spot-text-field--clear-button > .spot-icon {
+  font-size: 0.75rem;
 }
 
 .spot-filter-chip {
