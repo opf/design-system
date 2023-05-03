@@ -12350,7 +12350,7 @@ img.custom-touch-icon-preview {
 .op-toast .op-toast--close {
   position: absolute;
   color: rgb(51, 51, 51);
-  top: 0.5rem;
+  top: 0.75rem;
   right: 0.5rem;
 }
 .op-toast .op-toast--close:hover {
