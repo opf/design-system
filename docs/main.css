@@ -11292,6 +11292,10 @@ fieldset > .form--toolbar {
 .form--label.-bold, .-bold.attributes-key-value--key {
   font-weight: bold;
 }
+.form--label.-flex, .-flex.attributes-key-value--key {
+  display: flex;
+  align-items: center;
+}
 .form--label.-top, .-top.attributes-key-value--key {
   align-self: flex-start;
   line-height: 2.15rem;
