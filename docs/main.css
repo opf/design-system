@@ -9581,6 +9581,14 @@ body.zen-mode.controller-wiki #content {
 .op-table-baseline--icon-changed {
   color: #54AFE0;
 }
+.op-table-baseline--old-value {
+  text-decoration: line-through;
+}
+.op-table-baseline--cell {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+}
 
 .work-packages-embedded-view--container.-external-height {
   display: flex;
