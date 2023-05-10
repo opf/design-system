@@ -9575,19 +9575,43 @@ body.zen-mode.controller-wiki #content {
   max-width: 400px;
 }
 
+.op-table-baseline--column-cell {
+  padding-right: 0;
+}
 .op-table-baseline--icon-added {
   color: #35C53F;
 }
 .op-table-baseline--icon-changed {
   color: #54AFE0;
 }
-.op-table-baseline--old-value {
+.op-table-baseline--old-field {
+  font-family: Lato, sans-serif;
+  font-size: 0.75rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1rem;
   text-decoration: line-through;
+  filter: grayscale(1);
+  padding: 2px 2px 0 2px;
 }
 .op-table-baseline--cell {
   background-color: #f3f3f3;
+  padding: 0 2px 2px 2px;
+}
+.op-table-baseline--container {
   display: flex;
   flex-direction: column;
+  padding-right: 6px;
+}
+
+.op-table-baseline--old-field[class^=__hl_inline_status]:before {
+  display: none;
+}
+.op-table-baseline--old-field .op-avatar {
+  display: none;
+}
+.op-table-baseline--old-field .op-principal--name {
+  margin-left: 0 !important;
 }
 
 .work-packages-embedded-view--container.-external-height {
@@ -14250,7 +14274,7 @@ html:not(.-browser-mobile) .wp-table--context-menu-td {
   outline: none;
 }
 
-.inline-edit--display-field {
+.inline-edit--display-field:not(.op-table-baseline--field) {
   padding: 2px;
 }
 
@@ -20993,6 +21017,9 @@ div.flash.notice a.link_to_profile:hover {
 }
 .spot-icon_inline {
   transform: translateY(0.25em);
+}
+.spot-icon_flex {
+  display: flex;
 }
 .spot-icon::before {
   font-family: "openproject-spot-icon-font";
