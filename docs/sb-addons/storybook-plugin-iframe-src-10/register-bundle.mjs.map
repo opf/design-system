@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["global-externals:@storybook/addons", "../../../.storybook/plugin-iframe/src/register.js"],
-  "sourcesContent": ["export default __STORYBOOKADDONS__;\nconst { addons, types, mockChannel } = __STORYBOOKADDONS__;\nexport { addons, types, mockChannel };", "import { addons } from '@storybook/addons';\n\nconst ADDON_ID = 'iframe';\n\nif (window && window.parent) {\n  addons.register(ADDON_ID, () => {\n    let previousLocation = window.location.toString();\n    document.body.addEventListener('click', () => {\n      const newLocation = window.location.toString();\n      if (previousLocation !== newLocation) {\n        window.parent.postMessage(newLocation, '*');\n        previousLocation = newLocation;\n      }\n    });\n  });\n}\n"],
-  "mappings": ";AAAA,IAAOA,EAAQ,oBACT,CAAE,OAAAC,EAAQ,MAAAC,EAAO,YAAAC,CAAY,EAAI,oBCCvC,IAAMC,EAAW,SAEb,QAAU,OAAO,QACnBC,EAAO,SAASD,EAAU,IAAM,CAC9B,IAAIE,EAAmB,OAAO,SAAS,SAAS,EAChD,SAAS,KAAK,iBAAiB,QAAS,IAAM,CAC5C,IAAMC,EAAc,OAAO,SAAS,SAAS,EACzCD,IAAqBC,IACvB,OAAO,OAAO,YAAYA,EAAa,GAAG,EAC1CD,EAAmBC,EAEvB,CAAC,CACH,CAAC",
-  "names": ["addons_default", "addons", "types", "mockChannel", "ADDON_ID", "addons", "previousLocation", "newLocation"]
-}
