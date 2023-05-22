@@ -12546,6 +12546,11 @@ img.custom-touch-icon-preview {
   margin-bottom: 0;
   color: var(--body-font-color);
 }
+.op-toast .op-toast--content > div.-with-inline-links,
+.op-toast .op-toast--content > p.-with-inline-links {
+  display: flex;
+  align-items: center;
+}
 .op-toast .op-toast--content progress[value]::-moz-progress-bar {
   border-radius: 0.375rem;
 }
@@ -20642,7 +20647,7 @@ div.flash.notice a.link_to_profile:hover {
   font-weight: 400;
   color: var(--context-menu-unselected-font-color);
 }
-.op-menu--item-action .spot-icon.after-menu-icon {
+.op-menu--item-action .spot-icon.trailing-icon {
   margin-left: auto;
 }
 .op-menu--item-action .spot-icon:first-child {
