@@ -22727,12 +22727,15 @@ div.flash.notice a.link_to_profile:hover {
 }
 .spot-breadcrumbs--crumb-action-item {
   flex-shrink: 1;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 .spot-breadcrumbs--crumb-action-item:not(:first-child) {
   margin-left: 0.25rem;
+}
+.spot-breadcrumbs--crumb-action-item-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .spot-breadcrumbs--crumb-action-item-dots {
   display: none;
