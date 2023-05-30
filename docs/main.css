@@ -11336,6 +11336,9 @@ fieldset > .form--toolbar {
   display: flex;
   flex-wrap: wrap;
 }
+.form--field-container.-with-children-spacing > *:not(:last-child) {
+  margin-right: 0.5rem;
+}
 .form--field-container.-vertical {
   display: block;
 }
@@ -11387,7 +11390,7 @@ fieldset > .form--toolbar {
   line-height: 2rem;
 }
 
-.form--field-extra-actions, .form--field-instructions, .form--field.-indented {
+.form--field-extra-actions, .form--field-error, .form--field-instructions, .form--field.-indented {
   display: block;
   padding: 0 1rem;
   overflow-y: auto;
@@ -11401,17 +11404,17 @@ fieldset > .form--toolbar {
   line-height: 1.4;
   color: #333;
 }
-.form--field.-full-width .form--field-extra-actions, .form--field.-full-width .form--field-instructions, .form--field.-full-width .form--field.-indented {
+.form--field.-full-width .form--field-extra-actions, .form--field.-full-width .form--field-error, .form--field.-full-width .form--field-instructions, .form--field.-full-width .form--field.-indented {
   flex: 0 0 100%;
   max-width: 100%;
   margin-left: 0%;
 }
-.form.-wide-labels .form--field-extra-actions, .form.-wide-labels .form--field-instructions, .form.-wide-labels .form--field.-indented, .form--field.-wide-label .form--field-extra-actions, .form--field.-wide-label .form--field-instructions, .form--field.-wide-label .form--field.-indented {
+.form.-wide-labels .form--field-extra-actions, .form.-wide-labels .form--field-error, .form.-wide-labels .form--field-instructions, .form.-wide-labels .form--field.-indented, .form--field.-wide-label .form--field-extra-actions, .form--field.-wide-label .form--field-error, .form--field.-wide-label .form--field-instructions, .form--field.-wide-label .form--field.-indented {
   flex: 0 0 66.6666666667%;
   max-width: 66.6666666667%;
   margin-left: 33.3333333333%;
 }
-.form.-vertical .form--field-extra-actions, .form.-vertical .form--field-instructions, .form.-vertical .form--field.-indented {
+.form.-vertical .form--field-extra-actions, .form.-vertical .form--field-error, .form.-vertical .form--field-instructions, .form.-vertical .form--field.-indented {
   flex: 0 0 auto;
   margin-left: 0%;
   max-width: none;
@@ -11432,6 +11435,18 @@ fieldset > .form--toolbar {
 }
 .form--field-instructions.-labeled-checkbox {
   margin-left: 25px;
+}
+.form--field-instructions.-with-bottom-spacing {
+  margin-bottom: 1rem;
+}
+
+.form--field-error {
+  font-style: italic;
+  max-width: 500px;
+  color: var(--content-form-error-color);
+}
+.form--field-error.-with-bottom-spacing {
+  margin-bottom: 1rem;
 }
 
 .form--inline-instructions {
@@ -11672,7 +11687,7 @@ fieldset > .form--toolbar {
 input[type=text], input[type=password], input[type=date], input[type=datetime], input[type=datetime-local], input[type=month], input[type=week], input[type=email], input[type=number], input[type=search], input[type=tel], input[type=time], input[type=url], input[type=color], textarea,
 select {
   line-height: 100%;
-  margin-bottom: 0rem;
+  margin-bottom: 0;
   font-size: 0.9rem;
 }
 .form--text-field:hover, .advanced-filters--text-field[type=text]:hover,
@@ -15452,7 +15467,7 @@ ul.work-package-details-activities-messages li:last-child {
     max-height: 32rem;
   }
 }
-.op-file-picker--empty {
+.op-file-picker--info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15460,14 +15475,14 @@ ul.work-package-details-activities-messages li:last-child {
   height: 100%;
   text-align: center;
 }
-.op-file-picker--empty-icon {
+.op-file-picker--info .op-file-picker--info-icon {
   width: 9.5rem;
   height: 9.5rem;
   font-size: 5.5rem;
   margin-bottom: 0.25rem;
   color: rgb(204, 204, 204);
 }
-.op-file-picker--empty-sub-text {
+.op-file-picker--info-sub-text {
   color: rgb(135, 135, 135);
 }
 
