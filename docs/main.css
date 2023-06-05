@@ -13208,6 +13208,11 @@ a.button:hover {
 a.button.-with-icon::before {
   padding: 0 var(--button--text-icon-spacing) 0 0;
 }
+.button.-icon-only, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .-icon-only.fc-button.fc-button-active,
+a.button.-icon-only {
+  width: 34px;
+  padding: 0;
+}
 .button.-danger, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .-danger.fc-button.fc-button-active,
 a.button.-danger {
   background: var(--content-form-danger-zone-bg-color);
@@ -16749,16 +16754,10 @@ label.no-css {
 #type-form-conf-inactive-group .group-head .group-handle {
   cursor: grab;
   color: var(--font-color-on-primary-dark);
-  font-size: 12px;
 }
 .type-form-conf-group .group-head op-group-edit-in-place,
 #type-form-conf-inactive-group .group-head op-group-edit-in-place {
   display: inline-block;
-}
-.type-form-conf-group .group-head .delete-group:before,
-#type-form-conf-inactive-group .group-head .delete-group:before {
-  vertical-align: bottom;
-  color: var(--font-color-on-primary-dark);
 }
 .type-form-conf-group .attributes,
 #type-form-conf-inactive-group .attributes {
@@ -16779,10 +16778,6 @@ label.no-css {
   background: white;
   color: #222222;
 }
-.type-form-conf-group .delete-group,
-.type-form-conf-group .delete-attribute {
-  cursor: pointer;
-}
 .type-form-conf-group.-error {
   background: var(--content-form-error-color);
 }
@@ -16790,7 +16785,7 @@ label.no-css {
   border-color: var(--content-form-error-color);
 }
 .type-form-conf-group.-error .group-handle,
-.type-form-conf-group.-error .delete-group:before {
+.type-form-conf-group.-error .delete-group {
   color: var(--font-color-on-primary);
 }
 
@@ -16821,7 +16816,6 @@ label.no-css {
 .type-form-conf-attribute .attribute-handle {
   cursor: grab;
   color: var(--body-font-color);
-  font-size: 12px;
 }
 .type-form-conf-attribute .delete-attribute:before {
   color: var(--body-font-color);
@@ -16841,7 +16835,7 @@ label.no-css {
 .group-head,
 .type-form-conf-attribute {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 .group-head .icon-drag-handle,
@@ -16863,6 +16857,20 @@ label.no-css {
   padding: 10px;
   cursor: pointer;
   color: white;
+}
+
+.clear-button {
+  border: 0;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  text-transform: inherit;
+}
+
+.group-edit-handler {
+  width: 100%;
+  text-align: left;
 }
 
 h1 op-principal, h2 op-principal, h3 op-principal, h4 op-principal {
