@@ -23797,6 +23797,20 @@ div.flash.notice a.link_to_profile:hover {
   display: block;
   padding: 10px 0 0 0;
 }
+.op-export-options.op-export-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media screen and (max-width: 480px) {
+  .op-export-options.op-export-options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 320px) {
+  .op-export-options.op-export-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .op-select-footer {
   display: block;
