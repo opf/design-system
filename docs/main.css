@@ -9252,7 +9252,7 @@ ndc-dynamic:empty {
   .spot-breadcrumbs--crumb_parent {
     flex-shrink: 0;
   }
-  .spot-breadcrumbs--crumb-action-item-text {
+  :not(.spot-breadcrumbs--crumb_last) > .spot-breadcrumbs--crumb-action-item-text {
     display: none;
   }
   .spot-breadcrumbs--crumb-action-item-dots {
