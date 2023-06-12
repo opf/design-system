@@ -17741,11 +17741,11 @@ i.icon-right {
 }
 
 .attributes-group.-project-context {
-  background: rgba(227, 245, 255, 0.3);
-  border-radius: 5px;
-  padding: 10px 10px 0 10px;
+  background: rgb(227, 245, 255);
+  border-radius: 2px;
+  padding: 10px;
   margin: 10px 0 0 0;
-  border: 1px solid rgb(227, 245, 255);
+  border: 1px solid rgb(143, 192, 219);
 }
 
 .attributes-group.-special-fields {
