@@ -9884,7 +9884,7 @@ ndc-dynamic:empty {
 }
 @media (max-width: 680px) {
   .spot-modal-overlay_active {
-    justify-content: end;
+    justify-content: flex-end;
   }
 }
 @media (max-height: 480px) {
@@ -13352,7 +13352,7 @@ body.router--work-packages-partitioned-split-view-new .work-packages-partitioned
   }
   [class^=__hl_],
   [class*=" __hl_"] {
-    color-adjust: exact;
+    print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
   h1 {
@@ -15803,7 +15803,7 @@ a.icon:hover, a.icon-context:hover {
 
 .widget-box--blocks--upsale-buttons {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 .widget-box--blocks--upsale-buttons .button, .widget-box--blocks--upsale-buttons #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .fc-button.fc-button-active, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .widget-box--blocks--upsale-buttons .fc-button.fc-button-active {
@@ -18012,7 +18012,7 @@ ul.work-package-details-activities-messages li:last-child {
 .relation-row--grid-actions {
   grid-area: actions;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .relation-row--grid-id {
   overflow: hidden;
@@ -18140,7 +18140,7 @@ ul.work-package-details-activities-messages li:last-child {
 .op-files-tab--storage-info-box .button-box {
   grid-area: button;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .op-files-tab--storage-info-box-button {
   margin: 0.75rem 0 0;
