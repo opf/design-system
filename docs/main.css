@@ -2444,7 +2444,8 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
   }
 }
 @media only screen and (min-width: 30em) {
-  .small-12, .hidden-navigation .main-menu ul.menu_root > li .main-item-wrapper a:not(:only-child), .main-item-wrapper a:not(.toggler) {
+  .small-12, .hidden-navigation .main-menu ul.menu_root > li .main-item-wrapper a:not(:only-child), .main-item-wrapper a:not(.toggler),
+  .main-menu .main-menu-item a:not(.toggler) {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -11271,30 +11272,43 @@ div.wiki ul.pages-hierarchy .tree-menu--item:hover .tree-menu--title,
   padding: 0;
 }
 
-.main-item-wrapper {
+.main-item-wrapper,
+.main-menu .main-menu-item {
   display: flex;
 }
-.main-item-wrapper .toggler:hover {
+.main-item-wrapper .toggler:hover,
+.main-menu .main-menu-item .toggler:hover {
   background: var(--main-menu-bg-hover-background);
   color: var(--main-menu-hover-font-color);
 }
-.main-item-wrapper a.selected, .main-item-wrapper a.selected + a {
+.main-item-wrapper a.selected, .main-item-wrapper a.selected + a,
+.main-menu .main-menu-item a.selected,
+.main-menu .main-menu-item a.selected + a {
   background: var(--main-menu-bg-selected-background);
   color: var(--main-menu-selected-font-color);
 }
-.main-item-wrapper a.selected:hover, .main-item-wrapper a.selected + a:hover {
+.main-item-wrapper a.selected:hover, .main-item-wrapper a.selected + a:hover,
+.main-menu .main-menu-item a.selected:hover,
+.main-menu .main-menu-item a.selected + a:hover {
   background: var(--main-menu-bg-hover-background);
   color: var(--main-menu-hover-font-color);
 }
-.main-item-wrapper a:hover, .main-item-wrapper a:focus, .main-item-wrapper a:active {
+.main-item-wrapper a:hover, .main-item-wrapper a:focus, .main-item-wrapper a:active,
+.main-menu .main-menu-item a:hover,
+.main-menu .main-menu-item a:focus,
+.main-menu .main-menu-item a:active {
   background: var(--main-menu-bg-hover-background);
   color: var(--main-menu-hover-font-color);
 }
-.main-item-wrapper a:hover ~ .toggler, .main-item-wrapper a:focus ~ .toggler, .main-item-wrapper a:active ~ .toggler {
+.main-item-wrapper a:hover ~ .toggler, .main-item-wrapper a:focus ~ .toggler, .main-item-wrapper a:active ~ .toggler,
+.main-menu .main-menu-item a:hover ~ .toggler,
+.main-menu .main-menu-item a:focus ~ .toggler,
+.main-menu .main-menu-item a:active ~ .toggler {
   background: var(--main-menu-bg-hover-background);
   color: var(--main-menu-hover-font-color);
 }
-.main-item-wrapper a:not(:only-child):first-of-type {
+.main-item-wrapper a:not(:only-child):first-of-type,
+.main-menu .main-menu-item a:not(:only-child):first-of-type {
   flex: 0 0 calc(100% - 40px);
   max-width: calc(100% - 40px);
 }
@@ -11550,6 +11564,12 @@ a.main-menu--parent-node:hover, a.main-menu--parent-node:focus, a.main-menu--par
   margin-left: 5px;
   font-weight: bold;
   font-style: italic;
+}
+
+.main-menu-toggler {
+  background: transparent;
+  color: var(--main-menu-font-color);
+  border: none;
 }
 
 #main-menu-toggle .spot-icon_close {
