@@ -16310,7 +16310,7 @@ html.-browser-windows.-browser-chrome .button--icon {
 .button--link:hover {
   text-decoration: underline;
 }
-.button--link:disabled, .button--link:disabled:hover {
+.button--link[disabled], .button--link[disabled]:hover {
   cursor: not-allowed;
   background: none;
   color: var(--gray-dark);
