@@ -11407,13 +11407,16 @@ a.main-menu--parent-node:hover, a.main-menu--parent-node:focus, a.main-menu--par
 
 #sidebar {
   margin: 30px 0 0 0;
+}
+
+#sidebar, #menu-sidebar .sidebar {
   padding: 0 17px 0 17px;
   width: auto;
   color: var(--main-menu-sidebar-font-color);
   font-family: var(--body-font-family);
   font-style: normal;
 }
-#sidebar h3 {
+#sidebar h3, #menu-sidebar .sidebar h3 {
   display: block;
   border: none;
   color: var(--main-menu-sidebar-h3-color);
@@ -11423,19 +11426,19 @@ a.main-menu--parent-node:hover, a.main-menu--parent-node:focus, a.main-menu--par
   padding: 10px 0 0 0;
   text-transform: uppercase;
 }
-#sidebar > h3:first-child {
+#sidebar > h3:first-child, #menu-sidebar .sidebar > h3:first-child {
   margin-top: 0;
 }
-#sidebar a:not(.searchable-menu--item-link):not(.searchable-menu--category-icon), #sidebar a:link:not(.searchable-menu--item-link):not(.searchable-menu--category-icon) {
+#sidebar a:not(.searchable-menu--item-link):not(.searchable-menu--category-icon), #sidebar a:link:not(.searchable-menu--item-link):not(.searchable-menu--category-icon), #menu-sidebar .sidebar a:not(.searchable-menu--item-link):not(.searchable-menu--category-icon), #menu-sidebar .sidebar a:link:not(.searchable-menu--item-link):not(.searchable-menu--category-icon) {
   color: var(--main-menu-sidebar-link-color);
   display: inline;
   position: static;
   text-decoration: underline;
 }
-#sidebar a:hover {
+#sidebar a:hover, #menu-sidebar .sidebar a:hover {
   text-decoration: underline;
 }
-#sidebar label {
+#sidebar label, #menu-sidebar .sidebar label {
   color: var(--main-menu-sidebar-font-color);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -11445,17 +11448,17 @@ a.main-menu--parent-node:hover, a.main-menu--parent-node:focus, a.main-menu--par
   max-width: 80%;
   vertical-align: top;
 }
-#sidebar ul {
+#sidebar ul, #menu-sidebar .sidebar ul {
   border: none;
   overflow-x: hidden;
 }
-#sidebar ul li {
+#sidebar ul li, #menu-sidebar .sidebar ul li {
   border: none;
 }
-#sidebar ul li a {
+#sidebar ul li a, #menu-sidebar .sidebar ul li a {
   padding: 0;
 }
-#sidebar.-hidden {
+#sidebar.-hidden, #menu-sidebar .sidebar.-hidden {
   display: none;
 }
 
@@ -14032,8 +14035,9 @@ fieldset.form--fieldset.-collapsible.collapsed .-hide-when-collapsed {
   padding: 0.625rem 0.25rem 0 0.25rem;
 }
 
-#sidebar .form--fieldset-legend {
+#main-menu .form--fieldset-legend {
   color: var(--main-menu-fieldset-header-color);
+  margin-bottom: 1rem;
 }
 
 .form--toolbar {
