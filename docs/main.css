@@ -12982,6 +12982,10 @@ a.icon:hover, a.icon-context:hover {
   margin: 0.5rem 1rem 0 0;
 }
 
+.upsale-icon_highlighted {
+  color: rgb(239, 158, 86);
+}
+
 .widget-box--blocks--upsale-title {
   font-weight: 400;
   font-size: 20px;
@@ -20688,9 +20692,6 @@ div.flash.notice a.link_to_profile:hover {
   text-overflow: ellipsis;
   display: inline-flex;
   align-items: center;
-}
-.op-menu--item-title .spot-icon_enterprise-addons {
-  color: rgb(239, 158, 86);
 }
 .op-menu--item-action {
   display: flex;
