@@ -8064,6 +8064,7 @@ div.kineticjs-content {
 
 .tree-menu--container {
   padding-top: 10px;
+  color: var(--main-menu-font-color);
 }
 
 #main-menu ul ul.main-menu--children ul.pages-hierarchy,
