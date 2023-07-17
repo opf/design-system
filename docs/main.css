@@ -9209,7 +9209,7 @@ body.-browser-firefox .searchable-menu--search-container {
   flex-grow: 1;
 }
 .toolbar-items .toolbar-item {
-  margin: 0 10px 10px 0;
+  margin-right: 10px;
   flex-grow: 1;
 }
 .toolbar-items .toolbar-item.-no-spacing {
@@ -9310,7 +9310,6 @@ body.-browser-firefox .searchable-menu--search-container {
 .title-container {
   flex: 1 1;
   white-space: nowrap;
-  margin-bottom: 10px;
   max-width: 100%;
 }
 .title-container.-no-grow {
@@ -9429,7 +9428,7 @@ body.-browser-firefox .searchable-menu--search-container {
     margin-right: 0;
   }
   #content .toolbar-container .toolbar-items .toolbar-item {
-    margin: 0 0 10px 10px;
+    margin-left: 10px;
   }
   #content .toolbar-container .toolbar-items .button--text:not(.button--text_without_icon),
   #content .toolbar-container .toolbar-items .icon-pulldown,
