@@ -12987,7 +12987,7 @@ a.icon:hover, a.icon-context:hover {
 
 .widget-box--blocks--upsale-buttons {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .widget-box--blocks--upsale-info-button {
