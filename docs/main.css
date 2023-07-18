@@ -18174,30 +18174,21 @@ body.controller-projects.action-index #content .generic-table--container {
   border-color: transparent !important;
   color: rgb(51, 51, 51) !important;
 }
-.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day {
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day:not(.today, .selected) {
   background: rgb(243, 243, 243) !important;
   color: rgb(135, 135, 135) !important;
 }
-.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled {
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled:not(.today, .selected) {
   background: rgb(243, 243, 243) !important;
   color: rgb(51, 51, 51) !important;
 }
-.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.today {
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled:not(.today, .selected).today {
   color: rgb(51, 51, 51) !important;
 }
-.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.inRange, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.startRange:not(.selected), .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.endRange:not(.selected) {
+.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled:not(.today, .selected).inRange, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled:not(.today, .selected).startRange:not(.selected), .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled:not(.today, .selected).endRange:not(.selected) {
   color: rgb(51, 51, 51) !important;
   background: rgb(243, 243, 243) !important;
   border-color: rgb(243, 243, 243) !important;
-}
-.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.inRange.today, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.startRange:not(.selected).today, .flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.flatpickr-non-working-day_enabled.endRange:not(.selected).today {
-  color: rgb(51, 51, 51) !important;
-  background: rgb(255, 255, 225) !important;
-  border-color: rgb(255, 255, 225) !important;
-}
-.flatpickr-calendar.flatpickr-container-suppress-hover .flatpickr-day.today {
-  background: rgb(255, 255, 225) !important;
-  border-color: rgb(255, 255, 225) !important;
 }
 
 .flatpickr-calendar:not(.inline) {
