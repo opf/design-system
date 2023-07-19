@@ -15718,7 +15718,6 @@ ul.work-package-details-activities-messages li:last-child {
   margin-bottom: 1.5rem;
 }
 .wp-table--configuration-modal .tab-content {
-  height: 18rem;
   overflow-y: scroll;
   scrollbar-color: transparent transparent;
   scrollbar-width: thin;
