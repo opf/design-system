@@ -16487,6 +16487,30 @@ table.generic-table tbody td.buttons {
 table.generic-table tbody td.-no-highlighting {
   background-color: #fff;
 }
+table.generic-table tbody td.-w-rel-20 {
+  width: 20%;
+}
+table.generic-table tbody td.-mw-abs-200 {
+  max-width: 200px;
+}
+table.generic-table tbody td.-w-rel-40 {
+  width: 40%;
+}
+table.generic-table tbody td.-mw-abs-400 {
+  max-width: 400px;
+}
+table.generic-table tbody td.-w-rel-60 {
+  width: 60%;
+}
+table.generic-table tbody td.-mw-abs-600 {
+  max-width: 600px;
+}
+table.generic-table tbody td.-w-rel-80 {
+  width: 80%;
+}
+table.generic-table tbody td.-mw-abs-800 {
+  max-width: 800px;
+}
 
 thead.-sticky th {
   position: sticky;
