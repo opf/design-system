@@ -9661,8 +9661,14 @@ body.zen-mode.controller-wiki #content {
   padding-right: 6px;
   align-items: flex-start;
 }
-.op-table-baseline .spot-icon {
-  vertical-align: middle;
+.op-table-baseline--column-header {
+  display: flex;
+  align-items: center;
+}
+.op-table-baseline .op-table-baseline--column-cell .spot-icon {
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
 .op-table-baseline--old-field[class^=__hl_inline_status]:before {
