@@ -19017,11 +19017,6 @@ body.widget-grid-layout #content {
 .op-sidebar--footer .button .spot-icon, .op-sidebar--footer #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .fc-button.fc-button-active .spot-icon, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .op-sidebar--footer .fc-button.fc-button-active .spot-icon {
   margin-right: 0.5rem;
 }
-.op-sidebar .op-sidemenu {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
 .op-sidebar .op-sidemenu--title {
   display: flex;
   background: transparent;
