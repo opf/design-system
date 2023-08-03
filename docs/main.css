@@ -30453,7 +30453,7 @@ a.branch-name .octicon {
   --drop-down-hover-bg-color: #EFEFEF;
   --context-menu-unselected-font-color: var(--body-font-color);
   --context-menu-hover-font-color: var(--drop-down-selected-font-color);
-  --wiki-default-font-size: 1rem;
+  --wiki-default-font-size: var(--body-font-size);
   --user-avatar-border-radius: 50%;
   --inplace-edit--border-color: #ddd;
   --inplace-edit--dark-background: var(--gray-light);
@@ -30483,7 +30483,6 @@ a.branch-name .octicon {
   --timeline--type-fallback-color: rgba(150, 150, 150, 0.8);
   --table-timeline--row-height: 40px;
   --status-selector-bg-color: #F99601;
-  --card-font-size: 16px;
   --warn:#C92A2A;
   --grid-background-color: #F3F6F8;
 }
@@ -32203,14 +32202,14 @@ input[type=text], input[type=password], input[type=date], input[type=datetime], 
   -moz-appearance: none;
   display: block;
   width: 100%;
-  height: 2.4rem;
+  height: 2.225rem;
   padding: 0.5rem;
   margin: 0 0 1rem 0;
   border: 1px solid #ccc;
   border-radius: 2px;
   background-color: transparent;
   color: #000;
-  font-size: 1rem;
+  font-size: 0.875rem;
   -webkit-font-smoothing: antialiased;
   vertical-align: middle;
 }
@@ -32270,7 +32269,7 @@ select {
   -moz-appearance: none;
   display: block;
   width: 100%;
-  height: 2.4rem;
+  height: 2.225rem;
   padding: 0.5rem;
   border-radius: 0;
   border: 1px solid #ccc;
@@ -34803,6 +34802,9 @@ body.-browser-firefox .searchable-menu--search-container {
 .toolbar-items .toolbar-item.-no-grow {
   flex-grow: 0;
 }
+.toolbar-items .toolbar-item a.button, .toolbar-items .toolbar-item #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group a.fc-button.fc-button-active, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .toolbar-items .toolbar-item a.fc-button.fc-button-active {
+  text-decoration: none;
+}
 .toolbar-items .toolbar-item .button, .toolbar-items .toolbar-item #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .fc-button.fc-button-active, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .toolbar-items .toolbar-item .fc-button.fc-button-active {
   overflow: hidden;
   white-space: normal;
@@ -36256,7 +36258,7 @@ body.router--work-packages-partitioned-split-view-new .work-packages-partitioned
 }
 
 .op-user-consent-form {
-  font-size: 1rem;
+  font-size: var(--body-font-size);
 }
 .op-user-consent-form--agreement {
   font-size: inherit;
@@ -36546,7 +36548,7 @@ html:not(.-browser-mobile) .context-menu--icon:hover, html:not(.-browser-mobile)
 .advanced-filters--date-field[type=text] {
   border: var(--content-form-input-border);
   border-radius: 2px;
-  font-size: 0.9rem;
+  font-size: var(--body-font-size);
   vertical-align: middle;
   margin-bottom: 0rem;
 }
@@ -36754,7 +36756,7 @@ fieldset.form--fieldset {
 .form--section-title,
 #content h3.form--section-title, .form--fieldset-legend {
   color: #4d4d4d;
-  font-size: 1rem;
+  font-size: var(--body-font-size);
   font-weight: bold;
   line-height: 1.8;
   text-transform: uppercase;
@@ -36807,7 +36809,7 @@ fieldset.form--fieldset.-collapsible.collapsed .-hide-when-collapsed {
   float: right;
   text-align: right;
   color: #4d4d4d;
-  font-size: 1rem;
+  font-size: var(--body-font-size);
   font-style: italic;
   line-height: 1.8;
   margin-top: -1.8rem;
@@ -36922,7 +36924,7 @@ fieldset > .form--toolbar {
   overflow-y: visible;
   padding: 0 1rem 0 0;
   margin-bottom: 0;
-  font-size: 0.9rem;
+  font-size: var(--body-font-size);
   line-height: 1.5;
   color: var(--body-font-color);
 }
@@ -36982,6 +36984,9 @@ fieldset > .form--toolbar {
   display: flex;
   flex-grow: 2;
   align-items: stretch;
+}
+.form--field-container label.option-label {
+  font-weight: normal;
 }
 .form--field-container.-wrap-around {
   display: flex;
@@ -37055,7 +37060,7 @@ fieldset > .form--toolbar {
   max-width: 83.3333333333%;
   margin-left: 16.6666666667%;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: var(--body-font-size);
   line-height: 1.4;
   color: var(--body-font-color);
 }
@@ -37343,7 +37348,7 @@ input[type=text], input[type=password], input[type=date], input[type=datetime], 
 select {
   line-height: 100%;
   margin-bottom: 0;
-  font-size: 0.9rem;
+  font-size: var(--body-font-size);
 }
 .form--text-field:hover, .advanced-filters--text-field[type=text]:hover,
 .advanced-filters--date-field[type=text]:hover, .form--text-field:focus, .advanced-filters--text-field[type=text]:focus,
@@ -37551,7 +37556,7 @@ input[readonly].-clickable {
   overflow: visible;
   overflow-y: visible;
   padding: 0 1rem 0.5rem 0;
-  font-size: 0.9rem;
+  font-size: var(--body-font-size);
   line-height: 1.5;
   color: var(--body-font-color);
   margin-bottom: 0.8rem;
@@ -37931,7 +37936,7 @@ input[type=range]::-ms-thumb:hover {
   display: block;
   cursor: pointer;
   color: var(--body-font-color);
-  font-size: 1rem;
+  font-size: var(--body-font-size);
   font-weight: bold;
   line-height: 1.8;
   text-transform: uppercase;
@@ -38022,7 +38027,7 @@ img.custom-touch-icon-preview {
   display: flex;
   box-shadow: 0.0625rem 0.125rem 0.1875rem rgba(0, 0, 0, 0.2);
   border: 0.0625rem solid #8fc0db;
-  font-size: 0.8125rem;
+  font-size: var(--body-font-size);
   word-wrap: break-word;
   position: relative;
 }
@@ -38043,6 +38048,8 @@ img.custom-touch-icon-preview {
 }
 .op-toast.-ee-upsale {
   z-index: 1;
+  padding: 1rem;
+  margin-top: 1rem;
 }
 .op-toast.-left-margin {
   margin-left: 20px;
@@ -38134,7 +38141,7 @@ img.custom-touch-icon-preview {
   margin-bottom: 0;
 }
 .op-toast p, .op-toast div, .op-toast ul > li, .op-toast .button, .op-toast #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .fc-button.fc-button-active, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .op-toast .fc-button.fc-button-active {
-  font-size: 0.8125rem;
+  font-size: var(--body-font-size);
 }
 .op-toast.-with-bottom-spacing {
   margin-bottom: 2rem;
@@ -38279,7 +38286,7 @@ img.custom-touch-icon-preview {
   border-radius: 0.125rem;
   border-style: solid;
   border-width: 0.0625rem;
-  font-size: 0.8125rem;
+  font-size: var(--body-font-size);
   line-height: 1.6;
   padding: 0.625rem 2.1875rem 0.625rem 2.1875rem;
   box-shadow: 0.0625rem 0.125rem 0.1875rem rgba(0, 0, 0, 0.2);
@@ -38299,7 +38306,7 @@ img.custom-touch-icon-preview {
   cursor: default;
 }
 #errorExplanation ul {
-  font-size: 0.8125rem;
+  font-size: var(--body-font-size);
   margin: 0 0 0 30px;
 }
 #errorExplanation .close-handler {
@@ -38631,6 +38638,10 @@ a.icon:hover, a.icon-context:hover {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 25px;
 }
+.upsale-notification a.button, .upsale-notification #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group a.fc-button.fc-button-active, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .upsale-notification a.fc-button.fc-button-active,
+.upsale-notification a.button--link {
+  text-decoration: none;
+}
 
 .upsale-actions {
   display: flex;
@@ -38654,9 +38665,16 @@ a.icon:hover, a.icon-context:hover {
   display: flex;
   justify-content: flex-end;
 }
+.widget-box--blocks--upsale-buttons a.button, .widget-box--blocks--upsale-buttons #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group a.fc-button.fc-button-active, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .widget-box--blocks--upsale-buttons a.fc-button.fc-button-active,
+.widget-box--blocks--upsale-buttons a.button--link {
+  text-decoration: none;
+  margin: 0.625rem 0.625rem 0 0;
+}
 
 .widget-box--blocks--upsale-info-button {
-  margin: 0.5rem 1rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .upsale-icon_highlighted {
@@ -38666,6 +38684,11 @@ a.icon:hover, a.icon-context:hover {
 .widget-box--blocks--upsale-title {
   font-weight: 400;
   font-size: 20px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.widget-box--blocks--upsale-text {
   line-height: 24px;
   margin-top: 10px;
 }
@@ -39265,7 +39288,6 @@ html.-browser-windows.-browser-chrome .button--icon {
 }
 
 .advanced-filters--container, .simple-filters--container {
-  background-color: var(--gray-light);
   border: 1px solid var(--gray);
 }
 .simple-filters--filters, .simple-filters--container .simple-filter--trailing-labels {
@@ -39513,7 +39535,7 @@ html.-browser-windows.-browser-chrome .button--icon {
   overflow: hidden;
 }
 .attributes-key-value--value-container p {
-  font-size: 0.9rem;
+  font-size: var(--body-font-size);
   word-wrap: break-word;
 }
 .attributes-key-value--value-container.not-editable {
@@ -39636,7 +39658,7 @@ html.-browser-windows.-browser-chrome .button--icon {
 
 .attributes-group--header-text,
 #content h3.attributes-group--header-text {
-  font-size: 1rem;
+  font-size: var(--body-font-size);
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
@@ -39766,7 +39788,7 @@ html.-browser-windows.-browser-chrome .button--icon {
 .op-widget-box--header-title .editable-toolbar-title--fixed,
 .op-widget-box--header-title .toolbar--editable-toolbar {
   color: #5F5F5F;
-  font-size: 16px;
+  font-size: var(--body-font-size);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: bold;
@@ -40445,7 +40467,6 @@ op-editable-attribute-field {
 .inline-edit--container:not(.subject) input:not([type=checkbox]):not(.spot-text-field--input):not(.spot-input) {
   width: 100%;
   line-height: 24px;
-  font-size: 14px;
   border-radius: 2px;
 }
 .inline-edit--container input:not([type=checkbox]) {
@@ -40476,7 +40497,7 @@ op-editable-attribute-field {
 }
 
 .inplace-edit--write-value textarea {
-  font-size: 1rem;
+  font-size: var(--body-font-size);
   line-height: 1.6;
 }
 
@@ -40928,7 +40949,7 @@ ul.work-package-details-activities-messages li:last-child {
 .wp-relation--description-read-value,
 .wp-relation--description-textarea {
   min-height: 60px;
-  font-size: 0.875rem;
+  font-size: var(--body-font-size);
   line-height: var(--base-line-height);
   padding-top: 10px;
 }
@@ -41309,6 +41330,7 @@ ul.work-package-details-activities-messages li:last-child {
 .wp-table--configuration-modal label.option-label {
   float: left;
   margin-right: 20px;
+  font-weight: normal;
 }
 .wp-table--configuration-modal label.option-label.-multi-line {
   margin-bottom: 0;
@@ -43235,7 +43257,6 @@ div.autocomplete ul li span.informal {
 
 .ng-select {
   width: 100%;
-  font-size: 14px;
 }
 .ng-select .ng-value-container {
   min-height: 2rem;
@@ -43297,7 +43318,6 @@ div.autocomplete ul li span.informal {
 }
 
 .ng-option {
-  font-size: 14px;
   line-height: 22px;
 }
 .ng-option .op-avatar {
@@ -44462,7 +44482,6 @@ body.widget-grid-layout #content {
 }
 .ng-select.project-status .ng-input input {
   font-weight: bold;
-  font-size: 16px;
   text-transform: uppercase;
 }
 .ng-select.project-status .ng-clear-wrapper {
@@ -44734,8 +44753,6 @@ body.widget-grid-layout #content {
   font-style: normal;
   line-height: 1.25rem;
   padding: 0;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
   color: rgb(51, 51, 51);
 }
 
@@ -46257,7 +46274,6 @@ div.tabular > div {
 }
 .op-app-menu--item-title {
   min-width: 0;
-  line-height: 1;
   white-space: nowrap;
 }
 .op-app-menu--item-action {
@@ -46435,6 +46451,7 @@ div.tabular > div {
   border-radius: 2px;
   min-height: 2rem;
   display: flex;
+  font-weight: normal;
 }
 
 .op-bubble {
@@ -46521,7 +46538,7 @@ div.tabular > div {
 .op-fieldset--legend {
   width: 100%;
   color: #4d4d4d;
-  font-size: 1rem;
+  font-size: var(--body-font-size);
   font-weight: 700;
   line-height: 1.8;
   text-transform: uppercase;
@@ -46572,7 +46589,6 @@ div.tabular > div {
 .op-option-list {
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
 }
 .op-option-list--input[type] {
   margin: 0;
@@ -46602,9 +46618,9 @@ div.tabular > div {
 }
 .op-option-list--item-title {
   font-weight: bold;
-  font-size: 14px;
 }
 .op-option-list--item-description {
+  font-weight: normal;
   font-size: 12px;
 }
 
@@ -46690,7 +46706,6 @@ div.tabular > div {
   background: transparent;
   border: 0;
   padding: 8px 10px;
-  font-size: 14px;
   line-height: 22px;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.87);
@@ -48673,6 +48688,7 @@ div.tabular > div {
 }
 .spot-toggle--button {
   margin: 0;
+  font-weight: normal;
 }
 
 .spot-checkbox {
@@ -49018,10 +49034,10 @@ div.tabular > div {
 }
 .spot-list--item-action {
   font-family: Lato, sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   color: rgb(51, 51, 51);
   display: flex;
   align-items: flex-start;
@@ -49083,7 +49099,7 @@ div.tabular > div {
 .spot-list--item-title {
   margin-right: auto;
   word-break: break-word;
-  min-height: 1.5rem;
+  align-self: center;
 }
 .spot-list--item-title:not(:first-child),
 .spot-list--item-title :not(:first-child) {
@@ -49338,6 +49354,9 @@ div.tabular > div {
   padding: 0 1rem 0.75rem 0;
   background-color: rgb(243, 243, 243);
 }
+.spot-action-bar a.button, .spot-action-bar #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group a.fc-button.fc-button-active, #content-wrapper .fc .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk .fc-button-group .spot-action-bar a.fc-button.fc-button-active {
+  text-decoration: none;
+}
 .spot-action-bar_transparent {
   background-color: unset;
 }
@@ -49477,6 +49496,7 @@ div.tabular > div {
   display: flex;
   flex-direction: column;
   margin: 0;
+  font-weight: normal;
 }
 .spot-form-field--label {
   display: flex;
@@ -49562,10 +49582,9 @@ div.tabular > div {
 }
 .spot-selector-field--input {
   grid-area: input;
-  align-self: start;
   padding-right: 0.5rem;
-  margin-bottom: 0;
   display: flex;
+  align-self: center;
 }
 .spot-selector-field--input_reversed {
   margin-left: auto;
@@ -49580,6 +49599,7 @@ div.tabular > div {
 .spot-selector-field--label {
   grid-area: label;
   margin-bottom: 0;
+  align-self: center;
 }
 .spot-selector-field--label_regular {
   font-weight: normal;
