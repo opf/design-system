@@ -39510,6 +39510,7 @@ html.-browser-windows.-browser-chrome .button--icon {
   margin-bottom: 0.1875rem;
   padding: 0.375rem 0;
   height: 100%;
+  overflow: hidden;
 }
 .attributes-key-value--value-container p {
   font-size: 0.9rem;
