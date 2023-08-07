@@ -36529,7 +36529,7 @@ html:not(.-browser-mobile) .context-menu--icon:hover, html:not(.-browser-mobile)
 }
 
 .title-container.-small .editable-toolbar-title--fixed {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 32px;
 }
 
@@ -36985,8 +36985,8 @@ fieldset > .form--toolbar {
   flex-grow: 2;
   align-items: stretch;
 }
-.form--field-container label.option-label {
-  font-weight: normal;
+.form--field-container .option-label .option-label--select {
+  margin-left: 1rem;
 }
 .form--field-container.-wrap-around {
   display: flex;
