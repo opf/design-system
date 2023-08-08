@@ -35015,11 +35015,12 @@ body.-browser-firefox .searchable-menu--search-container {
     margin-right: 0;
   }
   #content .toolbar-container .toolbar-items .toolbar-item {
-    margin-left: 10px;
+    margin: 0 0 0 10px;
   }
   #content .toolbar-container .toolbar-items .button--text:not(.button--text_without_icon),
   #content .toolbar-container .toolbar-items .icon-pulldown,
-  #content .toolbar-container .toolbar-items .button--dropdown-indicator {
+  #content .toolbar-container .toolbar-items .button--dropdown-indicator,
+  #content .toolbar-container .toolbar-items .spot-icon_dropdown {
     display: none;
   }
   #content .toolbar-container .toolbar-items .op-icon--wrapper {
