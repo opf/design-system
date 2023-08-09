@@ -49337,9 +49337,6 @@ div.tabular > div {
 .spot-modal--body:hover::-webkit-scrollbar-thumb {
   visibility: visible;
 }
-.spot-modal--body_no-scroll {
-  overflow: visible;
-}
 .spot-modal--body:focus {
   outline-style: none;
 }
