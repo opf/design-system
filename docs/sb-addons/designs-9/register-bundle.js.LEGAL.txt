@@ -28,6 +28,13 @@ lit-element/lit-element.js:
    * SPDX-License-Identifier: BSD-3-Clause
    */
 
+lit-html/is-server.js:
+  /**
+   * @license
+   * Copyright 2022 Google LLC
+   * SPDX-License-Identifier: BSD-3-Clause
+   */
+
 @lit/reactive-element/decorators/custom-element.js:
   /**
    * @license
