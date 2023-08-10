@@ -33309,6 +33309,15 @@ div.kineticjs-content {
 .grid-block_visible-overflow, .grid-block_visible-overflow .grid-content {
   overflow: visible;
 }
+.grid-block_double-column {
+  flex-wrap: wrap;
+}
+.grid-block_double-column > .grid-content {
+  min-width: 300px;
+  flex-basis: 50%;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
 
 .grid-content {
   display: block;
