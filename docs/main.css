@@ -33695,15 +33695,9 @@ div.kineticjs-content {
   overflow: visible;
 }
 
-.tree-menu--container {
-  padding-top: 10px;
-  color: var(--main-menu-font-color);
-}
-
 #main-menu ul ul.main-menu--children ul.pages-hierarchy,
 div.wiki ul.pages-hierarchy,
 .pages-hierarchy {
-  line-height: 30px;
   margin-left: 0;
   padding-left: 0;
   overflow-x: hidden;
@@ -33713,16 +33707,20 @@ div.wiki ul.pages-hierarchy .tree-menu--title,
 .pages-hierarchy .tree-menu--title {
   display: inline-block;
   width: inherit;
-  vertical-align: bottom;
-  height: 30px;
-  line-height: 30px;
+  vertical-align: middle;
+  height: 40px;
+  line-height: 40px;
   text-decoration: none !important;
+}
+#main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--title.-parent-node,
+div.wiki ul.pages-hierarchy .tree-menu--title.-parent-node,
+.pages-hierarchy .tree-menu--title.-parent-node {
+  font-weight: bold;
 }
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--hierarchy-span,
 div.wiki ul.pages-hierarchy .tree-menu--hierarchy-span,
 .pages-hierarchy .tree-menu--hierarchy-span {
   display: inline-block;
-  line-height: 30px;
 }
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--hierarchy-indicator-icon,
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--leaf-indicator,
@@ -33730,14 +33728,14 @@ div.wiki ul.pages-hierarchy .tree-menu--hierarchy-indicator-icon,
 div.wiki ul.pages-hierarchy .tree-menu--leaf-indicator,
 .pages-hierarchy .tree-menu--hierarchy-indicator-icon,
 .pages-hierarchy .tree-menu--leaf-indicator {
-  line-height: 30px;
+  line-height: 40px;
 }
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--hierarchy-indicator,
 div.wiki ul.pages-hierarchy .tree-menu--hierarchy-indicator,
 .pages-hierarchy .tree-menu--hierarchy-indicator {
   color: var(--content-link-color);
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
   text-decoration: none !important;
 }
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--hierarchy-indicator:hover,
@@ -33816,9 +33814,8 @@ div.wiki ul.pages-hierarchy .tree-menu--item,
   display: inline-block;
   width: 100%;
   border-radius: 3px;
-  line-height: 30px;
-  padding: 0 10px;
-  overflow-x: hidden;
+  line-height: 40px;
+  padding: 0 10px 0 0;
   white-space: nowrap;
 }
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--item.-selected,
@@ -34013,7 +34010,7 @@ div.wiki ul.pages-hierarchy .tree-menu--item:hover .tree-menu--title,
   padding-left: 0;
 }
 .main-menu ul .main-menu--children li a {
-  padding-left: 32px;
+  padding-left: 24px;
 }
 .main-menu a {
   text-decoration: none;
@@ -34223,34 +34220,6 @@ a.main-menu--parent-node:hover, a.main-menu--parent-node:focus, a.main-menu--par
   padding: 0;
 }
 
-.menu-wiki-pages-tree {
-  height: 100%;
-  overflow: auto;
-  border-top: var(--main-menu-border-width) solid var(--main-menu-border-color);
-  padding-top: 7px;
-  padding-left: 7px;
-  padding-right: 7px;
-  scrollbar-color: transparent transparent;
-  scrollbar-width: thin;
-}
-.menu-wiki-pages-tree::-webkit-scrollbar {
-  height: 10px;
-  width: 10px;
-}
-.menu-wiki-pages-tree::-webkit-scrollbar-track {
-  background: transparent;
-}
-.menu-wiki-pages-tree::-webkit-scrollbar-thumb {
-  background: #DDDDDD;
-  visibility: hidden;
-}
-.menu-wiki-pages-tree:hover {
-  scrollbar-color: #DDDDDD transparent;
-}
-.menu-wiki-pages-tree:hover::-webkit-scrollbar-thumb {
-  visibility: visible;
-}
-
 .main-menu--segment-header {
   color: var(--main-menu-fieldset-header-color);
   text-transform: uppercase;
@@ -34260,9 +34229,6 @@ a.main-menu--parent-node:hover, a.main-menu--parent-node:focus, a.main-menu--par
 
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--hierarchy-indicator {
   color: var(--main-menu-font-color);
-}
-#main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--hierarchy-span + a, #main-menu ul ul.main-menu--children ul.pages-hierarchy a {
-  padding-left: 0;
 }
 #main-menu ul ul.main-menu--children ul.pages-hierarchy .tree-menu--item.-selected {
   background: var(--main-menu-bg-selected-background);
@@ -44625,11 +44591,12 @@ body.widget-grid-layout #content {
 
 .op-sidemenu--title {
   display: flex;
+  justify-content: space-between;
   background: transparent;
   color: var(--main-menu-fieldset-header-color);
   border: 0;
   text-transform: uppercase;
-  padding: 8px 12px;
+  padding: 8px 12px 8px 24px;
   margin-top: 12px;
   font-size: 12px;
   cursor: pointer;
