@@ -38229,7 +38229,7 @@ img.custom-touch-icon-preview {
 }
 
 .op-toast.-loading {
-  width: 400px;
+  width: 275px;
 }
 .op-toast.-loading .op-toast--content {
   display: flex;
@@ -38528,36 +38528,41 @@ a.icon:hover, a.icon-context:hover {
   margin-top: -1.25rem;
 }
 
-@keyframes svg_ani-1 {
+@keyframes rotate-milestone {
   0% {
-    x: 150px;
-    width: 0;
+    rotate: 45deg;
+    transform: scale(100%);
   }
-  36% {
-    x: 0;
-    width: 150px;
+  50% {
+    transform: scale(130%);
   }
-  72% {
-    x: 0;
-    width: 0;
+  60% {
+    rotate: 1080deg;
+    transform: scale(110%);
   }
   100% {
-    x: 0;
-    width: 0;
+    rotate: 945deg;
   }
 }
-@keyframes svg_ani-2 {
+@keyframes rotate-linestone {
   0% {
-    x: 150px;
+    rotate: 45deg;
+    transform: scale(50%);
   }
-  36% {
-    x: 0;
+  35% {
+    transform: scale(50%);
+    border-width: 4px;
+    border-radius: 10px;
   }
-  72% {
-    x: -100px;
+  60% {
+    rotate: 1080deg;
+    transform: scale(160%);
+    border-width: 0;
   }
   100% {
-    x: -100px;
+    rotate: 945deg;
+    border-width: 0;
+    border-radius: 10px;
   }
 }
 .loading-indicator--background {
@@ -38576,55 +38581,39 @@ a.icon:hover, a.icon-context:hover {
 }
 
 .op-loading-indicator {
-  margin: 0;
+  background-color: transparent;
+  width: 150px;
+  height: 80px;
+  overflow: hidden;
   position: relative;
+  margin: 0;
   left: calc(50% - 75px);
   top: 33%;
-  width: 150px;
-  height: 70px;
-  view-box: 0 0 150px 70px;
 }
-.op-loading-indicator rect {
-  rx: 4px;
-  x: 152px;
-  height: 10px;
-  width: 150px;
-  animation-duration: 2000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-name: svg_ani-1;
+.op-loading-indicator div:nth-of-type(1) {
+  border: solid 4px #a3eea8;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  position: absolute;
+  top: 24px;
+  left: 60px;
+  animation: rotate-linestone 4s ease-in-out infinite;
 }
-.op-loading-indicator rect:nth-of-type(1) {
-  fill: #f58245;
-  x: 140px;
-  y: 6px;
+.op-loading-indicator div:nth-of-type(2) {
+  background-color: #35C53F;
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  position: absolute;
+  top: 24px;
+  left: 60px;
+  animation: rotate-milestone 4s ease-in-out infinite;
 }
-.op-loading-indicator rect:nth-of-type(2) {
-  fill: #f1aa3c;
-  y: 26px;
-  animation-delay: 660ms;
-}
-.op-loading-indicator rect:nth-of-type(3) {
-  fill: #1d659e;
-  y: 46px;
-  animation-name: svg_ani-1;
-  animation-delay: 1330ms;
-}
-.op-loading-indicator rect:nth-of-type(4) {
-  fill: #38be3f;
-  y: 44px;
-  rx: 2px;
-  width: 14px;
-  height: 14px;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(45deg);
-  animation-name: svg_ani-2;
-  animation-delay: 2130ms;
-}
-.op-loading-indicator_in-toast {
+.op-loading-indicator_embedded {
   top: 0;
-  left: 50px;
+  left: 0;
 }
 
 .upsale-notification {
